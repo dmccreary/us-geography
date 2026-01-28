@@ -3,26 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>US Population Density</title>
+    <title>Tornado Alley</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>US Population Density</h2>
-    <div class="subtitle">Where Americans Live - People per Square Mile</div>
+    <h2>Tornado Alley</h2>
+    <div class="subtitle">Where warm and cold air masses collide</div>
 
     <div id="map"></div>
 
     <div class="controls-container">
-        <button id="statesBtn" class="control-btn active">By State</button>
-        <button id="citiesBtn" class="control-btn">Major Cities</button>
+        <button id="animateBtn" class="control-btn">Animate Air Masses</button>
         <button id="quizBtn" class="control-btn">Quiz Me!</button>
         <button id="resetBtn" class="control-btn">Reset</button>
     </div>
 
     <div id="quizPanel" class="quiz-panel hidden">
         <div class="quiz-header">
-            <div class="quiz-progress" id="quizProgress">Question 1 of 6</div>
+            <div class="quiz-progress" id="quizProgress">Question 1 of 5</div>
             <div class="stars-display" id="starsDisplay"></div>
         </div>
         <div class="quiz-question" id="quizQuestion"></div>
@@ -31,20 +30,15 @@
     </div>
 
     <div class="legend-container">
-        <div class="legend-title">Population Density (people/sq mi)</div>
-        <div class="legend-scale">
-            <div class="legend-bar"></div>
-            <div class="legend-labels">
-                <span>&lt; 50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>500</span>
-                <span>1000+</span>
-            </div>
+        <div class="legend-title">Tornado Alley</div>
+        <div class="legend-items">
+            <div class="legend-item"><i style="background: #EF5350;"></i> Tornado Alley</div>
+            <div class="legend-item"><i style="background: #FF7043;"></i> Warm Gulf Air</div>
+            <div class="legend-item"><i style="background: #42A5F5;"></i> Cold Canadian Air</div>
         </div>
     </div>
 
-    <div class="hover-instruction">Click on states and cities to learn more</div>
+    <div class="hover-instruction">Click on a state to learn about tornado activity</div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="script.js"></script>

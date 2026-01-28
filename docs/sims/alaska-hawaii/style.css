@@ -1,4 +1,4 @@
-/* US Population Density Stylesheet */
+/* Alaska and Hawaii Stylesheet */
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -32,14 +32,14 @@ h2 {
     background: rgba(255, 255, 255, 0.95);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
-    max-width: 250px;
+    max-width: 280px;
 }
 
 .info h4 {
     margin: 0 0 8px;
-    color: #C62828;
+    color: #5C6BC0;
     font-size: 16px;
-    border-bottom: 2px solid #EF5350;
+    border-bottom: 2px solid #7986CB;
     padding-bottom: 4px;
 }
 
@@ -58,16 +58,15 @@ h2 {
     display: flex;
     justify-content: center;
     gap: 10px;
-    flex-wrap: wrap;
     border-top: 1px solid #ddd;
 }
 
 .control-btn {
     padding: 6px 14px;
     font-size: 12px;
-    border: 2px solid #C62828;
+    border: 2px solid #5C6BC0;
     background: white;
-    color: #C62828;
+    color: #5C6BC0;
     border-radius: 4px;
     cursor: pointer;
     font-weight: bold;
@@ -75,12 +74,12 @@ h2 {
 }
 
 .control-btn:hover, .control-btn.active {
-    background: #C62828;
+    background: #5C6BC0;
     color: white;
 }
 
 .quiz-panel {
-    background: #FFEBEE;
+    background: #E8EAF6;
     padding: 12px;
     text-align: center;
     border-top: 1px solid #ddd;
@@ -94,7 +93,7 @@ h2 {
     margin-bottom: 8px;
 }
 
-.quiz-progress { font-size: 12px; font-weight: bold; color: #C62828; }
+.quiz-progress { font-size: 12px; font-weight: bold; color: #5C6BC0; }
 .stars-display { display: flex; gap: 4px; }
 
 .gold-star {
@@ -125,7 +124,7 @@ h2 {
     cursor: pointer;
 }
 
-.quiz-option:hover { border-color: #C62828; }
+.quiz-option:hover { border-color: #5C6BC0; }
 .quiz-option.correct { border-color: forestgreen; background: #e8f5e9; }
 .quiz-option.incorrect { border-color: crimson; background: #ffebee; }
 
@@ -142,27 +141,25 @@ h2 {
 
 .legend-title { font-size: 12px; font-weight: bold; margin-bottom: 6px; }
 
-.legend-scale {
+.legend-items {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
-.legend-bar {
-    width: 200px;
-    height: 12px;
-    background: linear-gradient(to right, #FFF3E0, #FFCC80, #FF9800, #E65100, #B71C1C);
+.legend-item {
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+}
+
+.legend-item i {
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
     border-radius: 2px;
     border: 1px solid #666;
-}
-
-.legend-labels {
-    display: flex;
-    justify-content: space-between;
-    width: 200px;
-    font-size: 9px;
-    color: #666;
 }
 
 .hover-instruction {

@@ -3,21 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>US Population Density</title>
+    <title>National Parks Map</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>US Population Density</h2>
-    <div class="subtitle">Where Americans Live - People per Square Mile</div>
+    <h2>US National Parks</h2>
+    <div class="subtitle">Explore America's natural treasures</div>
 
     <div id="map"></div>
 
     <div class="controls-container">
-        <button id="statesBtn" class="control-btn active">By State</button>
-        <button id="citiesBtn" class="control-btn">Major Cities</button>
         <button id="quizBtn" class="control-btn">Quiz Me!</button>
-        <button id="resetBtn" class="control-btn">Reset</button>
+        <button id="resetBtn" class="control-btn">Reset View</button>
     </div>
 
     <div id="quizPanel" class="quiz-panel hidden">
@@ -31,20 +29,17 @@
     </div>
 
     <div class="legend-container">
-        <div class="legend-title">Population Density (people/sq mi)</div>
-        <div class="legend-scale">
-            <div class="legend-bar"></div>
-            <div class="legend-labels">
-                <span>&lt; 50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>500</span>
-                <span>1000+</span>
-            </div>
+        <div class="legend-title">Park Types</div>
+        <div class="legend-items">
+            <div class="legend-item"><span class="park-icon">🏔️</span> Mountains</div>
+            <div class="legend-item"><span class="park-icon">🏜️</span> Canyons/Desert</div>
+            <div class="legend-item"><span class="park-icon">🌲</span> Forests</div>
+            <div class="legend-item"><span class="park-icon">🌊</span> Coastal</div>
+            <div class="legend-item"><span class="park-icon">🌋</span> Volcanic</div>
         </div>
     </div>
 
-    <div class="hover-instruction">Click on states and cities to learn more</div>
+    <div class="hover-instruction">Click on a park to learn about it</div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="script.js"></script>
