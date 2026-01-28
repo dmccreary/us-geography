@@ -1,0 +1,36 @@
+{
+    "title": "Bird's Eye View Comparison",
+    "description": "Interactive comparison showing how maps represent places from above by matching 3D objects to their 2D map symbols",
+    "creator": "Claude AI",
+    "created": "2026-01-28",
+    "modified": "2026-01-28",
+    "version": "1.0",
+    "license": "CC BY-NC-SA 4.0",
+    "format": "p5.js MicroSim",
+    "language": "en",
+    "subject": ["Geography", "Maps", "Spatial Thinking"],
+    "educationLevel": ["Grade 3", "Grade 4", "Grade 5", "Grade 6"],
+    "learningObjective": "Help students understand how maps show places from above by comparing a 3D scene to its map view",
+    "bloomLevel": "Understand",
+    "bloomVerbs": ["explain", "compare", "identify"],
+    "interactivityType": "Click-to-highlight",
+    "typicalLearningTime": "PT15M",
+    "technicalRequirements": {
+        "browser": "Modern web browser with JavaScript enabled",
+        "libraries": ["p5.js 1.9.0"]
+    },
+    "accessibility": {
+        "hasAltText": true,
+        "keyboardNavigable": false,
+        "screenReaderCompatible": "partial"
+    },
+    "keywords": [
+        "bird's eye view",
+        "map symbols",
+        "aerial view",
+        "map reading",
+        "spatial awareness",
+        "geography",
+        "elementary education"
+    ]
+}

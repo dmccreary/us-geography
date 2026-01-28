@@ -1,6 +1,7 @@
 # Learning Graph for US Geography
 
-[View the Learning Graph](../sims/graph-viewer/main.html)
+[View the Learning Graph](../sims/graph-viewer/main.html){ .md-button}
+
 
 This section contains the learning graph for this textbook. A learning graph is a graph of concepts used in this textbook. Each concept is represented by a node in a network graph. Concepts are connected by directed edges that indicate what concepts each node depends on before that concept is understood by the student.
 

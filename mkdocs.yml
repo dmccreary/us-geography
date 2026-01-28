@@ -26,6 +26,7 @@ nav:
     - 12. Landmarks and Culture: chapters/12-landmarks-and-culture/index.md
   - MicroSims:
     - sims/index.md
+    - Bird's Eye View: sims/birds-eye-view/index.md
     - Graph Viewer: sims/graph-viewer/index.md
   - Learning Graph:
     - Introduction: learning-graph/index.md
