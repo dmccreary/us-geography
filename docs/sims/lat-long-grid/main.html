@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latitude and Longitude Grid</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Latitude and Longitude Grid</h2>
+    <div class="subtitle">Learn to locate places using coordinates</div>
+
+    <div id="map"></div>
+
+    <div class="coord-display" id="coordDisplay">
+        <span class="coord-label">Coordinates:</span>
+        <span class="coord-value" id="latDisplay">Lat: --</span>
+        <span class="coord-value" id="lngDisplay">Lng: --</span>
+    </div>
+
+    <div class="controls-container">
+        <button id="quizBtn" class="control-btn">Quiz Me!</button>
+        <button id="toggleGridBtn" class="control-btn">Hide Grid</button>
+        <button id="toggleCitiesBtn" class="control-btn">Show Cities</button>
+        <button id="resetBtn" class="control-btn">Reset View</button>
+    </div>
+
+    <div id="quizPanel" class="quiz-panel hidden">
+        <div class="quiz-header">
+            <div class="quiz-progress" id="quizProgress">Question 1 of 6</div>
+            <div class="stars-display" id="starsDisplay"></div>
+        </div>
+        <div class="quiz-question" id="quizQuestion"></div>
+        <div class="quiz-instruction" id="quizInstruction">Click on the map to answer</div>
+        <div class="quiz-feedback" id="quizFeedback"></div>
+    </div>
+
+    <div class="legend-container">
+        <div class="legend-items">
+            <div class="legend-item"><span style="color: red; font-weight: bold;">—</span> Equator (0° Lat)</div>
+            <div class="legend-item"><span style="color: blue; font-weight: bold;">|</span> Prime Meridian (0° Lng)</div>
+            <div class="legend-item"><span style="color: gray;">—</span> Grid Lines (30°)</div>
+        </div>
+    </div>
+
+    <div class="hover-instruction">Move your mouse to see coordinates. Click to mark a location.</div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

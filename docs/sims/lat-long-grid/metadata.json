@@ -1,0 +1,19 @@
+{
+  "title": "Latitude and Longitude Grid",
+  "description": "Interactive world map for learning coordinate systems with real-time display and quiz mode",
+  "creator": "Claude AI",
+  "date": "2026-01-28",
+  "version": "1.0",
+  "format": "MicroSim HTML/JavaScript",
+  "rights": "CC BY-NC-SA 4.0",
+  "subject": ["Geography", "Coordinates", "Maps"],
+  "keywords": ["latitude", "longitude", "coordinates", "equator", "prime meridian", "grid"],
+  "language": "en",
+  "audience": "K-12 Students",
+  "educationalLevel": "Elementary School (Grades 3-5)",
+  "interactivityType": "active",
+  "learningResourceType": "simulation",
+  "technicalRequirements": "Modern web browser with JavaScript enabled",
+  "dependencies": ["leaflet.js"],
+  "concepts": ["Latitude", "Longitude", "Equator", "Prime Meridian", "Coordinates", "Hemispheres"]
+}

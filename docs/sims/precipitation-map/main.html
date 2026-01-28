@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US Precipitation Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>US Precipitation Map</h2>
+    <div class="subtitle">Average annual rainfall by state</div>
+
+    <div id="map"></div>
+
+    <div class="legend-container">
+        <div class="legend-title">Annual Precipitation (inches)</div>
+        <div class="legend-scale">
+            <div class="legend-item"><i style="background: #f7fcb9;"></i> 0-15" (Dry)</div>
+            <div class="legend-item"><i style="background: #addd8e;"></i> 15-30"</div>
+            <div class="legend-item"><i style="background: #41ab5d;"></i> 30-45"</div>
+            <div class="legend-item"><i style="background: #006837;"></i> 45-60"</div>
+            <div class="legend-item"><i style="background: #004529;"></i> 60+" (Wet)</div>
+        </div>
+    </div>
+
+    <div class="hover-instruction">Hover over a state to see precipitation data</div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "title": "Weather vs Climate",
+  "description": "Interactive comparison showing daily weather variation versus long-term climate patterns",
+  "creator": "Claude AI",
+  "date": "2026-01-28",
+  "version": "1.0",
+  "format": "MicroSim HTML/JavaScript",
+  "rights": "CC BY-NC-SA 4.0",
+  "subject": ["Geography", "Weather", "Climate"],
+  "keywords": ["weather", "climate", "temperature", "seasons", "US cities"],
+  "language": "en",
+  "audience": "K-12 Students",
+  "educationalLevel": "Elementary School (Grades 3-5)",
+  "interactivityType": "active",
+  "learningResourceType": "simulation",
+  "technicalRequirements": "Modern web browser with JavaScript enabled",
+  "dependencies": ["p5.js"],
+  "concepts": ["Weather vs Climate", "Climate Definition", "Precipitation", "Seasons"]
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Lakes System</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>The Great Lakes</h2>
+    <div class="subtitle">The largest group of freshwater lakes in the world</div>
+
+    <div id="map"></div>
+
+    <div class="controls-container">
+        <button id="quizBtn" class="control-btn">Quiz Me!</button>
+        <button id="resetBtn" class="control-btn">Reset View</button>
+    </div>
+
+    <div id="quizPanel" class="quiz-panel hidden">
+        <div class="quiz-header">
+            <div class="quiz-progress" id="quizProgress">Question 1 of 5</div>
+            <div class="stars-display" id="starsDisplay"></div>
+        </div>
+        <div class="quiz-question" id="quizQuestion"></div>
+        <div class="quiz-options" id="quizOptions"></div>
+        <div class="quiz-feedback" id="quizFeedback"></div>
+    </div>
+
+    <div class="legend-container">
+        <div class="legend-title">Remember: HOMES</div>
+        <div class="legend-items">
+            <span class="lake-letter">H</span>uron
+            <span class="lake-letter">O</span>ntario
+            <span class="lake-letter">M</span>ichigan
+            <span class="lake-letter">E</span>rie
+            <span class="lake-letter">S</span>uperior
+        </div>
+    </div>
+
+    <div class="hover-instruction">Click on a lake to learn more about it</div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Major US Rivers</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Major US Rivers</h2>
+    <div class="subtitle">The great waterways that shaped America</div>
+
+    <div id="map"></div>
+
+    <div class="controls-container">
+        <button id="quizBtn" class="control-btn">Quiz Me!</button>
+        <button id="resetBtn" class="control-btn">Reset View</button>
+    </div>
+
+    <div id="quizPanel" class="quiz-panel hidden">
+        <div class="quiz-header">
+            <div class="quiz-progress" id="quizProgress">Question 1 of 5</div>
+            <div class="stars-display" id="starsDisplay"></div>
+        </div>
+        <div class="quiz-question" id="quizQuestion"></div>
+        <div class="quiz-options" id="quizOptions"></div>
+        <div class="quiz-feedback" id="quizFeedback"></div>
+    </div>
+
+    <div class="legend-container">
+        <div class="legend-title">River Systems</div>
+        <div class="legend-items">
+            <div class="legend-item"><i style="background: #1e88e5;"></i> Mississippi System</div>
+            <div class="legend-item"><i style="background: #43a047;"></i> Other Major Rivers</div>
+        </div>
+    </div>
+
+    <div class="hover-instruction">Click on a river marker to learn about it</div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

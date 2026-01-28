@@ -1,0 +1,19 @@
+{
+  "title": "Understanding Contour Lines",
+  "description": "Interactive visualization showing how contour lines represent 3D terrain on 2D maps",
+  "creator": "Claude AI",
+  "date": "2026-01-28",
+  "version": "1.0",
+  "format": "MicroSim HTML/JavaScript",
+  "rights": "CC BY-NC-SA 4.0",
+  "subject": ["Geography", "Maps", "Topography"],
+  "keywords": ["contour lines", "topographic maps", "elevation", "terrain", "slope"],
+  "language": "en",
+  "audience": "K-12 Students",
+  "educationalLevel": "Middle School (Grades 6-8)",
+  "interactivityType": "active",
+  "learningResourceType": "simulation",
+  "technicalRequirements": "Modern web browser with JavaScript enabled",
+  "dependencies": ["p5.js"],
+  "concepts": ["Topographic Maps", "Elevation", "Contour Lines", "Slope"]
+}

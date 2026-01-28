@@ -1,0 +1,19 @@
+{
+  "title": "Major US Rivers",
+  "description": "Interactive map showing the major river systems of the United States",
+  "creator": "Claude AI",
+  "date": "2026-01-28",
+  "version": "1.0",
+  "format": "MicroSim HTML/JavaScript",
+  "rights": "CC BY-NC-SA 4.0",
+  "subject": ["Geography", "Rivers", "Water Features"],
+  "keywords": ["rivers", "Mississippi", "Missouri", "Colorado", "Columbia", "Ohio", "Rio Grande"],
+  "language": "en",
+  "audience": "K-12 Students",
+  "educationalLevel": "Elementary School (Grades 3-5)",
+  "interactivityType": "active",
+  "learningResourceType": "simulation",
+  "technicalRequirements": "Modern web browser with JavaScript enabled",
+  "dependencies": ["leaflet.js"],
+  "concepts": ["Rivers", "Water Features", "Physical Maps"]
+}

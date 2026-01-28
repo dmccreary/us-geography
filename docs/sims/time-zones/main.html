@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US Time Zones</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>US Time Zones</h2>
+    <div class="subtitle">Explore how time changes across the United States</div>
+
+    <div class="main-container">
+        <div id="map"></div>
+        <div class="clocks-panel">
+            <div class="clock-container" id="clock-pacific">
+                <div class="clock-face">
+                    <div class="clock-center"></div>
+                    <div class="hour-hand" id="hour-pacific"></div>
+                    <div class="minute-hand" id="minute-pacific"></div>
+                </div>
+                <div class="clock-label">Pacific</div>
+                <div class="clock-time" id="time-pacific">9:00 AM</div>
+            </div>
+            <div class="clock-container" id="clock-mountain">
+                <div class="clock-face">
+                    <div class="clock-center"></div>
+                    <div class="hour-hand" id="hour-mountain"></div>
+                    <div class="minute-hand" id="minute-mountain"></div>
+                </div>
+                <div class="clock-label">Mountain</div>
+                <div class="clock-time" id="time-mountain">10:00 AM</div>
+            </div>
+            <div class="clock-container" id="clock-central">
+                <div class="clock-face">
+                    <div class="clock-center"></div>
+                    <div class="hour-hand" id="hour-central"></div>
+                    <div class="minute-hand" id="minute-central"></div>
+                </div>
+                <div class="clock-label">Central</div>
+                <div class="clock-time" id="time-central">11:00 AM</div>
+            </div>
+            <div class="clock-container" id="clock-eastern">
+                <div class="clock-face">
+                    <div class="clock-center"></div>
+                    <div class="hour-hand" id="hour-eastern"></div>
+                    <div class="minute-hand" id="minute-eastern"></div>
+                </div>
+                <div class="clock-label">Eastern</div>
+                <div class="clock-time" id="time-eastern">12:00 PM</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="controls-container">
+        <label for="timeSlider">Set Eastern Time:</label>
+        <input type="range" id="timeSlider" min="0" max="23" value="12" class="time-slider">
+        <span id="sliderValue">12:00 PM</span>
+        <button id="quizBtn" class="control-btn">Quiz Me!</button>
+    </div>
+
+    <div id="quizPanel" class="quiz-panel hidden">
+        <div class="quiz-header">
+            <div class="quiz-progress" id="quizProgress">Question 1 of 6</div>
+            <div class="stars-display" id="starsDisplay"></div>
+        </div>
+        <div class="quiz-question" id="quizQuestion"></div>
+        <div class="quiz-options" id="quizOptions"></div>
+        <div class="quiz-feedback" id="quizFeedback"></div>
+    </div>
+
+    <div class="legend-container">
+        <div class="legend-title">Time Zone Colors</div>
+        <div class="legend-items">
+            <div class="legend-item"><i style="background: #4a90d9;"></i> Pacific (PT)</div>
+            <div class="legend-item"><i style="background: #f5a623;"></i> Mountain (MT)</div>
+            <div class="legend-item"><i style="background: #f8e71c;"></i> Central (CT)</div>
+            <div class="legend-item"><i style="background: #7ed321;"></i> Eastern (ET)</div>
+        </div>
+    </div>
+
+    <div class="hover-instruction">Hover over a state to see its time zone. Use the slider to change the time.</div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
