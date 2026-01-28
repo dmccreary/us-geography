@@ -25,7 +25,7 @@ nav:
 
 theme:
   name: material
-  logo: img/logo.png
+  logo: img/logo-no-text.png
   favicon: img/favicon.ico
   palette:
     primary: red
