@@ -28,7 +28,8 @@ theme:
   logo: img/logo.png
   favicon: img/favicon.ico
   palette:
-    primary: custom
+    primary: red
+    accent: blue
   features:
     - content.code.copy
     - navigation.expand
@@ -42,16 +43,10 @@ theme:
     - search.highlight
   custom_dir: docs/overrides
 
-extra_css:
-  - css/extra.css
-
-extra:
-  analytics:
-    provider: google
-    property: G-XXXXXXXXXX
-
 plugins:
   - search
+  - social_override
+  - social
 
 markdown_extensions:
   - admonition
@@ -74,3 +69,12 @@ markdown_extensions:
   - tables
   - toc:
       permalink: true
+
+extra_css:
+  - css/extra.css
+extra_javascript:
+  - js/extra.js
+extra:
+  analytics:
+    provider: google
+    property: G-GMXZTW44R1
