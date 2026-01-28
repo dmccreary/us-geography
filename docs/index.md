@@ -1,3 +1,8 @@
+---
+title: US Geography
+hide:
+    - toc
+---
 # Welcome to US Geography
 
 
