@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earth's Hemispheres</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Earth's Hemispheres</h2>
+    <div class="subtitle">Click buttons to highlight each hemisphere</div>
+
+    <div id="map"></div>
+
+    <div class="control-panel">
+        <div class="button-row">
+            <button id="btn-north" class="hemi-btn" data-hemisphere="north">North</button>
+            <button id="btn-south" class="hemi-btn" data-hemisphere="south">South</button>
+            <button id="btn-east" class="hemi-btn" data-hemisphere="east">East</button>
+            <button id="btn-west" class="hemi-btn" data-hemisphere="west">West</button>
+        </div>
+        <div class="button-row">
+            <button id="btn-lines" class="toggle-btn active">Lines: ON</button>
+            <button id="btn-us" class="action-btn">Show US Hemispheres</button>
+        </div>
+    </div>
+
+    <div class="info-panel" id="info-panel">
+        <div class="info-title" id="info-title"></div>
+        <div class="info-desc" id="info-desc"></div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+/* Earth's Hemispheres Map Styles */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: aliceblue;
+}
+
+h2 {
+    text-align: center;
+    margin: 8px 0 2px 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+#map {
+    width: 100%;
+    height: 320px;
+    border: 1px solid #ccc;
+}
+
+/* Control Panel */
+.control-panel {
+    background: white;
+    border: 1px solid silver;
+    padding: 10px;
+    margin-top: 0;
+}
+
+.button-row {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    margin-left: 100px;
+}
+
+.button-row:last-child {
+    margin-bottom: 0;
+}
+
+/* Hemisphere Buttons */
+.hemi-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.hemi-btn[data-hemisphere="north"] {
+    background: #AED6F1;
+    color: #333;
+}
+
+.hemi-btn[data-hemisphere="south"] {
+    background: #ABEBC6;
+    color: #333;
+}
+
+.hemi-btn[data-hemisphere="east"] {
+    background: #F9E79F;
+    color: #333;
+}
+
+.hemi-btn[data-hemisphere="west"] {
+    background: #F5B7B1;
+    color: #333;
+}
+
+.hemi-btn.active {
+    box-shadow: 0 0 0 3px gold;
+    transform: scale(1.05);
+}
+
+.hemi-btn:hover {
+    opacity: 0.8;
+}
+
+/* Toggle and Action Buttons */
+.toggle-btn, .action-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 11px;
+    color: white;
+}
+
+.toggle-btn {
+    background: #2ECC71;
+}
+
+.toggle-btn:not(.active) {
+    background: #95A5A6;
+}
+
+.action-btn {
+    background: #3498DB;
+}
+
+.toggle-btn:hover, .action-btn:hover {
+    opacity: 0.8;
+}
+
+/* Info Panel */
+.info-panel {
+    display: none;
+    position: absolute;
+    bottom: 40px;
+    left: 10px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #333;
+    border-radius: 5px;
+    padding: 10px 15px;
+    z-index: 1000;
+    max-width: 200px;
+}
+
+.info-panel.visible {
+    display: block;
+}
+
+.info-title {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.info-desc {
+    font-size: 12px;
+    color: #555;
+}
+
+/* Leaflet Custom Styles */
+.leaflet-container {
+    background: #B3E5FC;
+}
+
+/* Line Labels */
+.line-label {
+    background: transparent;
+    border: none;
+    font-size: 11px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.equator-label {
+    color: #E74C3C;
+}
+
+.meridian-label {
+    color: #3498DB;
+}
+
+/* US Marker */
+.us-marker {
+    background: #E74C3C;
+    border: 2px solid white;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    #map {
+        height: 280px;
+    }
+
+    .hemi-btn {
+        padding: 6px 12px;
+        font-size: 11px;
+    }
+
+    .toggle-btn, .action-btn {
+        padding: 6px 10px;
+        font-size: 10px;
+    }
+}
