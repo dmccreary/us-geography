@@ -1,3 +1,9 @@
+---
+title: Course Description
+description: A detailed course description for US Geography intelligent textbook
+quality_score: 95
+---
+
 # Course Description
 
 **Title:** US Geography
