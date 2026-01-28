@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block extrahead %}
-  {% if page.meta.image %}
+  {% if page and page.meta and page.meta.image %}
   <meta property="og:image" content="{{ page.meta.image | url }}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
