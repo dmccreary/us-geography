@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locating the United States</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Locating the United States</h2>
+    <div class="subtitle">Explore the position of the USA relative to its neighbors and oceans</div>
+
+    <div id="map"></div>
+
+    <div class="controls-container">
+        <button id="quizBtn" class="control-btn">Quiz Me!</button>
+        <button id="toggleLabelsBtn" class="control-btn">Hide Labels</button>
+        <button id="resetBtn" class="control-btn">Reset View</button>
+        <div class="score-display" id="scoreDisplay">Score: 0</div>
+    </div>
+
+    <div id="quizPanel" class="quiz-panel hidden">
+        <div class="quiz-header">
+            <div class="quiz-progress" id="quizProgress">Question 1 of 8</div>
+            <div class="stars-display" id="starsDisplay"></div>
+        </div>
+        <div class="quiz-question" id="quizQuestion"></div>
+        <div class="quiz-options" id="quizOptions"></div>
+        <div class="quiz-feedback" id="quizFeedback"></div>
+    </div>
+
+    <div class="legend-container">
+        <div class="legend-title">Map Key</div>
+        <div class="legend-items">
+            <div class="legend-item"><i style="background: steelblue;"></i> Continental US</div>
+            <div class="legend-item"><i style="background: steelblue;"></i> Alaska</div>
+            <div class="legend-item"><i style="background: steelblue; border-radius: 50%;"></i> Hawaii</div>
+            <div class="legend-item"><i style="background: forestgreen;"></i> Canada</div>
+            <div class="legend-item"><i style="background: darkorange;"></i> Mexico</div>
+            <div class="legend-item"><i style="background: lightblue;"></i> Oceans</div>
+        </div>
+    </div>
+
+    <div class="hover-instruction">Hover over a region for details. Click Quiz Me! to test your knowledge.</div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

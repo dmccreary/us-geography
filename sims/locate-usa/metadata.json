@@ -1,0 +1,31 @@
+{
+  "title": "Locating the United States",
+  "description": "Interactive map showing the position of the United States relative to neighboring countries and oceans in North America",
+  "creator": "Claude AI",
+  "date": "2026-01-28",
+  "version": "1.0",
+  "format": "MicroSim HTML/JavaScript",
+  "rights": "CC BY-NC-SA 4.0",
+  "subject": ["Geography", "United States", "North America", "Maps"],
+  "keywords": ["USA location", "North America", "Canada border", "Mexico border", "Atlantic Ocean", "Pacific Ocean", "interactive map", "geography education"],
+  "language": "en",
+  "audience": "K-12 Students",
+  "educationalLevel": "Elementary School (Grades 3-5)",
+  "interactivityType": "active",
+  "learningResourceType": "simulation",
+  "technicalRequirements": "Modern web browser with JavaScript enabled",
+  "dependencies": [
+    "leaflet.js"
+  ],
+  "concepts": [
+    "United States Location",
+    "US Borders",
+    "North America",
+    "Hemispheres",
+    "Cardinal Directions",
+    "Continents",
+    "Oceans"
+  ],
+  "mapType": "choropleth",
+  "geoJsonSource": "Simplified educational boundaries"
+}
