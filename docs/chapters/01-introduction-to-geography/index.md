@@ -222,7 +222,7 @@ The United States is in both the Northern Hemisphere and the Western Hemisphere!
 
 #### Diagram: Earth's Hemispheres Interactive Globe
 
-<iframe src="../../sims/hemispheres-globe/main.html" width="100%" height="450px" scrolling="no" style="border: 1px solid #ccc; border-radius: 8px;"></iframe>
+<iframe src="../../sims/hemispheres-globe/main.html" width="100%" height="470px" scrolling="no" style="border: 1px solid #ccc; border-radius: 8px;"></iframe>
 
 <details markdown="1">
 <summary>Earth's Hemispheres Interactive Globe</summary>

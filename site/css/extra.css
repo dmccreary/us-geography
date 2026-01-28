@@ -7,19 +7,17 @@
     width: 60px;
 }
 
-/* Custom theme colors */
-:root {
-  --md-primary-fg-color: #1565c0;
-  --md-primary-fg-color--light: #5e92c7;
-  --md-primary-fg-color--dark: #003c8f;
-  --md-accent-fg-color: #2e7d32;
+/* Container to control the iframe size and scaling */
+.iframe-container {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
 }
 
-/* Primary color for Material theme */
-[data-md-color-primary="custom"] {
-  --md-primary-fg-color: #1565c0;
-  --md-primary-fg-color--light: #5e92c7;
-  --md-primary-fg-color--dark: #003c8f;
+/* Iframe styles */
+iframe {
+  width: 100%;
+  border: solid 2px blue;
 }
 
 /* Link colors */
