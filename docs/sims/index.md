@@ -1,7 +1,5 @@
 # Interactive Simulations
 
-![](./img/logo.png)
-
 This section contains MicroSims - interactive educational simulations for learning US Geography.
 
 ## Available Simulations

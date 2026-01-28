@@ -1,5 +1,8 @@
 # Welcome to US Geography
 
+
+![](./img/logo.png)
+
 An intelligent textbook for learning US Geography.
 
 ## Getting Started
