@@ -1,0 +1,10 @@
+{
+  "title": "US Geography",
+  "description": "An interactive intelligent textbook for learning US Geography, designed for grade school children from 3rd to 6th grade. Covers physical features, climate, regions, states, and human geography through interactive maps and simulations.",
+  "creator": "Dan McCreary",
+  "date": "2026-01-27",
+  "version": "1.0",
+  "format": "Learning Graph JSON v1.0",
+  "schema": "https://raw.githubusercontent.com/dmccreary/learning-graphs/refs/heads/main/src/schema/learning-graph-schema.json",
+  "license": "CC BY 4.0"
+}

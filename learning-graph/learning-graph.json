@@ -1,0 +1,2538 @@
+{
+  "metadata": {
+    "title": "US Geography",
+    "description": "An interactive intelligent textbook for learning US Geography, designed for grade school children from 3rd to 6th grade. Covers physical features, climate, regions, states, and human geography through interactive maps and simulations.",
+    "creator": "Dan McCreary",
+    "date": "2026-01-27",
+    "version": "1.0",
+    "format": "Learning Graph JSON v1.0",
+    "schema": "https://raw.githubusercontent.com/dmccreary/learning-graphs/refs/heads/main/src/schema/learning-graph-schema.json",
+    "license": "CC BY 4.0"
+  },
+  "groups": {
+    "FOUND": {
+      "classifierName": "Foundation Concepts",
+      "color": "LightCoral",
+      "font": {
+        "color": "white"
+      }
+    },
+    "MAPS": {
+      "classifierName": "Map Skills",
+      "color": "PeachPuff",
+      "font": {
+        "color": "black"
+      }
+    },
+    "PHYS": {
+      "classifierName": "Physical Geography",
+      "color": "LightYellow",
+      "font": {
+        "color": "black"
+      }
+    },
+    "WATER": {
+      "classifierName": "Water Features",
+      "color": "PaleTurquoise",
+      "font": {
+        "color": "black"
+      }
+    },
+    "CLIM": {
+      "classifierName": "Climate and Weather",
+      "color": "PowderBlue",
+      "font": {
+        "color": "black"
+      }
+    },
+    "REG": {
+      "classifierName": "US Regions",
+      "color": "Lavender",
+      "font": {
+        "color": "black"
+      }
+    },
+    "STATE": {
+      "classifierName": "US States",
+      "color": "PaleGreen",
+      "font": {
+        "color": "black"
+      }
+    },
+    "ATTR": {
+      "classifierName": "State Attributes",
+      "color": "Thistle",
+      "font": {
+        "color": "black"
+      }
+    },
+    "HUMAN": {
+      "classifierName": "Human Geography",
+      "color": "LightPink",
+      "font": {
+        "color": "black"
+      }
+    },
+    "ECON": {
+      "classifierName": "Economy and Resources",
+      "color": "Honeydew",
+      "font": {
+        "color": "black"
+      }
+    },
+    "TRANS": {
+      "classifierName": "Transportation",
+      "color": "MistyRose",
+      "font": {
+        "color": "black"
+      }
+    },
+    "LAND": {
+      "classifierName": "Parks and Landmarks",
+      "color": "Aquamarine",
+      "font": {
+        "color": "black"
+      }
+    },
+    "CULT": {
+      "classifierName": "Culture and Society",
+      "color": "Plum",
+      "font": {
+        "color": "white"
+      }
+    }
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "label": "Geography Definition",
+      "group": "FOUND",
+      "shape": "box"
+    },
+    {
+      "id": 2,
+      "label": "Map Reading Basics",
+      "group": "MAPS"
+    },
+    {
+      "id": 3,
+      "label": "Cardinal Directions",
+      "group": "MAPS"
+    },
+    {
+      "id": 4,
+      "label": "Compass Rose",
+      "group": "MAPS"
+    },
+    {
+      "id": 5,
+      "label": "Map Scale",
+      "group": "MAPS"
+    },
+    {
+      "id": 6,
+      "label": "Map Legend",
+      "group": "MAPS"
+    },
+    {
+      "id": 7,
+      "label": "Political Maps",
+      "group": "MAPS"
+    },
+    {
+      "id": 8,
+      "label": "Physical Maps",
+      "group": "MAPS"
+    },
+    {
+      "id": 9,
+      "label": "Thematic Maps",
+      "group": "MAPS"
+    },
+    {
+      "id": 10,
+      "label": "Topographic Maps",
+      "group": "MAPS"
+    },
+    {
+      "id": 11,
+      "label": "Latitude",
+      "group": "MAPS"
+    },
+    {
+      "id": 12,
+      "label": "Longitude",
+      "group": "MAPS"
+    },
+    {
+      "id": 13,
+      "label": "Equator",
+      "group": "MAPS"
+    },
+    {
+      "id": 14,
+      "label": "Prime Meridian",
+      "group": "MAPS"
+    },
+    {
+      "id": 15,
+      "label": "Coordinates",
+      "group": "MAPS"
+    },
+    {
+      "id": 16,
+      "label": "Hemispheres",
+      "group": "FOUND"
+    },
+    {
+      "id": 17,
+      "label": "Continents",
+      "group": "FOUND"
+    },
+    {
+      "id": 18,
+      "label": "North America",
+      "group": "FOUND"
+    },
+    {
+      "id": 19,
+      "label": "United States Location",
+      "group": "FOUND"
+    },
+    {
+      "id": 20,
+      "label": "US Borders",
+      "group": "FOUND"
+    },
+    {
+      "id": 21,
+      "label": "US Size Comparison",
+      "group": "FOUND"
+    },
+    {
+      "id": 22,
+      "label": "Time Zones",
+      "group": "FOUND"
+    },
+    {
+      "id": 23,
+      "label": "Landforms",
+      "group": "PHYS"
+    },
+    {
+      "id": 24,
+      "label": "Mountains",
+      "group": "PHYS"
+    },
+    {
+      "id": 25,
+      "label": "Plains",
+      "group": "PHYS"
+    },
+    {
+      "id": 26,
+      "label": "Plateaus",
+      "group": "PHYS"
+    },
+    {
+      "id": 27,
+      "label": "Valleys",
+      "group": "PHYS"
+    },
+    {
+      "id": 28,
+      "label": "Hills",
+      "group": "PHYS"
+    },
+    {
+      "id": 29,
+      "label": "Deserts",
+      "group": "PHYS"
+    },
+    {
+      "id": 30,
+      "label": "Coastal Areas",
+      "group": "PHYS"
+    },
+    {
+      "id": 31,
+      "label": "Islands",
+      "group": "PHYS"
+    },
+    {
+      "id": 32,
+      "label": "Peninsulas",
+      "group": "PHYS"
+    },
+    {
+      "id": 33,
+      "label": "Rocky Mountains",
+      "group": "PHYS"
+    },
+    {
+      "id": 34,
+      "label": "Appalachian Mountains",
+      "group": "PHYS"
+    },
+    {
+      "id": 35,
+      "label": "Sierra Nevada",
+      "group": "PHYS"
+    },
+    {
+      "id": 36,
+      "label": "Cascade Range",
+      "group": "PHYS"
+    },
+    {
+      "id": 37,
+      "label": "Great Plains",
+      "group": "PHYS"
+    },
+    {
+      "id": 38,
+      "label": "Central Valley",
+      "group": "PHYS"
+    },
+    {
+      "id": 39,
+      "label": "Colorado Plateau",
+      "group": "PHYS"
+    },
+    {
+      "id": 40,
+      "label": "Columbia Plateau",
+      "group": "PHYS"
+    },
+    {
+      "id": 41,
+      "label": "Rivers",
+      "group": "WATER"
+    },
+    {
+      "id": 42,
+      "label": "Mississippi River",
+      "group": "WATER"
+    },
+    {
+      "id": 43,
+      "label": "Missouri River",
+      "group": "WATER"
+    },
+    {
+      "id": 44,
+      "label": "Colorado River",
+      "group": "WATER"
+    },
+    {
+      "id": 45,
+      "label": "Columbia River",
+      "group": "WATER"
+    },
+    {
+      "id": 46,
+      "label": "Ohio River",
+      "group": "WATER"
+    },
+    {
+      "id": 47,
+      "label": "Rio Grande",
+      "group": "WATER"
+    },
+    {
+      "id": 48,
+      "label": "Hudson River",
+      "group": "WATER"
+    },
+    {
+      "id": 49,
+      "label": "Lakes",
+      "group": "WATER"
+    },
+    {
+      "id": 50,
+      "label": "Great Lakes",
+      "group": "WATER"
+    },
+    {
+      "id": 51,
+      "label": "Lake Superior",
+      "group": "WATER"
+    },
+    {
+      "id": 52,
+      "label": "Lake Michigan",
+      "group": "WATER"
+    },
+    {
+      "id": 53,
+      "label": "Lake Huron",
+      "group": "WATER"
+    },
+    {
+      "id": 54,
+      "label": "Lake Erie",
+      "group": "WATER"
+    },
+    {
+      "id": 55,
+      "label": "Lake Ontario",
+      "group": "WATER"
+    },
+    {
+      "id": 56,
+      "label": "Great Salt Lake",
+      "group": "WATER"
+    },
+    {
+      "id": 57,
+      "label": "Oceans",
+      "group": "WATER"
+    },
+    {
+      "id": 58,
+      "label": "Atlantic Ocean",
+      "group": "WATER"
+    },
+    {
+      "id": 59,
+      "label": "Pacific Ocean",
+      "group": "WATER"
+    },
+    {
+      "id": 60,
+      "label": "Gulf of Mexico",
+      "group": "WATER"
+    },
+    {
+      "id": 61,
+      "label": "Arctic Ocean",
+      "group": "WATER"
+    },
+    {
+      "id": 62,
+      "label": "Coastlines",
+      "group": "WATER"
+    },
+    {
+      "id": 63,
+      "label": "Bays",
+      "group": "WATER"
+    },
+    {
+      "id": 64,
+      "label": "Chesapeake Bay",
+      "group": "WATER"
+    },
+    {
+      "id": 65,
+      "label": "San Francisco Bay",
+      "group": "WATER"
+    },
+    {
+      "id": 66,
+      "label": "Climate Definition",
+      "group": "CLIM"
+    },
+    {
+      "id": 67,
+      "label": "Weather vs Climate",
+      "group": "CLIM"
+    },
+    {
+      "id": 68,
+      "label": "Climate Zones",
+      "group": "CLIM"
+    },
+    {
+      "id": 69,
+      "label": "Tropical Climate",
+      "group": "CLIM"
+    },
+    {
+      "id": 70,
+      "label": "Arid Climate",
+      "group": "CLIM"
+    },
+    {
+      "id": 71,
+      "label": "Mediterranean Climate",
+      "group": "CLIM"
+    },
+    {
+      "id": 72,
+      "label": "Humid Subtropical",
+      "group": "CLIM"
+    },
+    {
+      "id": 73,
+      "label": "Humid Continental",
+      "group": "CLIM"
+    },
+    {
+      "id": 74,
+      "label": "Subarctic Climate",
+      "group": "CLIM"
+    },
+    {
+      "id": 75,
+      "label": "Temperature Patterns",
+      "group": "CLIM"
+    },
+    {
+      "id": 76,
+      "label": "Precipitation",
+      "group": "CLIM"
+    },
+    {
+      "id": 77,
+      "label": "Rainfall Patterns",
+      "group": "CLIM"
+    },
+    {
+      "id": 78,
+      "label": "Snowfall Regions",
+      "group": "CLIM"
+    },
+    {
+      "id": 79,
+      "label": "Seasons",
+      "group": "CLIM"
+    },
+    {
+      "id": 80,
+      "label": "Extreme Weather",
+      "group": "CLIM"
+    },
+    {
+      "id": 81,
+      "label": "Hurricanes",
+      "group": "CLIM"
+    },
+    {
+      "id": 82,
+      "label": "Tornadoes",
+      "group": "CLIM"
+    },
+    {
+      "id": 83,
+      "label": "Blizzards",
+      "group": "CLIM"
+    },
+    {
+      "id": 84,
+      "label": "Droughts",
+      "group": "CLIM"
+    },
+    {
+      "id": 85,
+      "label": "Regions Definition",
+      "group": "REG"
+    },
+    {
+      "id": 86,
+      "label": "Northeast Region",
+      "group": "REG"
+    },
+    {
+      "id": 87,
+      "label": "Southeast Region",
+      "group": "REG"
+    },
+    {
+      "id": 88,
+      "label": "Midwest Region",
+      "group": "REG"
+    },
+    {
+      "id": 89,
+      "label": "Southwest Region",
+      "group": "REG"
+    },
+    {
+      "id": 90,
+      "label": "West Region",
+      "group": "REG"
+    },
+    {
+      "id": 91,
+      "label": "New England",
+      "group": "REG"
+    },
+    {
+      "id": 92,
+      "label": "Mid-Atlantic States",
+      "group": "REG"
+    },
+    {
+      "id": 93,
+      "label": "Southern States",
+      "group": "REG"
+    },
+    {
+      "id": 94,
+      "label": "Great Lakes States",
+      "group": "REG"
+    },
+    {
+      "id": 95,
+      "label": "Mountain States",
+      "group": "REG"
+    },
+    {
+      "id": 96,
+      "label": "Pacific States",
+      "group": "REG"
+    },
+    {
+      "id": 97,
+      "label": "Alabama",
+      "group": "STATE"
+    },
+    {
+      "id": 98,
+      "label": "Alaska",
+      "group": "STATE"
+    },
+    {
+      "id": 99,
+      "label": "Arizona",
+      "group": "STATE"
+    },
+    {
+      "id": 100,
+      "label": "Arkansas",
+      "group": "STATE"
+    },
+    {
+      "id": 101,
+      "label": "California",
+      "group": "STATE"
+    },
+    {
+      "id": 102,
+      "label": "Colorado",
+      "group": "STATE"
+    },
+    {
+      "id": 103,
+      "label": "Connecticut",
+      "group": "STATE"
+    },
+    {
+      "id": 104,
+      "label": "Delaware",
+      "group": "STATE"
+    },
+    {
+      "id": 105,
+      "label": "Florida",
+      "group": "STATE"
+    },
+    {
+      "id": 106,
+      "label": "Georgia",
+      "group": "STATE"
+    },
+    {
+      "id": 107,
+      "label": "Hawaii",
+      "group": "STATE"
+    },
+    {
+      "id": 108,
+      "label": "Idaho",
+      "group": "STATE"
+    },
+    {
+      "id": 109,
+      "label": "Illinois",
+      "group": "STATE"
+    },
+    {
+      "id": 110,
+      "label": "Indiana",
+      "group": "STATE"
+    },
+    {
+      "id": 111,
+      "label": "Iowa",
+      "group": "STATE"
+    },
+    {
+      "id": 112,
+      "label": "Kansas",
+      "group": "STATE"
+    },
+    {
+      "id": 113,
+      "label": "Kentucky",
+      "group": "STATE"
+    },
+    {
+      "id": 114,
+      "label": "Louisiana",
+      "group": "STATE"
+    },
+    {
+      "id": 115,
+      "label": "Maine",
+      "group": "STATE"
+    },
+    {
+      "id": 116,
+      "label": "Maryland",
+      "group": "STATE"
+    },
+    {
+      "id": 117,
+      "label": "Massachusetts",
+      "group": "STATE"
+    },
+    {
+      "id": 118,
+      "label": "Michigan",
+      "group": "STATE"
+    },
+    {
+      "id": 119,
+      "label": "Minnesota",
+      "group": "STATE"
+    },
+    {
+      "id": 120,
+      "label": "Mississippi",
+      "group": "STATE"
+    },
+    {
+      "id": 121,
+      "label": "Missouri",
+      "group": "STATE"
+    },
+    {
+      "id": 122,
+      "label": "Montana",
+      "group": "STATE"
+    },
+    {
+      "id": 123,
+      "label": "Nebraska",
+      "group": "STATE"
+    },
+    {
+      "id": 124,
+      "label": "Nevada",
+      "group": "STATE"
+    },
+    {
+      "id": 125,
+      "label": "New Hampshire",
+      "group": "STATE"
+    },
+    {
+      "id": 126,
+      "label": "New Jersey",
+      "group": "STATE"
+    },
+    {
+      "id": 127,
+      "label": "New Mexico",
+      "group": "STATE"
+    },
+    {
+      "id": 128,
+      "label": "New York",
+      "group": "STATE"
+    },
+    {
+      "id": 129,
+      "label": "North Carolina",
+      "group": "STATE"
+    },
+    {
+      "id": 130,
+      "label": "North Dakota",
+      "group": "STATE"
+    },
+    {
+      "id": 131,
+      "label": "Ohio",
+      "group": "STATE"
+    },
+    {
+      "id": 132,
+      "label": "Oklahoma",
+      "group": "STATE"
+    },
+    {
+      "id": 133,
+      "label": "Oregon",
+      "group": "STATE"
+    },
+    {
+      "id": 134,
+      "label": "Pennsylvania",
+      "group": "STATE"
+    },
+    {
+      "id": 135,
+      "label": "Rhode Island",
+      "group": "STATE"
+    },
+    {
+      "id": 136,
+      "label": "South Carolina",
+      "group": "STATE"
+    },
+    {
+      "id": 137,
+      "label": "South Dakota",
+      "group": "STATE"
+    },
+    {
+      "id": 138,
+      "label": "Tennessee",
+      "group": "STATE"
+    },
+    {
+      "id": 139,
+      "label": "Texas",
+      "group": "STATE"
+    },
+    {
+      "id": 140,
+      "label": "Utah",
+      "group": "STATE"
+    },
+    {
+      "id": 141,
+      "label": "Vermont",
+      "group": "STATE"
+    },
+    {
+      "id": 142,
+      "label": "Virginia",
+      "group": "STATE"
+    },
+    {
+      "id": 143,
+      "label": "Washington",
+      "group": "STATE"
+    },
+    {
+      "id": 144,
+      "label": "West Virginia",
+      "group": "STATE"
+    },
+    {
+      "id": 145,
+      "label": "Wisconsin",
+      "group": "STATE"
+    },
+    {
+      "id": 146,
+      "label": "Wyoming",
+      "group": "STATE"
+    },
+    {
+      "id": 147,
+      "label": "State Capitals",
+      "group": "ATTR"
+    },
+    {
+      "id": 148,
+      "label": "Washington DC",
+      "group": "ATTR"
+    },
+    {
+      "id": 149,
+      "label": "State Borders",
+      "group": "ATTR"
+    },
+    {
+      "id": 150,
+      "label": "State Symbols",
+      "group": "ATTR"
+    },
+    {
+      "id": 151,
+      "label": "State Flags",
+      "group": "ATTR"
+    },
+    {
+      "id": 152,
+      "label": "Population",
+      "group": "HUMAN"
+    },
+    {
+      "id": 153,
+      "label": "Population Density",
+      "group": "HUMAN"
+    },
+    {
+      "id": 154,
+      "label": "Urban Areas",
+      "group": "HUMAN"
+    },
+    {
+      "id": 155,
+      "label": "Rural Areas",
+      "group": "HUMAN"
+    },
+    {
+      "id": 156,
+      "label": "Suburbs",
+      "group": "HUMAN"
+    },
+    {
+      "id": 157,
+      "label": "Metropolitan Areas",
+      "group": "HUMAN"
+    },
+    {
+      "id": 158,
+      "label": "Major Cities",
+      "group": "HUMAN"
+    },
+    {
+      "id": 159,
+      "label": "New York City",
+      "group": "HUMAN"
+    },
+    {
+      "id": 160,
+      "label": "Los Angeles",
+      "group": "HUMAN"
+    },
+    {
+      "id": 161,
+      "label": "Chicago",
+      "group": "HUMAN"
+    },
+    {
+      "id": 162,
+      "label": "Houston",
+      "group": "HUMAN"
+    },
+    {
+      "id": 163,
+      "label": "Phoenix",
+      "group": "HUMAN"
+    },
+    {
+      "id": 164,
+      "label": "Natural Resources",
+      "group": "ECON"
+    },
+    {
+      "id": 165,
+      "label": "Agriculture",
+      "group": "ECON"
+    },
+    {
+      "id": 166,
+      "label": "Farming Regions",
+      "group": "ECON"
+    },
+    {
+      "id": 167,
+      "label": "Corn Belt",
+      "group": "ECON"
+    },
+    {
+      "id": 168,
+      "label": "Wheat Belt",
+      "group": "ECON"
+    },
+    {
+      "id": 169,
+      "label": "Cotton Belt",
+      "group": "ECON"
+    },
+    {
+      "id": 170,
+      "label": "Dairy Farming",
+      "group": "ECON"
+    },
+    {
+      "id": 171,
+      "label": "Ranching",
+      "group": "ECON"
+    },
+    {
+      "id": 172,
+      "label": "Mining",
+      "group": "ECON"
+    },
+    {
+      "id": 173,
+      "label": "Oil and Gas",
+      "group": "ECON"
+    },
+    {
+      "id": 174,
+      "label": "Forestry",
+      "group": "ECON"
+    },
+    {
+      "id": 175,
+      "label": "Fishing Industry",
+      "group": "ECON"
+    },
+    {
+      "id": 176,
+      "label": "Manufacturing",
+      "group": "ECON"
+    },
+    {
+      "id": 177,
+      "label": "Technology Hubs",
+      "group": "ECON"
+    },
+    {
+      "id": 178,
+      "label": "Silicon Valley",
+      "group": "ECON"
+    },
+    {
+      "id": 179,
+      "label": "Transportation",
+      "group": "TRANS"
+    },
+    {
+      "id": 180,
+      "label": "Interstate Highways",
+      "group": "TRANS"
+    },
+    {
+      "id": 181,
+      "label": "Railroads",
+      "group": "TRANS"
+    },
+    {
+      "id": 182,
+      "label": "Airports",
+      "group": "TRANS"
+    },
+    {
+      "id": 183,
+      "label": "Ports",
+      "group": "TRANS"
+    },
+    {
+      "id": 184,
+      "label": "National Parks",
+      "group": "LAND"
+    },
+    {
+      "id": 185,
+      "label": "Yellowstone",
+      "group": "LAND"
+    },
+    {
+      "id": 186,
+      "label": "Grand Canyon",
+      "group": "LAND"
+    },
+    {
+      "id": 187,
+      "label": "Yosemite",
+      "group": "LAND"
+    },
+    {
+      "id": 188,
+      "label": "Great Smoky Mountains",
+      "group": "LAND"
+    },
+    {
+      "id": 189,
+      "label": "Landmarks",
+      "group": "LAND"
+    },
+    {
+      "id": 190,
+      "label": "Statue of Liberty",
+      "group": "LAND"
+    },
+    {
+      "id": 191,
+      "label": "Mount Rushmore",
+      "group": "LAND"
+    },
+    {
+      "id": 192,
+      "label": "Golden Gate Bridge",
+      "group": "LAND"
+    },
+    {
+      "id": 193,
+      "label": "Cultural Regions",
+      "group": "CULT"
+    },
+    {
+      "id": 194,
+      "label": "Native American Lands",
+      "group": "CULT"
+    },
+    {
+      "id": 195,
+      "label": "Immigration Patterns",
+      "group": "CULT"
+    },
+    {
+      "id": 196,
+      "label": "Demographic Changes",
+      "group": "CULT"
+    },
+    {
+      "id": 197,
+      "label": "Economic Geography",
+      "group": "ECON"
+    },
+    {
+      "id": 198,
+      "label": "Trade and Commerce",
+      "group": "ECON"
+    },
+    {
+      "id": 199,
+      "label": "Environmental Issues",
+      "group": "CULT"
+    },
+    {
+      "id": 200,
+      "label": "Conservation",
+      "group": "CULT"
+    }
+  ],
+  "edges": [
+    {
+      "from": 2,
+      "to": 1
+    },
+    {
+      "from": 3,
+      "to": 2
+    },
+    {
+      "from": 4,
+      "to": 3
+    },
+    {
+      "from": 5,
+      "to": 2
+    },
+    {
+      "from": 6,
+      "to": 2
+    },
+    {
+      "from": 7,
+      "to": 2
+    },
+    {
+      "from": 7,
+      "to": 6
+    },
+    {
+      "from": 8,
+      "to": 2
+    },
+    {
+      "from": 8,
+      "to": 6
+    },
+    {
+      "from": 9,
+      "to": 7
+    },
+    {
+      "from": 9,
+      "to": 8
+    },
+    {
+      "from": 10,
+      "to": 8
+    },
+    {
+      "from": 11,
+      "to": 2
+    },
+    {
+      "from": 11,
+      "to": 3
+    },
+    {
+      "from": 12,
+      "to": 2
+    },
+    {
+      "from": 12,
+      "to": 3
+    },
+    {
+      "from": 13,
+      "to": 11
+    },
+    {
+      "from": 14,
+      "to": 12
+    },
+    {
+      "from": 15,
+      "to": 11
+    },
+    {
+      "from": 15,
+      "to": 12
+    },
+    {
+      "from": 16,
+      "to": 13
+    },
+    {
+      "from": 16,
+      "to": 14
+    },
+    {
+      "from": 17,
+      "to": 1
+    },
+    {
+      "from": 17,
+      "to": 16
+    },
+    {
+      "from": 18,
+      "to": 17
+    },
+    {
+      "from": 19,
+      "to": 18
+    },
+    {
+      "from": 19,
+      "to": 15
+    },
+    {
+      "from": 20,
+      "to": 19
+    },
+    {
+      "from": 20,
+      "to": 7
+    },
+    {
+      "from": 21,
+      "to": 19
+    },
+    {
+      "from": 21,
+      "to": 5
+    },
+    {
+      "from": 22,
+      "to": 12
+    },
+    {
+      "from": 22,
+      "to": 19
+    },
+    {
+      "from": 23,
+      "to": 1
+    },
+    {
+      "from": 23,
+      "to": 8
+    },
+    {
+      "from": 24,
+      "to": 23
+    },
+    {
+      "from": 25,
+      "to": 23
+    },
+    {
+      "from": 26,
+      "to": 23
+    },
+    {
+      "from": 27,
+      "to": 23
+    },
+    {
+      "from": 27,
+      "to": 24
+    },
+    {
+      "from": 28,
+      "to": 23
+    },
+    {
+      "from": 29,
+      "to": 23
+    },
+    {
+      "from": 29,
+      "to": 66
+    },
+    {
+      "from": 30,
+      "to": 23
+    },
+    {
+      "from": 30,
+      "to": 62
+    },
+    {
+      "from": 31,
+      "to": 23
+    },
+    {
+      "from": 31,
+      "to": 30
+    },
+    {
+      "from": 32,
+      "to": 23
+    },
+    {
+      "from": 32,
+      "to": 30
+    },
+    {
+      "from": 33,
+      "to": 24
+    },
+    {
+      "from": 33,
+      "to": 19
+    },
+    {
+      "from": 34,
+      "to": 24
+    },
+    {
+      "from": 34,
+      "to": 19
+    },
+    {
+      "from": 35,
+      "to": 24
+    },
+    {
+      "from": 35,
+      "to": 33
+    },
+    {
+      "from": 36,
+      "to": 24
+    },
+    {
+      "from": 36,
+      "to": 33
+    },
+    {
+      "from": 37,
+      "to": 25
+    },
+    {
+      "from": 37,
+      "to": 19
+    },
+    {
+      "from": 38,
+      "to": 27
+    },
+    {
+      "from": 38,
+      "to": 101
+    },
+    {
+      "from": 39,
+      "to": 26
+    },
+    {
+      "from": 39,
+      "to": 33
+    },
+    {
+      "from": 40,
+      "to": 26
+    },
+    {
+      "from": 40,
+      "to": 36
+    },
+    {
+      "from": 41,
+      "to": 8
+    },
+    {
+      "from": 41,
+      "to": 23
+    },
+    {
+      "from": 42,
+      "to": 41
+    },
+    {
+      "from": 42,
+      "to": 19
+    },
+    {
+      "from": 43,
+      "to": 41
+    },
+    {
+      "from": 43,
+      "to": 42
+    },
+    {
+      "from": 44,
+      "to": 41
+    },
+    {
+      "from": 44,
+      "to": 33
+    },
+    {
+      "from": 45,
+      "to": 41
+    },
+    {
+      "from": 45,
+      "to": 40
+    },
+    {
+      "from": 46,
+      "to": 41
+    },
+    {
+      "from": 46,
+      "to": 42
+    },
+    {
+      "from": 47,
+      "to": 41
+    },
+    {
+      "from": 47,
+      "to": 19
+    },
+    {
+      "from": 48,
+      "to": 41
+    },
+    {
+      "from": 48,
+      "to": 128
+    },
+    {
+      "from": 49,
+      "to": 8
+    },
+    {
+      "from": 49,
+      "to": 23
+    },
+    {
+      "from": 50,
+      "to": 49
+    },
+    {
+      "from": 50,
+      "to": 19
+    },
+    {
+      "from": 51,
+      "to": 50
+    },
+    {
+      "from": 52,
+      "to": 50
+    },
+    {
+      "from": 53,
+      "to": 50
+    },
+    {
+      "from": 54,
+      "to": 50
+    },
+    {
+      "from": 55,
+      "to": 50
+    },
+    {
+      "from": 56,
+      "to": 49
+    },
+    {
+      "from": 56,
+      "to": 140
+    },
+    {
+      "from": 57,
+      "to": 1
+    },
+    {
+      "from": 57,
+      "to": 17
+    },
+    {
+      "from": 58,
+      "to": 57
+    },
+    {
+      "from": 58,
+      "to": 19
+    },
+    {
+      "from": 59,
+      "to": 57
+    },
+    {
+      "from": 59,
+      "to": 19
+    },
+    {
+      "from": 60,
+      "to": 57
+    },
+    {
+      "from": 60,
+      "to": 19
+    },
+    {
+      "from": 61,
+      "to": 57
+    },
+    {
+      "from": 62,
+      "to": 57
+    },
+    {
+      "from": 63,
+      "to": 62
+    },
+    {
+      "from": 64,
+      "to": 63
+    },
+    {
+      "from": 64,
+      "to": 116
+    },
+    {
+      "from": 65,
+      "to": 63
+    },
+    {
+      "from": 65,
+      "to": 101
+    },
+    {
+      "from": 66,
+      "to": 1
+    },
+    {
+      "from": 67,
+      "to": 66
+    },
+    {
+      "from": 68,
+      "to": 66
+    },
+    {
+      "from": 68,
+      "to": 19
+    },
+    {
+      "from": 69,
+      "to": 68
+    },
+    {
+      "from": 70,
+      "to": 68
+    },
+    {
+      "from": 71,
+      "to": 68
+    },
+    {
+      "from": 72,
+      "to": 68
+    },
+    {
+      "from": 73,
+      "to": 68
+    },
+    {
+      "from": 74,
+      "to": 68
+    },
+    {
+      "from": 75,
+      "to": 67
+    },
+    {
+      "from": 75,
+      "to": 68
+    },
+    {
+      "from": 76,
+      "to": 67
+    },
+    {
+      "from": 77,
+      "to": 76
+    },
+    {
+      "from": 77,
+      "to": 68
+    },
+    {
+      "from": 78,
+      "to": 76
+    },
+    {
+      "from": 78,
+      "to": 68
+    },
+    {
+      "from": 79,
+      "to": 67
+    },
+    {
+      "from": 79,
+      "to": 11
+    },
+    {
+      "from": 80,
+      "to": 67
+    },
+    {
+      "from": 81,
+      "to": 80
+    },
+    {
+      "from": 81,
+      "to": 60
+    },
+    {
+      "from": 82,
+      "to": 80
+    },
+    {
+      "from": 82,
+      "to": 88
+    },
+    {
+      "from": 83,
+      "to": 80
+    },
+    {
+      "from": 83,
+      "to": 78
+    },
+    {
+      "from": 84,
+      "to": 80
+    },
+    {
+      "from": 84,
+      "to": 70
+    },
+    {
+      "from": 85,
+      "to": 1
+    },
+    {
+      "from": 85,
+      "to": 19
+    },
+    {
+      "from": 86,
+      "to": 85
+    },
+    {
+      "from": 87,
+      "to": 85
+    },
+    {
+      "from": 88,
+      "to": 85
+    },
+    {
+      "from": 89,
+      "to": 85
+    },
+    {
+      "from": 90,
+      "to": 85
+    },
+    {
+      "from": 91,
+      "to": 86
+    },
+    {
+      "from": 92,
+      "to": 86
+    },
+    {
+      "from": 93,
+      "to": 87
+    },
+    {
+      "from": 94,
+      "to": 88
+    },
+    {
+      "from": 94,
+      "to": 50
+    },
+    {
+      "from": 95,
+      "to": 90
+    },
+    {
+      "from": 95,
+      "to": 33
+    },
+    {
+      "from": 96,
+      "to": 90
+    },
+    {
+      "from": 96,
+      "to": 59
+    },
+    {
+      "from": 97,
+      "to": 87
+    },
+    {
+      "from": 97,
+      "to": 7
+    },
+    {
+      "from": 98,
+      "to": 90
+    },
+    {
+      "from": 98,
+      "to": 7
+    },
+    {
+      "from": 98,
+      "to": 61
+    },
+    {
+      "from": 99,
+      "to": 89
+    },
+    {
+      "from": 99,
+      "to": 7
+    },
+    {
+      "from": 100,
+      "to": 87
+    },
+    {
+      "from": 100,
+      "to": 7
+    },
+    {
+      "from": 101,
+      "to": 96
+    },
+    {
+      "from": 101,
+      "to": 7
+    },
+    {
+      "from": 102,
+      "to": 95
+    },
+    {
+      "from": 102,
+      "to": 7
+    },
+    {
+      "from": 103,
+      "to": 91
+    },
+    {
+      "from": 103,
+      "to": 7
+    },
+    {
+      "from": 104,
+      "to": 92
+    },
+    {
+      "from": 104,
+      "to": 7
+    },
+    {
+      "from": 105,
+      "to": 87
+    },
+    {
+      "from": 105,
+      "to": 7
+    },
+    {
+      "from": 105,
+      "to": 69
+    },
+    {
+      "from": 106,
+      "to": 87
+    },
+    {
+      "from": 106,
+      "to": 7
+    },
+    {
+      "from": 107,
+      "to": 96
+    },
+    {
+      "from": 107,
+      "to": 7
+    },
+    {
+      "from": 107,
+      "to": 69
+    },
+    {
+      "from": 108,
+      "to": 95
+    },
+    {
+      "from": 108,
+      "to": 7
+    },
+    {
+      "from": 109,
+      "to": 88
+    },
+    {
+      "from": 109,
+      "to": 7
+    },
+    {
+      "from": 110,
+      "to": 88
+    },
+    {
+      "from": 110,
+      "to": 7
+    },
+    {
+      "from": 111,
+      "to": 88
+    },
+    {
+      "from": 111,
+      "to": 7
+    },
+    {
+      "from": 112,
+      "to": 88
+    },
+    {
+      "from": 112,
+      "to": 7
+    },
+    {
+      "from": 113,
+      "to": 87
+    },
+    {
+      "from": 113,
+      "to": 7
+    },
+    {
+      "from": 114,
+      "to": 87
+    },
+    {
+      "from": 114,
+      "to": 7
+    },
+    {
+      "from": 114,
+      "to": 60
+    },
+    {
+      "from": 115,
+      "to": 91
+    },
+    {
+      "from": 115,
+      "to": 7
+    },
+    {
+      "from": 116,
+      "to": 92
+    },
+    {
+      "from": 116,
+      "to": 7
+    },
+    {
+      "from": 117,
+      "to": 91
+    },
+    {
+      "from": 117,
+      "to": 7
+    },
+    {
+      "from": 118,
+      "to": 94
+    },
+    {
+      "from": 118,
+      "to": 7
+    },
+    {
+      "from": 119,
+      "to": 94
+    },
+    {
+      "from": 119,
+      "to": 7
+    },
+    {
+      "from": 120,
+      "to": 87
+    },
+    {
+      "from": 120,
+      "to": 7
+    },
+    {
+      "from": 121,
+      "to": 88
+    },
+    {
+      "from": 121,
+      "to": 7
+    },
+    {
+      "from": 122,
+      "to": 95
+    },
+    {
+      "from": 122,
+      "to": 7
+    },
+    {
+      "from": 123,
+      "to": 88
+    },
+    {
+      "from": 123,
+      "to": 7
+    },
+    {
+      "from": 124,
+      "to": 95
+    },
+    {
+      "from": 124,
+      "to": 7
+    },
+    {
+      "from": 125,
+      "to": 91
+    },
+    {
+      "from": 125,
+      "to": 7
+    },
+    {
+      "from": 126,
+      "to": 92
+    },
+    {
+      "from": 126,
+      "to": 7
+    },
+    {
+      "from": 127,
+      "to": 89
+    },
+    {
+      "from": 127,
+      "to": 7
+    },
+    {
+      "from": 128,
+      "to": 92
+    },
+    {
+      "from": 128,
+      "to": 7
+    },
+    {
+      "from": 129,
+      "to": 87
+    },
+    {
+      "from": 129,
+      "to": 7
+    },
+    {
+      "from": 130,
+      "to": 88
+    },
+    {
+      "from": 130,
+      "to": 7
+    },
+    {
+      "from": 131,
+      "to": 94
+    },
+    {
+      "from": 131,
+      "to": 7
+    },
+    {
+      "from": 132,
+      "to": 89
+    },
+    {
+      "from": 132,
+      "to": 7
+    },
+    {
+      "from": 133,
+      "to": 96
+    },
+    {
+      "from": 133,
+      "to": 7
+    },
+    {
+      "from": 134,
+      "to": 92
+    },
+    {
+      "from": 134,
+      "to": 7
+    },
+    {
+      "from": 135,
+      "to": 91
+    },
+    {
+      "from": 135,
+      "to": 7
+    },
+    {
+      "from": 136,
+      "to": 87
+    },
+    {
+      "from": 136,
+      "to": 7
+    },
+    {
+      "from": 137,
+      "to": 88
+    },
+    {
+      "from": 137,
+      "to": 7
+    },
+    {
+      "from": 138,
+      "to": 87
+    },
+    {
+      "from": 138,
+      "to": 7
+    },
+    {
+      "from": 139,
+      "to": 89
+    },
+    {
+      "from": 139,
+      "to": 7
+    },
+    {
+      "from": 140,
+      "to": 95
+    },
+    {
+      "from": 140,
+      "to": 7
+    },
+    {
+      "from": 141,
+      "to": 91
+    },
+    {
+      "from": 141,
+      "to": 7
+    },
+    {
+      "from": 142,
+      "to": 92
+    },
+    {
+      "from": 142,
+      "to": 7
+    },
+    {
+      "from": 143,
+      "to": 96
+    },
+    {
+      "from": 143,
+      "to": 7
+    },
+    {
+      "from": 144,
+      "to": 92
+    },
+    {
+      "from": 144,
+      "to": 7
+    },
+    {
+      "from": 145,
+      "to": 94
+    },
+    {
+      "from": 145,
+      "to": 7
+    },
+    {
+      "from": 146,
+      "to": 95
+    },
+    {
+      "from": 146,
+      "to": 7
+    },
+    {
+      "from": 147,
+      "to": 7
+    },
+    {
+      "from": 147,
+      "to": 97
+    },
+    {
+      "from": 148,
+      "to": 147
+    },
+    {
+      "from": 148,
+      "to": 20
+    },
+    {
+      "from": 149,
+      "to": 7
+    },
+    {
+      "from": 149,
+      "to": 20
+    },
+    {
+      "from": 150,
+      "to": 147
+    },
+    {
+      "from": 151,
+      "to": 150
+    },
+    {
+      "from": 152,
+      "to": 1
+    },
+    {
+      "from": 152,
+      "to": 19
+    },
+    {
+      "from": 153,
+      "to": 152
+    },
+    {
+      "from": 153,
+      "to": 5
+    },
+    {
+      "from": 154,
+      "to": 152
+    },
+    {
+      "from": 155,
+      "to": 152
+    },
+    {
+      "from": 156,
+      "to": 154
+    },
+    {
+      "from": 156,
+      "to": 155
+    },
+    {
+      "from": 157,
+      "to": 154
+    },
+    {
+      "from": 158,
+      "to": 157
+    },
+    {
+      "from": 159,
+      "to": 158
+    },
+    {
+      "from": 159,
+      "to": 128
+    },
+    {
+      "from": 160,
+      "to": 158
+    },
+    {
+      "from": 160,
+      "to": 101
+    },
+    {
+      "from": 161,
+      "to": 158
+    },
+    {
+      "from": 161,
+      "to": 109
+    },
+    {
+      "from": 162,
+      "to": 158
+    },
+    {
+      "from": 162,
+      "to": 139
+    },
+    {
+      "from": 163,
+      "to": 158
+    },
+    {
+      "from": 163,
+      "to": 99
+    },
+    {
+      "from": 164,
+      "to": 1
+    },
+    {
+      "from": 164,
+      "to": 8
+    },
+    {
+      "from": 165,
+      "to": 164
+    },
+    {
+      "from": 165,
+      "to": 25
+    },
+    {
+      "from": 166,
+      "to": 165
+    },
+    {
+      "from": 166,
+      "to": 68
+    },
+    {
+      "from": 167,
+      "to": 166
+    },
+    {
+      "from": 167,
+      "to": 88
+    },
+    {
+      "from": 168,
+      "to": 166
+    },
+    {
+      "from": 168,
+      "to": 37
+    },
+    {
+      "from": 169,
+      "to": 166
+    },
+    {
+      "from": 169,
+      "to": 87
+    },
+    {
+      "from": 170,
+      "to": 166
+    },
+    {
+      "from": 170,
+      "to": 94
+    },
+    {
+      "from": 171,
+      "to": 165
+    },
+    {
+      "from": 171,
+      "to": 37
+    },
+    {
+      "from": 172,
+      "to": 164
+    },
+    {
+      "from": 172,
+      "to": 24
+    },
+    {
+      "from": 173,
+      "to": 164
+    },
+    {
+      "from": 173,
+      "to": 139
+    },
+    {
+      "from": 174,
+      "to": 164
+    },
+    {
+      "from": 174,
+      "to": 90
+    },
+    {
+      "from": 175,
+      "to": 164
+    },
+    {
+      "from": 175,
+      "to": 62
+    },
+    {
+      "from": 176,
+      "to": 164
+    },
+    {
+      "from": 176,
+      "to": 158
+    },
+    {
+      "from": 177,
+      "to": 176
+    },
+    {
+      "from": 177,
+      "to": 154
+    },
+    {
+      "from": 178,
+      "to": 177
+    },
+    {
+      "from": 178,
+      "to": 101
+    },
+    {
+      "from": 179,
+      "to": 1
+    },
+    {
+      "from": 179,
+      "to": 19
+    },
+    {
+      "from": 180,
+      "to": 179
+    },
+    {
+      "from": 180,
+      "to": 158
+    },
+    {
+      "from": 181,
+      "to": 179
+    },
+    {
+      "from": 182,
+      "to": 179
+    },
+    {
+      "from": 182,
+      "to": 158
+    },
+    {
+      "from": 183,
+      "to": 179
+    },
+    {
+      "from": 183,
+      "to": 62
+    },
+    {
+      "from": 184,
+      "to": 8
+    },
+    {
+      "from": 184,
+      "to": 164
+    },
+    {
+      "from": 185,
+      "to": 184
+    },
+    {
+      "from": 185,
+      "to": 146
+    },
+    {
+      "from": 186,
+      "to": 184
+    },
+    {
+      "from": 186,
+      "to": 99
+    },
+    {
+      "from": 186,
+      "to": 44
+    },
+    {
+      "from": 187,
+      "to": 184
+    },
+    {
+      "from": 187,
+      "to": 101
+    },
+    {
+      "from": 188,
+      "to": 184
+    },
+    {
+      "from": 188,
+      "to": 138
+    },
+    {
+      "from": 189,
+      "to": 19
+    },
+    {
+      "from": 189,
+      "to": 9
+    },
+    {
+      "from": 190,
+      "to": 189
+    },
+    {
+      "from": 190,
+      "to": 128
+    },
+    {
+      "from": 191,
+      "to": 189
+    },
+    {
+      "from": 191,
+      "to": 137
+    },
+    {
+      "from": 192,
+      "to": 189
+    },
+    {
+      "from": 192,
+      "to": 101
+    },
+    {
+      "from": 193,
+      "to": 85
+    },
+    {
+      "from": 193,
+      "to": 152
+    },
+    {
+      "from": 194,
+      "to": 193
+    },
+    {
+      "from": 194,
+      "to": 19
+    },
+    {
+      "from": 195,
+      "to": 152
+    },
+    {
+      "from": 195,
+      "to": 158
+    },
+    {
+      "from": 196,
+      "to": 152
+    },
+    {
+      "from": 196,
+      "to": 195
+    },
+    {
+      "from": 197,
+      "to": 164
+    },
+    {
+      "from": 197,
+      "to": 176
+    },
+    {
+      "from": 198,
+      "to": 197
+    },
+    {
+      "from": 198,
+      "to": 183
+    },
+    {
+      "from": 199,
+      "to": 164
+    },
+    {
+      "from": 199,
+      "to": 197
+    },
+    {
+      "from": 200,
+      "to": 199
+    },
+    {
+      "from": 200,
+      "to": 184
+    }
+  ]
+}
