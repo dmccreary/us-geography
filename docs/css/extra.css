@@ -1,0 +1,33 @@
+/* Custom theme colors */
+:root {
+  --md-primary-fg-color: #1565c0;
+  --md-primary-fg-color--light: #5e92c7;
+  --md-primary-fg-color--dark: #003c8f;
+  --md-accent-fg-color: #2e7d32;
+}
+
+/* Primary color for Material theme */
+[data-md-color-primary="custom"] {
+  --md-primary-fg-color: #1565c0;
+  --md-primary-fg-color--light: #5e92c7;
+  --md-primary-fg-color--dark: #003c8f;
+}
+
+/* Link colors */
+.md-typeset a {
+  color: var(--md-primary-fg-color);
+}
+
+.md-typeset a:hover {
+  color: var(--md-accent-fg-color);
+}
+
+/* Code block styling */
+.md-typeset code {
+  background-color: #f5f5f5;
+}
+
+/* Navigation styling */
+.md-nav__link--active {
+  font-weight: bold;
+}

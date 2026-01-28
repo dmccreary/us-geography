@@ -1,0 +1,76 @@
+site_name: US Geography
+site_description: An intelligent textbook for learning US Geography
+site_author: Dan McCreary
+repo_name: GitHub
+repo_url: https://github.com/dmccreary/us-geography
+site_url: https://dmccreary.github.io/us-geography/
+edit_uri: edit/main/docs/
+
+nav:
+  - Home: index.md
+  - About: about.md
+  - Course Description: course-description.md
+  - Chapters:
+    - chapters/index.md
+    - Introduction: chapters/01-introduction/index.md
+    - Getting Started: chapters/02-getting-started/index.md
+    - Core Concepts: chapters/03-core-concepts/index.md
+  - MicroSims:
+    - sims/index.md
+  - Learning Graph:
+    - learning-graph/index.md
+  - Glossary: glossary.md
+  - Contact: contact.md
+  - License: license.md
+
+theme:
+  name: material
+  logo: img/logo.png
+  favicon: img/favicon.ico
+  palette:
+    primary: custom
+  features:
+    - content.code.copy
+    - navigation.expand
+    - navigation.path
+    - navigation.prune
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    - search.suggest
+    - search.highlight
+  custom_dir: docs/overrides
+
+extra_css:
+  - css/extra.css
+
+extra:
+  analytics:
+    provider: google
+    property: G-XXXXXXXXXX
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - toc:
+      permalink: true
