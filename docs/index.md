@@ -6,7 +6,7 @@ hide:
 # Welcome to US Geography
 
 
-![](./img/logo.png)
+![](./img/logo.png){ width="500px"}
 
 An intelligent textbook for learning US Geography.
 

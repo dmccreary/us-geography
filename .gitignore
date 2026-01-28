@@ -1,0 +1,11 @@
+# MkDocs build output
+site/
+
+# MkDocs cache
+.cache/
+
+# OS files
+.DS_Store
+
+# Microsoft Office temporary files
+~$*
