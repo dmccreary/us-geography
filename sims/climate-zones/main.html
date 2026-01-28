@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US Climate Zones</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>US Climate Zones</h2>
+    <div class="subtitle">Different climates across America</div>
+
+    <div id="map"></div>
+
+    <div class="controls-container">
+        <button id="quizBtn" class="control-btn">Quiz Me!</button>
+        <button id="resetBtn" class="control-btn">Reset View</button>
+    </div>
+
+    <div id="quizPanel" class="quiz-panel hidden">
+        <div class="quiz-header">
+            <div class="quiz-progress" id="quizProgress">Question 1 of 5</div>
+            <div class="stars-display" id="starsDisplay"></div>
+        </div>
+        <div class="quiz-question" id="quizQuestion"></div>
+        <div class="quiz-options" id="quizOptions"></div>
+        <div class="quiz-feedback" id="quizFeedback"></div>
+    </div>
+
+    <div class="legend-container">
+        <div class="legend-title">Climate Zones</div>
+        <div class="legend-items">
+            <div class="legend-item"><i style="background: #1565C0;"></i> Subarctic</div>
+            <div class="legend-item"><i style="background: #42A5F5;"></i> Humid Continental</div>
+            <div class="legend-item"><i style="background: #66BB6A;"></i> Humid Subtropical</div>
+            <div class="legend-item"><i style="background: #FFA726;"></i> Semi-Arid</div>
+            <div class="legend-item"><i style="background: #EF5350;"></i> Desert</div>
+            <div class="legend-item"><i style="background: #7E57C2;"></i> Mediterranean</div>
+            <div class="legend-item"><i style="background: #26A69A;"></i> Marine West Coast</div>
+            <div class="legend-item"><i style="background: #EC407A;"></i> Tropical</div>
+        </div>
+    </div>
+
+    <div class="hover-instruction">Click on a region to learn about its climate</div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

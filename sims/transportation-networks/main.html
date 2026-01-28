@@ -3,19 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>US Population Density</title>
+    <title>US Transportation Networks</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>US Population Density</h2>
-    <div class="subtitle">Where Americans Live - People per Square Mile</div>
+    <h2>US Transportation Networks</h2>
+    <div class="subtitle">Highways, Railroads, Airports, and Ports</div>
 
     <div id="map"></div>
 
     <div class="controls-container">
-        <button id="statesBtn" class="control-btn active">By State</button>
-        <button id="citiesBtn" class="control-btn">Major Cities</button>
+        <button id="allBtn" class="control-btn active">All</button>
+        <button id="highwayBtn" class="control-btn">Highways</button>
+        <button id="railBtn" class="control-btn">Railroads</button>
+        <button id="airBtn" class="control-btn">Airports</button>
+        <button id="portBtn" class="control-btn">Ports</button>
         <button id="quizBtn" class="control-btn">Quiz Me!</button>
         <button id="resetBtn" class="control-btn">Reset</button>
     </div>
@@ -31,20 +34,16 @@
     </div>
 
     <div class="legend-container">
-        <div class="legend-title">Population Density (people/sq mi)</div>
-        <div class="legend-scale">
-            <div class="legend-bar"></div>
-            <div class="legend-labels">
-                <span>&lt; 50</span>
-                <span>100</span>
-                <span>200</span>
-                <span>500</span>
-                <span>1000+</span>
-            </div>
+        <div class="legend-title">Transportation Types</div>
+        <div class="legend-items">
+            <div class="legend-item"><i style="background: #E53935;"></i> Interstate Highways</div>
+            <div class="legend-item"><i style="background: #5D4037;"></i> Railroads</div>
+            <div class="legend-item"><span class="icon">✈</span> Airports</div>
+            <div class="legend-item"><span class="icon">⚓</span> Ports</div>
         </div>
     </div>
 
-    <div class="hover-instruction">Click on states and cities to learn more</div>
+    <div class="hover-instruction">Click on transportation hubs to learn more</div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="script.js"></script>
