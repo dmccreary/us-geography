@@ -12,9 +12,18 @@ nav:
   - Course Description: course-description.md
   - Chapters:
     - chapters/index.md
-    - Introduction: chapters/01-introduction/index.md
-    - Getting Started: chapters/02-getting-started/index.md
-    - Core Concepts: chapters/03-core-concepts/index.md
+    - 1. Introduction to Geography: chapters/01-introduction-to-geography/index.md
+    - 2. Maps and Navigation: chapters/02-maps-and-navigation/index.md
+    - 3. Physical Features: chapters/03-physical-features/index.md
+    - 4. Water Features: chapters/04-water-features/index.md
+    - 5. Climate and Weather: chapters/05-climate-and-weather/index.md
+    - 6. States Northeast/Southeast: chapters/06-states-northeast-southeast/index.md
+    - 7. States Midwest/Southwest: chapters/07-states-midwest-southwest/index.md
+    - 8. States West/Territories: chapters/08-states-west-territories/index.md
+    - 9. Regions and Boundaries: chapters/09-regions-and-boundaries/index.md
+    - 10. Human Geography: chapters/10-human-geography/index.md
+    - 11. Economy and Transportation: chapters/11-economy-and-transportation/index.md
+    - 12. Landmarks and Culture: chapters/12-landmarks-and-culture/index.md
   - MicroSims:
     - sims/index.md
     - Graph Viewer: sims/graph-viewer/index.md
