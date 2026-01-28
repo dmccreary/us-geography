@@ -132,7 +132,7 @@ The compass rose helps you orient yourself on a map. The "N" always points towar
 
 #### Diagram: Interactive Compass Rose
 
-<iframe src="../../sims/compass-rose/main.html" width="100%" height="400px" scrolling="no" style="border: 1px solid #ccc; border-radius: 8px;"></iframe>
+<iframe src="../../sims/compass-rose/main.html" width="100%" height="602px" scrolling="no" style="border: 1px solid #ccc; border-radius: 8px;"></iframe>
 
 <details markdown="1">
 <summary>Interactive Compass Rose MicroSim</summary>
@@ -156,7 +156,7 @@ Interactive Controls:
 
 Canvas Layout:
 - Width: responsive
-- Height: 350px
+- Height: 480px
 - Compass rose centered with landmarks around edges
 
 Default Parameters:
@@ -171,7 +171,7 @@ Behavior:
 
 Instructional Rationale: Combining flashcard-style recall with visual landmarks helps students remember directions through multiple associations rather than rote memorization.
 
-Implementation: p5.js with click detection on direction regions
+
 </details>
 
 ## Map Scale

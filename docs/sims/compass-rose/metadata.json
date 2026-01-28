@@ -1,0 +1,67 @@
+{
+  "title": "Interactive Compass Rose",
+  "description": "An interactive compass rose simulation where students identify and apply cardinal and intermediate directions through explore and quiz modes with landmark associations.",
+  "creator": "Claude AI",
+  "subject": ["Geography", "Map Skills", "Directions"],
+  "date": "2026-01-28",
+  "type": "Interactive Simulation",
+  "format": "text/html",
+  "language": "en",
+  "rights": "CC BY 4.0",
+  "gradeLevel": "Elementary (K-5)",
+  "subjectArea": "Geography",
+  "topic": "Cardinal and Intermediate Directions",
+  "learningObjectives": [
+    "Identify all eight compass directions (N, NE, E, SE, S, SW, W, NW)",
+    "Name the four cardinal and four intermediate directions",
+    "Locate directions on a compass rose",
+    "Apply directional knowledge using landmark associations"
+  ],
+  "bloomsTaxonomy": ["Remember", "Apply"],
+  "duration": "10-15 minutes",
+  "prerequisites": "None - foundational geography concept",
+  "framework": "p5.js",
+  "canvasDimensions": "responsive × 530",
+  "responsive": "Width-responsive",
+  "dependencies": ["p5.js 1.11.10"],
+  "accessibility": {
+    "screenReaderSupport": true,
+    "description": "Interactive compass rose with 8 directions. Explore mode shows landmarks, Quiz mode tests direction knowledge."
+  },
+  "controls": [
+    {
+      "type": "button",
+      "label": "Explore",
+      "description": "Switch to explore mode - click directions to learn about them"
+    },
+    {
+      "type": "button",
+      "label": "Quiz",
+      "description": "Switch to quiz mode - test direction knowledge"
+    }
+  ],
+  "parameters": [
+    {
+      "name": "mode",
+      "type": "string",
+      "default": "explore",
+      "options": ["explore", "quiz"],
+      "description": "Current interaction mode"
+    },
+    {
+      "name": "score",
+      "type": "integer",
+      "default": 0,
+      "description": "Number of correct quiz answers"
+    }
+  ],
+  "modelType": "Educational game/flashcard",
+  "assumptions": [
+    "North is at the top of the compass rose (standard map orientation)",
+    "Landmarks are simplified representations for learning associations"
+  ],
+  "limitations": [
+    "Does not include all 16 or 32 compass points",
+    "Landmarks are fictional associations for memory, not real locations"
+  ]
+}

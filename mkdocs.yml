@@ -27,6 +27,8 @@ nav:
   - MicroSims:
     - sims/index.md
     - Bird's Eye View: sims/birds-eye-view/index.md
+    - Compass Rose: sims/compass-rose/index.md
+    - Hemispheres Globe: sims/hemispheres-globe/index.md
     - Graph Viewer: sims/graph-viewer/index.md
   - Learning Graph:
     - Introduction: learning-graph/index.md
@@ -91,6 +93,8 @@ markdown_extensions:
   - tables
   - toc:
       permalink: true
+
+copyright: Copyright &copy; 2025, 2026 Dan McCreary. Licensed under <a href="license/">CC BY-NC-SA 4.0</a> for non-commercial use.
 
 extra_css:
   - css/extra.css

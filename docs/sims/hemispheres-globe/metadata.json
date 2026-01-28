@@ -1,0 +1,44 @@
+{
+    "title": "Earth's Hemispheres Interactive Globe",
+    "description": "Interactive world map showing how the Earth is divided into four hemispheres by the Equator and Prime Meridian",
+    "creator": "Claude AI",
+    "created": "2026-01-28",
+    "modified": "2026-01-28",
+    "version": "1.0",
+    "license": "CC BY-NC-SA 4.0",
+    "format": "Leaflet.js MicroSim",
+    "language": "en",
+    "subject": ["Geography", "Hemispheres", "Earth Science"],
+    "educationLevel": ["Grade 3", "Grade 4", "Grade 5", "Grade 6"],
+    "learningObjective": "Students will identify and explain the four hemispheres and how they divide the Earth",
+    "bloomLevel": "Understand",
+    "bloomVerbs": ["identify", "explain", "classify"],
+    "mapType": "interactive overlay",
+    "interactivityType": "Click-to-highlight",
+    "typicalLearningTime": "PT15M",
+    "technicalRequirements": {
+        "browser": "Modern web browser with JavaScript enabled",
+        "libraries": ["Leaflet.js 1.9.4"]
+    },
+    "concepts": [
+        "Hemispheres",
+        "Equator",
+        "Prime Meridian",
+        "Northern Hemisphere",
+        "Southern Hemisphere",
+        "Eastern Hemisphere",
+        "Western Hemisphere",
+        "United States Location"
+    ],
+    "dependencies": ["leaflet.js"],
+    "keywords": [
+        "hemispheres",
+        "equator",
+        "prime meridian",
+        "geography",
+        "world map",
+        "latitude",
+        "longitude",
+        "elementary education"
+    ]
+}
