@@ -6,6 +6,15 @@
 - Leaflet.js provides built-in map tiles, zoom/pan controls, markers, and geographic coordinate handling
 - Reference: `/Users/dan/Documents/ws/claude-skills/skills/microsim-generator/references/map-guide.md`
 
+## Map Boundaries
+
+- **Always use high-quality Natural Earth GeoJSON** for country/state boundaries instead of hand-drawn simplified polygons
+- Natural Earth 110m scale provides good detail with reasonable file sizes
+- GeoJSON source: `https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/`
+  - Countries: `ne_110m_admin_0_countries.geojson`
+  - US States: `ne_110m_admin_1_states_provinces.geojson`
+- Never create coarse hand-drawn coordinate arrays for geographic boundaries
+
 ## MicroSim Controls
 
 - For p5.js MicroSims, always use canvas-based controls (draw buttons/sliders directly on the canvas using rect(), text(), etc. and handle interaction in mousePressed()/mouseDragged())

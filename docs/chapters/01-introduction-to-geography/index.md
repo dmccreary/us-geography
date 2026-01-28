@@ -349,7 +349,7 @@ Behavior:
 
 Instructional Rationale: Interactive exploration with immediate feedback helps students build mental maps of geographic relationships. The quiz mode reinforces learning through retrieval practice.
 
-Implementation: p5.js with SVG-style paths for country shapes
+Implementation: microsim generator using the map guide leaflet
 </details>
 
 ## US Borders

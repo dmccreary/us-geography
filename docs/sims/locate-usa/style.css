@@ -1,0 +1,393 @@
+/* Locate USA MicroSim Stylesheet
+ * ================================
+ * Interactive map showing US position in North America
+ */
+
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    background: aliceblue;
+}
+
+/* Title & Subtitle */
+h2 {
+    text-align: center;
+    margin: 8px 0 4px 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+/* Map Container */
+#map {
+    width: 100%;
+    height: 320px;
+}
+
+/* Info Panel (Hover Details) */
+.info {
+    padding: 8px 12px;
+    font-size: 13px;
+    background: white;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    max-width: 280px;
+    min-width: 180px;
+}
+
+.info h4 {
+    margin: 0 0 6px;
+    color: #333;
+    font-size: 15px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 4px;
+}
+
+.info p {
+    color: #555;
+    font-size: 12px;
+    margin: 4px 0;
+    line-height: 1.4;
+}
+
+.info .highlight {
+    color: steelblue;
+    font-weight: bold;
+}
+
+/* Controls Container */
+.controls-container {
+    background: white;
+    padding: 8px 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border-top: 1px solid #ddd;
+}
+
+.control-btn {
+    padding: 6px 14px;
+    font-size: 12px;
+    border: 2px solid steelblue;
+    background: white;
+    color: steelblue;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.control-btn:hover {
+    background: steelblue;
+    color: white;
+}
+
+.control-btn.active {
+    background: steelblue;
+    color: white;
+}
+
+.score-display {
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: bold;
+    color: forestgreen;
+    background: #e8f5e9;
+    border-radius: 4px;
+}
+
+/* Quiz Panel */
+.quiz-panel {
+    background: white;
+    padding: 12px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+
+.quiz-panel.hidden {
+    display: none;
+}
+
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    padding: 0 10px;
+}
+
+.quiz-progress {
+    font-size: 12px;
+    font-weight: bold;
+    color: steelblue;
+}
+
+.stars-display {
+    display: flex;
+    gap: 4px;
+}
+
+.gold-star {
+    font-size: 20px;
+    color: gold;
+    text-shadow: 0 0 3px orange;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.3s ease-out;
+}
+
+.gold-star.animated {
+    opacity: 1;
+    transform: scale(1);
+    animation: starPop 0.4s ease-out;
+}
+
+@keyframes starPop {
+    0% { transform: scale(0) rotate(-180deg); opacity: 0; }
+    50% { transform: scale(1.3) rotate(0deg); opacity: 1; }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.quiz-question {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.quiz-options {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.quiz-option {
+    padding: 8px 16px;
+    font-size: 12px;
+    border: 2px solid #ccc;
+    background: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.quiz-option:hover {
+    border-color: steelblue;
+    background: aliceblue;
+}
+
+.quiz-option.correct {
+    border-color: forestgreen;
+    background: #e8f5e9;
+    color: forestgreen;
+}
+
+.quiz-option.incorrect {
+    border-color: crimson;
+    background: #ffebee;
+    color: crimson;
+}
+
+.quiz-feedback {
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: bold;
+    min-height: 20px;
+}
+
+.quiz-feedback.correct {
+    color: forestgreen;
+}
+
+.quiz-feedback.incorrect {
+    color: crimson;
+}
+
+/* Legend */
+.legend-container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 6px 12px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+
+.legend-title {
+    font-size: 11px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.legend-items {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+    color: #555;
+}
+
+.legend-item i {
+    width: 16px;
+    height: 12px;
+    margin-right: 4px;
+    display: inline-block;
+    border-radius: 2px;
+}
+
+/* Hover Instruction */
+.hover-instruction {
+    text-align: center;
+    font-size: 11px;
+    color: #888;
+    padding: 4px;
+    font-style: italic;
+}
+
+/* Alaska and Hawaii Insets */
+.inset-label {
+    font-size: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Marker Popups */
+.leaflet-popup-content-wrapper {
+    border-radius: 8px;
+}
+
+.leaflet-popup-content {
+    margin: 10px 12px;
+    font-size: 13px;
+}
+
+/* Celebration Animation */
+.celebration-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.exploding-star {
+    position: absolute;
+    font-size: 24px;
+    animation: explode 1.5s ease-out forwards;
+    text-shadow: 0 0 10px currentColor;
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5) rotate(180deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.5) rotate(360deg) translateY(-100px);
+        opacity: 0;
+    }
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    h2 {
+        font-size: 16px;
+        margin: 6px 0 3px 0;
+    }
+
+    .subtitle {
+        font-size: 11px;
+        margin-bottom: 6px;
+    }
+
+    #map {
+        height: 280px;
+    }
+
+    .info {
+        max-width: 220px;
+        font-size: 11px;
+        padding: 6px 10px;
+    }
+
+    .info h4 {
+        font-size: 13px;
+    }
+
+    .controls-container {
+        padding: 6px 8px;
+        gap: 6px;
+    }
+
+    .control-btn {
+        padding: 5px 10px;
+        font-size: 11px;
+    }
+
+    .quiz-header {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .quiz-progress {
+        font-size: 11px;
+    }
+
+    .gold-star {
+        font-size: 16px;
+    }
+
+    .quiz-question {
+        font-size: 13px;
+    }
+
+    .quiz-option {
+        padding: 6px 12px;
+        font-size: 11px;
+    }
+
+    .legend-container {
+        padding: 4px 8px;
+    }
+
+    .legend-title {
+        font-size: 10px;
+    }
+
+    .legend-item {
+        font-size: 9px;
+    }
+
+    .legend-item i {
+        width: 14px;
+        height: 10px;
+    }
+}
