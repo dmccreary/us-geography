@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US Rivers and Lakes</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Rivers and Lakes of the United States</h2>
+    <div class="subtitle">Major water features across America</div>
+
+    <div id="map"></div>
+
+    <div class="controls-container">
+        <button id="showRiversBtn" class="control-btn active">Rivers</button>
+        <button id="showLakesBtn" class="control-btn active">Lakes</button>
+        <button id="quizBtn" class="control-btn">Quiz Me!</button>
+        <button id="resetBtn" class="control-btn">Reset</button>
+    </div>
+
+    <div id="quizPanel" class="quiz-panel hidden">
+        <div class="quiz-header">
+            <div class="quiz-progress" id="quizProgress">Question 1 of 6</div>
+            <div class="stars-display" id="starsDisplay"></div>
+        </div>
+        <div class="quiz-question" id="quizQuestion"></div>
+        <div class="quiz-options" id="quizOptions"></div>
+        <div class="quiz-feedback" id="quizFeedback"></div>
+    </div>
+
+    <div class="legend-container">
+        <div class="legend-items">
+            <div class="legend-item"><i class="river-icon"></i> Rivers</div>
+            <div class="legend-item"><i class="lake-icon"></i> Great Lakes</div>
+            <div class="legend-item"><i class="ocean-icon"></i> Oceans/Gulf</div>
+        </div>
+    </div>
+
+    <div class="hover-instruction">Click on water features to learn more</div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

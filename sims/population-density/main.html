@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US Population Density</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>US Population Density</h2>
+    <div class="subtitle">People per square mile by state</div>
+
+    <div id="map"></div>
+
+    <div class="legend-container">
+        <div class="legend-title">Population Density (people/sq mi)</div>
+        <div class="legend-scale">
+            <div class="legend-item"><i style="background: #ffffcc;"></i> 0-25 (Rural)</div>
+            <div class="legend-item"><i style="background: #c2e699;"></i> 25-100</div>
+            <div class="legend-item"><i style="background: #78c679;"></i> 100-250</div>
+            <div class="legend-item"><i style="background: #31a354;"></i> 250-500</div>
+            <div class="legend-item"><i style="background: #006837;"></i> 500+ (Urban)</div>
+        </div>
+    </div>
+
+    <div class="hover-instruction">Hover over a state to see population data</div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

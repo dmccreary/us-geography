@@ -1,0 +1,19 @@
+{
+  "title": "US Precipitation Map",
+  "description": "Interactive choropleth map showing average annual precipitation by state",
+  "creator": "Claude AI",
+  "date": "2026-01-28",
+  "version": "1.0",
+  "format": "MicroSim HTML/JavaScript",
+  "rights": "CC BY-NC-SA 4.0",
+  "subject": ["Geography", "Climate", "Precipitation"],
+  "keywords": ["precipitation", "rainfall", "climate", "US states", "choropleth"],
+  "language": "en",
+  "audience": "K-12 Students",
+  "educationalLevel": "Elementary School (Grades 3-5)",
+  "interactivityType": "active",
+  "learningResourceType": "simulation",
+  "technicalRequirements": "Modern web browser with JavaScript enabled",
+  "dependencies": ["leaflet.js"],
+  "concepts": ["Precipitation", "Climate Definition", "Thematic Maps"]
+}

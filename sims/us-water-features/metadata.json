@@ -1,0 +1,19 @@
+{
+  "title": "US Rivers and Lakes",
+  "description": "Interactive map showing major rivers and Great Lakes of the United States",
+  "creator": "Claude AI",
+  "date": "2026-01-28",
+  "version": "1.0",
+  "format": "MicroSim HTML/JavaScript",
+  "rights": "CC BY-NC-SA 4.0",
+  "subject": ["Geography", "Water Features", "Rivers", "Lakes"],
+  "keywords": ["rivers", "lakes", "Great Lakes", "Mississippi", "water features"],
+  "language": "en",
+  "audience": "K-12 Students",
+  "educationalLevel": "Elementary School (Grades 3-5)",
+  "interactivityType": "active",
+  "learningResourceType": "simulation",
+  "technicalRequirements": "Modern web browser with JavaScript enabled",
+  "dependencies": ["leaflet.js"],
+  "concepts": ["Rivers", "Lakes", "Water Features", "Physical Maps"]
+}

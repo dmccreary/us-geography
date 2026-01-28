@@ -1,0 +1,19 @@
+{
+  "title": "Great Lakes System",
+  "description": "Interactive map of the five Great Lakes with facts and quiz mode",
+  "creator": "Claude AI",
+  "date": "2026-01-28",
+  "version": "1.0",
+  "format": "MicroSim HTML/JavaScript",
+  "rights": "CC BY-NC-SA 4.0",
+  "subject": ["Geography", "Water Features", "Great Lakes"],
+  "keywords": ["Great Lakes", "Superior", "Michigan", "Huron", "Erie", "Ontario", "freshwater"],
+  "language": "en",
+  "audience": "K-12 Students",
+  "educationalLevel": "Elementary School (Grades 3-5)",
+  "interactivityType": "active",
+  "learningResourceType": "simulation",
+  "technicalRequirements": "Modern web browser with JavaScript enabled",
+  "dependencies": ["leaflet.js"],
+  "concepts": ["Lakes", "Water Features", "US Borders"]
+}
