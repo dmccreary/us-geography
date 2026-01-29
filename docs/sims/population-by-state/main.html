@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US Population Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>US Population Map</h2>
+    <div class="subtitle">Population statistics by state</div>
+
+    <div id="map"></div>
+
+    <div class="controls-container">
+        <div class="toggle-group">
+            <button id="populationBtn" class="toggle-btn active">Total Population</button>
+            <button id="densityBtn" class="toggle-btn">Population Density</button>
+        </div>
+    </div>
+
+    <div class="legend-container">
+        <div id="legendTitle" class="legend-title">Population (millions)</div>
+        <div id="legendScale" class="legend-scale">
+            <div class="legend-item"><i style="background: #fee5d9;"></i> &lt;1M</div>
+            <div class="legend-item"><i style="background: #fcae91;"></i> 1-5M</div>
+            <div class="legend-item"><i style="background: #fb6a4a;"></i> 5-10M</div>
+            <div class="legend-item"><i style="background: #de2d26;"></i> 10-20M</div>
+            <div class="legend-item"><i style="background: #a50f15;"></i> 20M+</div>
+        </div>
+    </div>
+
+    <div class="hover-instruction">Hover over a state to see population data</div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

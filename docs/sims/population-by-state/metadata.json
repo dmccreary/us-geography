@@ -1,0 +1,19 @@
+{
+  "title": "US Population Map",
+  "description": "Interactive choropleth map showing total population and population density by state",
+  "creator": "Claude AI",
+  "date": "2026-01-29",
+  "version": "1.0",
+  "format": "MicroSim HTML/JavaScript",
+  "rights": "CC BY-NC-SA 4.0",
+  "subject": ["Geography", "Demographics", "Population"],
+  "keywords": ["population", "density", "demographics", "US states", "choropleth"],
+  "language": "en",
+  "audience": "K-12 Students",
+  "educationalLevel": "Elementary School (Grades 3-5)",
+  "interactivityType": "active",
+  "learningResourceType": "simulation",
+  "technicalRequirements": "Modern web browser with JavaScript enabled",
+  "dependencies": ["leaflet.js"],
+  "concepts": ["Population", "Population Density", "Thematic Maps"]
+}

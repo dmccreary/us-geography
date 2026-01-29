@@ -322,8 +322,6 @@ Here is a list of 50 kid-safe jokes and puns about the geography of the United S
 
 Here is a list of 50 kid-safe geography jokes and puns about the United States!
 
-### Geography Jokes & Puns of the U.S.A.
-
 1. What do you call a tiny island that belongs to the United States? A little “peace” of America! (Like a little piece of America)
 2. Why is the Mississippi River so well-informed? It’s been to a lot of states!
 3. What did Delaware? Her New Jersey!
