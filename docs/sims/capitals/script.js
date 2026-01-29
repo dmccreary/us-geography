@@ -170,12 +170,16 @@ async function initMap() {
         this.update();
         return this._div;
     };
-    info.update = function(state) {
+    info.update = function(state, showWhyHere = false) {
         if (state) {
-            this._div.innerHTML = `
+            let html = `
                 <h4>${state.name}</h4>
                 <p class="capital-name">Capital: ${state.capital}</p>
             `;
+            if (showWhyHere && state.whyHere) {
+                html += `<p class="why-here"><strong>Why here?</strong> ${state.whyHere}</p>`;
+            }
+            this._div.innerHTML = html;
         } else {
             this._div.innerHTML = '<p style="color: #888; font-style: italic;">Hover over a state</p>';
         }
@@ -222,7 +226,7 @@ async function loadStateBoundaries() {
                 layer.on('click', () => handleStateClick(stateName));
                 layer.on('mouseover', () => {
                     layer.setStyle({ fillOpacity: 0.6, weight: 2 });
-                    info.update(state);
+                    info.update(state, currentMode === 'study');
                 });
                 layer.on('mouseout', () => {
                     layer.setStyle({ fillOpacity: 0.4, weight: 1 });
@@ -277,11 +281,29 @@ function resetStateStyles() {
     });
 }
 
-function zoomToState(stateName) {
+function zoomToState(stateName, offsetLeft = false) {
     const statePolygon = statePolygons.find(sp => sp.state.name === stateName);
     if (statePolygon) {
         const bounds = statePolygon.polygon.getBounds();
-        map.fitBounds(bounds, { padding: [50, 50], maxZoom: 6 });
+
+        if (offsetLeft && currentMode === 'study') {
+            // In study mode, position state at 35% from left edge
+            // First fit bounds to get the right zoom level
+            map.fitBounds(bounds, { padding: [50, 50], maxZoom: 6, animate: false });
+
+            // Shift map center to the RIGHT so the state appears on the LEFT side
+            // (away from the infobox which is on the right)
+            const center = bounds.getCenter();
+            const mapWidth = map.getSize().x;
+            // Offset by 20% of map width to position state at ~35% from left
+            const offsetPixels = mapWidth * 0.20;
+            const offsetPoint = map.latLngToContainerPoint(center);
+            offsetPoint.x += offsetPixels;  // ADD to move center right, state appears left
+            const newCenter = map.containerPointToLatLng(offsetPoint);
+            map.setView(newCenter, map.getZoom());
+        } else {
+            map.fitBounds(bounds, { padding: [50, 50], maxZoom: 6 });
+        }
         highlightState(stateName, '#FFD700');
     }
 }
@@ -325,12 +347,26 @@ function updateStudyDisplay() {
     document.getElementById('studyState').textContent = state.name;
     document.getElementById('studyCapital').textContent = state.capital;
 
-    // Highlight and zoom to state
+    // Show "Why Here?" explanation
+    const whyHereEl = document.getElementById('studyWhyHere');
+    if (state.whyHere) {
+        whyHereEl.innerHTML = `<strong>Why here?</strong> ${state.whyHere}`;
+        whyHereEl.style.display = 'block';
+    } else {
+        whyHereEl.style.display = 'none';
+    }
+
+    // Highlight and zoom to state (offset left in study mode)
     resetStateStyles();
-    zoomToState(state.name);
+    zoomToState(state.name, true);
 
     // Show capital marker
     showCapitalMarker(state);
+
+    // Auto-update info panel in study mode
+    if (info) {
+        info.update(state, true);
+    }
 }
 
 function showCapitalMarker(state) {

@@ -1,54 +1,404 @@
 {
     "states": [
-        { "name": "Alabama", "abbr": "AL", "capital": "Montgomery", "lat": 32.377, "lng": -86.300 },
-        { "name": "Alaska", "abbr": "AK", "capital": "Juneau", "lat": 58.302, "lng": -134.420 },
-        { "name": "Arizona", "abbr": "AZ", "capital": "Phoenix", "lat": 33.448, "lng": -112.074 },
-        { "name": "Arkansas", "abbr": "AR", "capital": "Little Rock", "lat": 34.746, "lng": -92.290 },
-        { "name": "California", "abbr": "CA", "capital": "Sacramento", "lat": 38.576, "lng": -121.494 },
-        { "name": "Colorado", "abbr": "CO", "capital": "Denver", "lat": 39.739, "lng": -104.990 },
-        { "name": "Connecticut", "abbr": "CT", "capital": "Hartford", "lat": 41.764, "lng": -72.685 },
-        { "name": "Delaware", "abbr": "DE", "capital": "Dover", "lat": 39.158, "lng": -75.524 },
-        { "name": "Florida", "abbr": "FL", "capital": "Tallahassee", "lat": 30.438, "lng": -84.281 },
-        { "name": "Georgia", "abbr": "GA", "capital": "Atlanta", "lat": 33.749, "lng": -84.388 },
-        { "name": "Hawaii", "abbr": "HI", "capital": "Honolulu", "lat": 21.307, "lng": -157.858 },
-        { "name": "Idaho", "abbr": "ID", "capital": "Boise", "lat": 43.618, "lng": -116.215 },
-        { "name": "Illinois", "abbr": "IL", "capital": "Springfield", "lat": 39.798, "lng": -89.654 },
-        { "name": "Indiana", "abbr": "IN", "capital": "Indianapolis", "lat": 39.768, "lng": -86.162 },
-        { "name": "Iowa", "abbr": "IA", "capital": "Des Moines", "lat": 41.591, "lng": -93.604 },
-        { "name": "Kansas", "abbr": "KS", "capital": "Topeka", "lat": 39.048, "lng": -95.678 },
-        { "name": "Kentucky", "abbr": "KY", "capital": "Frankfort", "lat": 38.187, "lng": -84.875 },
-        { "name": "Louisiana", "abbr": "LA", "capital": "Baton Rouge", "lat": 30.457, "lng": -91.187 },
-        { "name": "Maine", "abbr": "ME", "capital": "Augusta", "lat": 44.307, "lng": -69.782 },
-        { "name": "Maryland", "abbr": "MD", "capital": "Annapolis", "lat": 38.979, "lng": -76.491 },
-        { "name": "Massachusetts", "abbr": "MA", "capital": "Boston", "lat": 42.358, "lng": -71.064 },
-        { "name": "Michigan", "abbr": "MI", "capital": "Lansing", "lat": 42.733, "lng": -84.555 },
-        { "name": "Minnesota", "abbr": "MN", "capital": "Saint Paul", "lat": 44.944, "lng": -93.094 },
-        { "name": "Mississippi", "abbr": "MS", "capital": "Jackson", "lat": 32.303, "lng": -90.182 },
-        { "name": "Missouri", "abbr": "MO", "capital": "Jefferson City", "lat": 38.577, "lng": -92.173 },
-        { "name": "Montana", "abbr": "MT", "capital": "Helena", "lat": 46.586, "lng": -112.018 },
-        { "name": "Nebraska", "abbr": "NE", "capital": "Lincoln", "lat": 40.808, "lng": -96.700 },
-        { "name": "Nevada", "abbr": "NV", "capital": "Carson City", "lat": 39.164, "lng": -119.767 },
-        { "name": "New Hampshire", "abbr": "NH", "capital": "Concord", "lat": 43.207, "lng": -71.537 },
-        { "name": "New Jersey", "abbr": "NJ", "capital": "Trenton", "lat": 40.221, "lng": -74.756 },
-        { "name": "New Mexico", "abbr": "NM", "capital": "Santa Fe", "lat": 35.687, "lng": -105.938 },
-        { "name": "New York", "abbr": "NY", "capital": "Albany", "lat": 42.653, "lng": -73.757 },
-        { "name": "North Carolina", "abbr": "NC", "capital": "Raleigh", "lat": 35.780, "lng": -78.639 },
-        { "name": "North Dakota", "abbr": "ND", "capital": "Bismarck", "lat": 46.808, "lng": -100.784 },
-        { "name": "Ohio", "abbr": "OH", "capital": "Columbus", "lat": 39.961, "lng": -82.999 },
-        { "name": "Oklahoma", "abbr": "OK", "capital": "Oklahoma City", "lat": 35.473, "lng": -97.517 },
-        { "name": "Oregon", "abbr": "OR", "capital": "Salem", "lat": 44.938, "lng": -123.030 },
-        { "name": "Pennsylvania", "abbr": "PA", "capital": "Harrisburg", "lat": 40.264, "lng": -76.884 },
-        { "name": "Rhode Island", "abbr": "RI", "capital": "Providence", "lat": 41.824, "lng": -71.413 },
-        { "name": "South Carolina", "abbr": "SC", "capital": "Columbia", "lat": 34.000, "lng": -81.035 },
-        { "name": "South Dakota", "abbr": "SD", "capital": "Pierre", "lat": 44.368, "lng": -100.351 },
-        { "name": "Tennessee", "abbr": "TN", "capital": "Nashville", "lat": 36.166, "lng": -86.784 },
-        { "name": "Texas", "abbr": "TX", "capital": "Austin", "lat": 30.267, "lng": -97.743 },
-        { "name": "Utah", "abbr": "UT", "capital": "Salt Lake City", "lat": 40.759, "lng": -111.888 },
-        { "name": "Vermont", "abbr": "VT", "capital": "Montpelier", "lat": 44.260, "lng": -72.576 },
-        { "name": "Virginia", "abbr": "VA", "capital": "Richmond", "lat": 37.540, "lng": -77.436 },
-        { "name": "Washington", "abbr": "WA", "capital": "Olympia", "lat": 47.043, "lng": -122.893 },
-        { "name": "West Virginia", "abbr": "WV", "capital": "Charleston", "lat": 38.350, "lng": -81.633 },
-        { "name": "Wisconsin", "abbr": "WI", "capital": "Madison", "lat": 43.075, "lng": -89.384 },
-        { "name": "Wyoming", "abbr": "WY", "capital": "Cheyenne", "lat": 41.140, "lng": -104.820 }
+        {
+            "name": "Alabama",
+            "abbr": "AL",
+            "capital": "Montgomery",
+            "lat": 32.377,
+            "lng": -86.300,
+            "whyHere": "Montgomery sits at the head of navigation on the Alabama River, making it a key cotton shipping point. It became capital in 1846 as a central compromise between north and south Alabama interests."
+        },
+        {
+            "name": "Alaska",
+            "abbr": "AK",
+            "capital": "Juneau",
+            "lat": 58.302,
+            "lng": -134.420,
+            "whyHere": "Juneau became capital in 1906 during the gold rush era, replacing Sitka. Remarkably, you cannot drive to Juneau—it's only accessible by air or sea. Alaskans have voted multiple times on moving the capital but never followed through."
+        },
+        {
+            "name": "Arizona",
+            "abbr": "AZ",
+            "capital": "Phoenix",
+            "lat": 33.448,
+            "lng": -112.074,
+            "whyHere": "Phoenix became the territorial capital in 1889 due to its central location and the arrival of the railroad. Unlike most states, Arizona's capital is also its largest city, located in the fertile Salt River Valley."
+        },
+        {
+            "name": "Arkansas",
+            "abbr": "AR",
+            "capital": "Little Rock",
+            "lat": 34.746,
+            "lng": -92.290,
+            "whyHere": "Little Rock was chosen in 1821 for its central location on the Arkansas River. The name comes from a small rock formation on the riverbank that served as a landmark for travelers."
+        },
+        {
+            "name": "California",
+            "abbr": "CA",
+            "capital": "Sacramento",
+            "lat": 38.576,
+            "lng": -121.494,
+            "whyHere": "California's capital moved 4 times in 4 years before settling in Sacramento in 1854. The Gold Rush made Sacramento a major supply hub, and its location at the confluence of two rivers made it more central than coastal cities."
+        },
+        {
+            "name": "Colorado",
+            "abbr": "CO",
+            "capital": "Denver",
+            "lat": 39.739,
+            "lng": -104.990,
+            "whyHere": "Denver was founded during the 1858 Pike's Peak Gold Rush and became territorial capital in 1867. It sits exactly one mile above sea level, earning the nickname 'Mile High City.' It's both the capital and largest city."
+        },
+        {
+            "name": "Connecticut",
+            "abbr": "CT",
+            "capital": "Hartford",
+            "lat": 41.764,
+            "lng": -72.685,
+            "whyHere": "Hartford shared capital duties with New Haven for nearly 200 years until 1875! Hartford won sole status due to its central location on the Connecticut River and role as an insurance and manufacturing center."
+        },
+        {
+            "name": "Delaware",
+            "abbr": "DE",
+            "capital": "Dover",
+            "lat": 39.158,
+            "lng": -75.524,
+            "whyHere": "Dover became capital in 1777 because it was more centrally located and safer from British naval attacks than the coastal city of New Castle. It sits on the St. Jones River in the heart of Delaware."
+        },
+        {
+            "name": "Florida",
+            "abbr": "FL",
+            "capital": "Tallahassee",
+            "lat": 30.438,
+            "lng": -84.281,
+            "whyHere": "Tallahassee was chosen in 1824 as a compromise midpoint between two rival cities: Pensacola (West Florida's capital) and St. Augustine (East Florida's capital). Two horsemen rode toward each other, and Tallahassee marks roughly where they met."
+        },
+        {
+            "name": "Georgia",
+            "abbr": "GA",
+            "capital": "Atlanta",
+            "lat": 33.749,
+            "lng": -84.388,
+            "whyHere": "Atlanta became capital in 1868 after the Civil War. Originally called 'Terminus' because it was the end of a railroad line, Atlanta's transportation hub status made it the logical choice for Georgia's growing interior."
+        },
+        {
+            "name": "Hawaii",
+            "abbr": "HI",
+            "capital": "Honolulu",
+            "lat": 21.307,
+            "lng": -157.858,
+            "whyHere": "Honolulu has been Hawaii's center of power since King Kamehameha III moved the royal court there in 1845. Its natural deep-water harbor made it the islands' commercial and political hub long before statehood."
+        },
+        {
+            "name": "Idaho",
+            "abbr": "ID",
+            "capital": "Boise",
+            "lat": 43.618,
+            "lng": -116.215,
+            "whyHere": "Boise became capital in 1865 after gold was discovered in the nearby mountains. The name comes from French trappers who called the tree-lined river 'La Rivière Boisée' (the wooded river) after crossing the desert."
+        },
+        {
+            "name": "Illinois",
+            "abbr": "IL",
+            "capital": "Springfield",
+            "lat": 39.798,
+            "lng": -89.654,
+            "whyHere": "Springfield became capital in 1837, with young legislator Abraham Lincoln leading the effort. It was chosen for its central location as settlers moved inland. Chicago has 25 times Springfield's population but sits in the corner of the state."
+        },
+        {
+            "name": "Indiana",
+            "abbr": "IN",
+            "capital": "Indianapolis",
+            "lat": 39.768,
+            "lng": -86.162,
+            "whyHere": "Indianapolis was a planned capital, deliberately placed at the geographic center of Indiana in 1821. The name combines 'Indiana' with the Greek word 'polis' (city). It grew to become both the capital and largest city."
+        },
+        {
+            "name": "Iowa",
+            "abbr": "IA",
+            "capital": "Des Moines",
+            "lat": 41.591,
+            "lng": -93.604,
+            "whyHere": "Des Moines became capital in 1857, replacing Iowa City as settlers pushed westward. Located at the confluence of the Des Moines and Raccoon Rivers, its central position better served the expanding state."
+        },
+        {
+            "name": "Kansas",
+            "abbr": "KS",
+            "capital": "Topeka",
+            "lat": 39.048,
+            "lng": -95.678,
+            "whyHere": "Topeka became capital in 1861 when Kansas entered the Union as a free state after violent conflicts over slavery. Founded by antislavery settlers, the name comes from a Kansa-Osage word meaning 'a good place to dig potatoes.'"
+        },
+        {
+            "name": "Kentucky",
+            "abbr": "KY",
+            "capital": "Frankfort",
+            "lat": 38.187,
+            "lng": -84.875,
+            "whyHere": "Frankfort is the 5th smallest state capital by population. It became capital in 1792 as a compromise between Louisville and Lexington. Located on the Kentucky River, its small size keeps it neutral between the state's larger cities."
+        },
+        {
+            "name": "Louisiana",
+            "abbr": "LA",
+            "capital": "Baton Rouge",
+            "lat": 30.457,
+            "lng": -91.187,
+            "whyHere": "Baton Rouge replaced New Orleans as capital in 1849 to move government away from the politically powerful port city. The name means 'red stick' in French, referring to a cypress tree marking tribal boundaries that early explorers saw."
+        },
+        {
+            "name": "Maine",
+            "abbr": "ME",
+            "capital": "Augusta",
+            "lat": 44.307,
+            "lng": -69.782,
+            "whyHere": "Augusta became capital in 1832, replacing Portland. Located at the head of navigation on the Kennebec River, it was more central to Maine's population. Portland remains the largest city by far."
+        },
+        {
+            "name": "Maryland",
+            "abbr": "MD",
+            "capital": "Annapolis",
+            "lat": 38.979,
+            "lng": -76.491,
+            "whyHere": "Annapolis has been capital since 1694 and briefly served as the US capital (1783-84). It's home to the US Naval Academy. Baltimore is 8 times larger but Annapolis retains its colonial-era status on the Chesapeake Bay."
+        },
+        {
+            "name": "Massachusetts",
+            "abbr": "MA",
+            "capital": "Boston",
+            "lat": 42.358,
+            "lng": -71.064,
+            "whyHere": "Boston has been the seat of Massachusetts government since the Puritans founded it in 1630. One of America's oldest cities, it's a rare case where the capital remained the largest and most important city throughout history."
+        },
+        {
+            "name": "Michigan",
+            "abbr": "MI",
+            "capital": "Lansing",
+            "lat": 42.733,
+            "lng": -84.555,
+            "whyHere": "Lansing became capital in 1847 specifically because it was far from Detroit and the Canadian border—legislators feared British invasion! When chosen, Lansing was essentially wilderness with no roads leading to it."
+        },
+        {
+            "name": "Minnesota",
+            "abbr": "MN",
+            "capital": "Saint Paul",
+            "lat": 44.944,
+            "lng": -93.094,
+            "whyHere": "Saint Paul was a trading post called 'Pig's Eye' before a priest renamed it. It became capital in 1849 due to its position at the head of navigation on the Mississippi River. Minneapolis next door grew larger, creating the 'Twin Cities.'"
+        },
+        {
+            "name": "Mississippi",
+            "abbr": "MS",
+            "capital": "Jackson",
+            "lat": 32.303,
+            "lng": -90.182,
+            "whyHere": "Jackson became capital in 1821, named after Andrew Jackson. It was chosen for its central location on the Pearl River. The city was burned three times during the Civil War, earning the nickname 'Chimneyville.'"
+        },
+        {
+            "name": "Missouri",
+            "abbr": "MO",
+            "capital": "Jefferson City",
+            "lat": 38.577,
+            "lng": -92.173,
+            "whyHere": "Jefferson City was chosen in 1821 for its central location on the Missouri River. Named after Thomas Jefferson, it remained small while St. Louis and Kansas City grew into major cities on the state's edges."
+        },
+        {
+            "name": "Montana",
+            "abbr": "MT",
+            "capital": "Helena",
+            "lat": 46.586,
+            "lng": -112.018,
+            "whyHere": "Helena became capital after gold was discovered in 'Last Chance Gulch' in 1864. It won a bitter 1894 election against Anaconda by just 2,000 votes. The copper mining companies spent heavily to influence the outcome."
+        },
+        {
+            "name": "Nebraska",
+            "abbr": "NE",
+            "capital": "Lincoln",
+            "lat": 40.808,
+            "lng": -96.700,
+            "whyHere": "Lincoln became capital in 1867, deliberately placed south of the Platte River to keep it away from Omaha's influence. Named after the recently assassinated president, it was chosen to develop the state's southern region."
+        },
+        {
+            "name": "Nevada",
+            "abbr": "NV",
+            "capital": "Carson City",
+            "lat": 39.164,
+            "lng": -119.767,
+            "whyHere": "Carson City became capital in 1861 during the Comstock Lode silver rush. Nevada was rushed to statehood in 1864 so Lincoln could have its electoral votes and support for the 13th Amendment abolishing slavery."
+        },
+        {
+            "name": "New Hampshire",
+            "abbr": "NH",
+            "capital": "Concord",
+            "lat": 43.207,
+            "lng": -71.537,
+            "whyHere": "Concord became the sole capital in 1808 after years of rotating between towns. Its central location on the Merrimack River made it accessible to all parts of the state. It remains the 3rd smallest state capital."
+        },
+        {
+            "name": "New Jersey",
+            "abbr": "NJ",
+            "capital": "Trenton",
+            "lat": 40.221,
+            "lng": -74.756,
+            "whyHere": "Trenton became capital in 1790, chosen for being exactly midway between New York City and Philadelphia. George Washington's famous crossing of the Delaware happened here in 1776."
+        },
+        {
+            "name": "New Mexico",
+            "abbr": "NM",
+            "capital": "Santa Fe",
+            "lat": 35.687,
+            "lng": -105.938,
+            "whyHere": "Santa Fe is the oldest capital city in the US, founded by Spanish colonists in 1610—a decade before the Pilgrims landed. At 7,000 feet elevation, it's also the highest state capital."
+        },
+        {
+            "name": "New York",
+            "abbr": "NY",
+            "capital": "Albany",
+            "lat": 42.653,
+            "lng": -73.757,
+            "whyHere": "Albany became capital in 1797, replacing New York City. Founders feared coastal capitals were vulnerable to naval attack. Albany's location at the head of Hudson River navigation and later as the Erie Canal terminus made it strategically vital."
+        },
+        {
+            "name": "North Carolina",
+            "abbr": "NC",
+            "capital": "Raleigh",
+            "lat": 35.780,
+            "lng": -78.639,
+            "whyHere": "Raleigh was a planned capital, created in 1792 within 10 miles of the state's geographic center. Named after Sir Walter Raleigh, it was built specifically to be the capital rather than growing organically like most cities."
+        },
+        {
+            "name": "North Dakota",
+            "abbr": "ND",
+            "capital": "Bismarck",
+            "lat": 46.808,
+            "lng": -100.784,
+            "whyHere": "Bismarck became capital in 1883, named after German Chancellor Otto von Bismarck to attract German immigrant settlers and investment. It sits at the point where the Northern Pacific Railroad crossed the Missouri River."
+        },
+        {
+            "name": "Ohio",
+            "abbr": "OH",
+            "capital": "Columbus",
+            "lat": 39.961,
+            "lng": -82.999,
+            "whyHere": "Columbus was founded in 1812 specifically to be the capital—its name honors Christopher Columbus. Ohio's previous capitals (Chillicothe and Zanesville) were too close to the state's edge as settlers moved westward."
+        },
+        {
+            "name": "Oklahoma",
+            "abbr": "OK",
+            "capital": "Oklahoma City",
+            "lat": 35.473,
+            "lng": -97.517,
+            "whyHere": "Oklahoma City became capital in 1910 through a controversial 'midnight move' of the state seal from Guthrie. The governor secretly relocated the capital before Guthrie could respond. It's now both capital and largest city."
+        },
+        {
+            "name": "Oregon",
+            "abbr": "OR",
+            "capital": "Salem",
+            "lat": 44.938,
+            "lng": -123.030,
+            "whyHere": "Salem became capital in 1851 because it was more centrally located than Oregon City in the Willamette Valley. The name likely comes from the Hebrew word 'shalom' meaning peace, chosen by Methodist missionaries."
+        },
+        {
+            "name": "Pennsylvania",
+            "abbr": "PA",
+            "capital": "Harrisburg",
+            "lat": 40.264,
+            "lng": -76.884,
+            "whyHere": "Harrisburg became capital in 1812, replacing Philadelphia and Lancaster. As Pennsylvania expanded westward, a more central location on the Susquehanna River was needed. Philadelphia had been both the state and US capital."
+        },
+        {
+            "name": "Rhode Island",
+            "abbr": "RI",
+            "capital": "Providence",
+            "lat": 41.824,
+            "lng": -71.413,
+            "whyHere": "Providence was founded by Roger Williams in 1636 after he was banished from Massachusetts for his religious views. The name thanks God's 'providence' for his survival. Rhode Island had 5 rotating capitals until 1900!"
+        },
+        {
+            "name": "South Carolina",
+            "abbr": "SC",
+            "capital": "Columbia",
+            "lat": 34.000,
+            "lng": -81.035,
+            "whyHere": "Columbia was created in 1786 as a planned capital at the geographic center of South Carolina, replacing Charleston. Its central location balanced power between the wealthy coastal planters and the backcountry settlers."
+        },
+        {
+            "name": "South Dakota",
+            "abbr": "SD",
+            "capital": "Pierre",
+            "lat": 44.368,
+            "lng": -100.351,
+            "whyHere": "Pierre (pronounced 'peer') became capital in 1889 due to its central location on the Missouri River. It's the 2nd smallest state capital by population and the only one without a McDonald's until 1985."
+        },
+        {
+            "name": "Tennessee",
+            "abbr": "TN",
+            "capital": "Nashville",
+            "lat": 36.166,
+            "lng": -86.784,
+            "whyHere": "Nashville became the permanent capital in 1843 after rotating with other cities. Its central location on the Cumberland River made it the natural choice. Andrew Jackson's home, the Hermitage, is nearby."
+        },
+        {
+            "name": "Texas",
+            "abbr": "TX",
+            "capital": "Austin",
+            "lat": 30.267,
+            "lng": -97.743,
+            "whyHere": "Austin was chosen in 1839 when it was basically wilderness on the frontier. Named after Stephen F. Austin, the 'Father of Texas,' it was centrally located for the Republic of Texas. Houston and San Antonio lost out despite being larger."
+        },
+        {
+            "name": "Utah",
+            "abbr": "UT",
+            "capital": "Salt Lake City",
+            "lat": 40.759,
+            "lng": -111.888,
+            "whyHere": "Salt Lake City was founded by Brigham Young and Mormon pioneers in 1847, who declared 'This is the place' upon seeing the valley. It served as capital of the State of Deseret before Utah became a territory and then state."
+        },
+        {
+            "name": "Vermont",
+            "abbr": "VT",
+            "capital": "Montpelier",
+            "lat": 44.260,
+            "lng": -72.576,
+            "whyHere": "Montpelier is the smallest state capital by population (under 8,000 people). It became capital in 1805 due to its central location. Named after Montpellier, France, it's the only state capital without a McDonald's."
+        },
+        {
+            "name": "Virginia",
+            "abbr": "VA",
+            "capital": "Richmond",
+            "lat": 37.540,
+            "lng": -77.436,
+            "whyHere": "Richmond replaced Williamsburg as capital in 1780 during the Revolutionary War. Thomas Jefferson advocated moving inland to protect against British coastal attacks. It later became the capital of the Confederacy."
+        },
+        {
+            "name": "Washington",
+            "abbr": "WA",
+            "capital": "Olympia",
+            "lat": 47.043,
+            "lng": -122.893,
+            "whyHere": "Olympia became capital when Washington was still a territory in 1853. Located at the southern tip of Puget Sound, it was chosen over larger cities because of its central position for the territory's scattered settlements."
+        },
+        {
+            "name": "West Virginia",
+            "abbr": "WV",
+            "capital": "Charleston",
+            "lat": 38.350,
+            "lng": -81.633,
+            "whyHere": "Charleston became the permanent capital in 1885 after the honor bounced between Charleston and Wheeling three times. West Virginia itself was created during the Civil War when western Virginia counties refused to join the Confederacy."
+        },
+        {
+            "name": "Wisconsin",
+            "abbr": "WI",
+            "capital": "Madison",
+            "lat": 43.075,
+            "lng": -89.384,
+            "whyHere": "Madison was chosen as capital in 1836 before Wisconsin was even a state—and before anyone lived there! Judge James Doty lobbied for his land holdings on the isthmus between two lakes. It's named after President James Madison."
+        },
+        {
+            "name": "Wyoming",
+            "abbr": "WY",
+            "capital": "Cheyenne",
+            "lat": 41.140,
+            "lng": -104.820,
+            "whyHere": "Cheyenne became territorial capital in 1869 because the transcontinental railroad passed through it. Though in the state's far southeast corner, the railroad made it the largest and most connected city in the territory."
+        }
     ]
 }

@@ -167,7 +167,7 @@ h3 {
     background: rgba(255, 255, 255, 0.95);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     border-radius: 5px;
-    max-width: 220px;
+    max-width: 280px;
 }
 
 .info h4 {
@@ -188,6 +188,19 @@ h3 {
 .info .capital-name {
     font-size: 14px;
     font-weight: bold;
+    color: #1565C0;
+}
+
+.info .why-here {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #e0e0e0;
+    font-size: 11px;
+    color: #555;
+    line-height: 1.4;
+}
+
+.info .why-here strong {
     color: #1565C0;
 }
 
@@ -256,6 +269,20 @@ h3 {
 .study-capital {
     font-size: 20px;
     font-weight: bold;
+    color: #1565C0;
+}
+
+.study-why-here {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid #e0e0e0;
+    font-size: 13px;
+    color: #555;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.study-why-here strong {
     color: #1565C0;
 }
 
