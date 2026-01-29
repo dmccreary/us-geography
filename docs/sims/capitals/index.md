@@ -1,3 +1,10 @@
+---
+title: State Capitals Quiz
+description: Interactive quiz and study tool for learning all 50 US state capitals with map visualization, multiple quiz lengths, and celebration animations.
+image: capitals.png
+quality_score: 90
+---
+
 # State Capitals Quiz
 
 An interactive MicroSim to help 5th graders learn all 50 US state capitals through two engaging modes: Study Mode for learning and Quiz Mode for testing knowledge.

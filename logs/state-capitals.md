@@ -210,13 +210,105 @@ html: `<div style="
 
 ---
 
+## Prompt 6: Fix Label Padding for Long City Names
+
+### User Prompt
+> In the Study mode, the box around Oklahoma City needs more padding to the right
+> [Screenshot showing Oklahoma City label being cut off]
+
+### Response Summary
+Increased right padding and container width for the capital marker.
+
+### Changes Made
+
+**script.js** - Updated marker styling:
+- Changed padding from `4px 8px` to `4px 12px 4px 8px` (more right padding)
+- Increased `iconSize` from `[100, 30]` to `[140, 30]`
+- Updated `iconAnchor` from `[50, 15]` to `[70, 15]` to maintain centering
+
+---
+
+## Prompt 7: Dynamic Label Sizing
+
+### User Prompt
+> can you dynamically adjust the horizontal size of the rectangle according to the number of characters in the name of the capital?
+
+### Response Summary
+Made the label auto-size based on content length.
+
+### Changes Made
+
+**script.js** - Updated marker to use dynamic sizing:
+```javascript
+iconSize: [0, 0],  // Let content determine size
+iconAnchor: [0, 15]
+// Added CSS:
+transform: translateX(-50%);  // Center horizontally
+display: inline-block;  // Size to content
+```
+
+Now "Boise" gets a small box and "Oklahoma City" gets a larger one automatically.
+
+---
+
+## Prompt 8: Improve Capital Marker Placement
+
+### User Prompt
+> The placement of the rectangle is not ideal. Can you put a small black star on the exact city location and place the label above it? In the image attached you can see how Carson City looks like it is in California.
+> [Screenshot showing Carson City label appearing over California]
+
+### Response Summary
+Redesigned the capital marker with a two-part layout: label above, star below at exact coordinates.
+
+### Changes Made
+
+**script.js** - Complete marker redesign:
+```javascript
+html: `<div style="
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: translateX(-50%);
+">
+    <div style="
+        background: #D32F2F;
+        color: white;
+        padding: 4px 10px;
+        border-radius: 4px;
+        font-size: 11px;
+        font-weight: bold;
+        white-space: nowrap;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        border: 2px solid white;
+        margin-bottom: 4px;
+    ">${state.capital}</div>
+    <div style="
+        font-size: 16px;
+        color: black;
+        text-shadow: 0 0 3px white, 0 0 3px white;
+    ">★</div>
+</div>`,
+iconSize: [0, 0],
+iconAnchor: [0, 50]  // Anchor at the star (bottom)
+```
+
+### Design Decisions
+- **Black star** placed at exact capital coordinates
+- **Label floats above** the star with 4px margin
+- **White text-shadow** on star for visibility against dark backgrounds
+- **iconAnchor [0, 50]** anchors at the star position
+- Removed gold star from inside label (now separate element)
+
+---
+
 ## Final Feature Summary
 
 ### Study Mode
 - Browse all 50 states with Previous/Next navigation
 - Shuffle button to randomize order
 - Map zooms and highlights each state in gold
-- **Capital marker shows location with star icon and name**
+- **Capital marker with black star at exact location and label above**
+- Dynamically sized labels based on capital name length
 - Mini celebration animation when shuffling
 
 ### Quiz Mode
@@ -268,10 +360,11 @@ http://127.0.0.1:8000/us-geography/sims/capitals/main.html
 
 ## Session Statistics
 
-- **Total prompts**: 5
+- **Total prompts**: 8
 - **Files created**: 6
 - **Files modified**: 4 (main.html, style.css, script.js, mkdocs.yml)
-- **Lines of code written**: ~800+
+- **Lines of code written**: ~850+
 - **States included**: 50
 - **Quiz length options**: 7
 - **Celebration particle types**: 2 (Confetti, Stars)
+- **Capital marker iterations**: 3 (fixed padding → dynamic sizing → star with label above)

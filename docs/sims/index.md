@@ -139,6 +139,12 @@ Interactive Micro Simulations to help students learn US Geography fundamentals.
 
     Interactive map comparing the Northeast and Southeast US regions with major cities and state information.
 
+-   **[Population by State](./population-by-state/index.md)**
+
+    ![Population by State](./population-by-state/population-by-state.png)
+
+    Interactive choropleth map showing population and population density by state with toggle views.
+
 -   **[Population Density](./population-density/index.md)**
 
     ![Population Density](./population-density/population-density.png)
@@ -156,6 +162,12 @@ Interactive Micro Simulations to help students learn US Geography fundamentals.
     ![Rocky Mountains](./rocky-mountains/rocky-mountains.png)
 
     Interactive map showing the Rocky Mountain range, major peaks, and the Continental Divide.
+
+-   **[State Capitals Quiz](./capitals/index.md)**
+
+    ![State Capitals Quiz](./capitals/capitals.png)
+
+    Interactive quiz and study tool for learning all 50 US state capitals with map visualization, multiple quiz lengths, and celebration animations.
 
 -   **[Time Zones](./time-zones/index.md)**
 

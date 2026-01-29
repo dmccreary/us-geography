@@ -1,58 +1,25 @@
-# TODO: Fix MicroSim Metadata
+# MicroSim Screenshot TODO
 
-**MicroSim:** shared
-**Repository:** reading-for-kindergarten
-**Generated:** 2026-01-23
+This file tracks MicroSims that need screenshots captured.
 
-## Issues Found
+**Last Updated:** 2026-01-29
 
-The following issues prevented automatic metadata generation:
+## Missing Screenshots
 
-1. Missing main.html file
-2. No meaningful title found (only generated from directory name)
-3. No description found
+Run the following commands to capture missing screenshots:
 
-## Required Actions
-
-### High Priority
-
-- [ ] Create or fix `main.html` - the main simulation file
-- [ ] Add a meaningful title that describes the simulation
-- [ ] Write a clear description (2-3 sentences) explaining what the MicroSim does
-
-### Medium Priority
-
-- [ ] Create `index.md` with proper YAML frontmatter:
-  ```yaml
-  ---
-  title: "Your Title Here"
-  description: "Brief description for SEO"
-  ---
-  ```
-- [ ] Add an iframe to display the simulation
-- [ ] Add a "Run Fullscreen" button
-
-### Low Priority
-
-- [ ] Add a lesson plan section
-- [ ] Add references section
-- [ ] Create a screenshot for social media preview
-
-## Detected Information
-
-- **Framework:** vanilla-js
-- **Detected subjects:** Other
-- **Visualization types:** interactive-demo
-- **Has main.html:** No
-- **Has index.md:** No
-
-## After Fixing
-
-Once you've addressed the issues above, run the metadata standardization:
-
+### State Capitals Quiz
 ```bash
-# Use Claude Code's microsim-utils skill to standardize
-# Or manually create metadata.json following the schema
+~/.local/bin/bk-capture-screenshot docs/sims/capitals
 ```
 
-Delete this TODO.md file after creating proper metadata.json.
+### Population by State
+```bash
+~/.local/bin/bk-capture-screenshot docs/sims/population-by-state
+```
+
+## Notes
+
+After capturing screenshots, rename them to match the directory name:
+- `capitals/capitals.png`
+- `population-by-state/population-by-state.png`
