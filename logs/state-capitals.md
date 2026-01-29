@@ -368,3 +368,302 @@ http://127.0.0.1:8000/us-geography/sims/capitals/main.html
 - **Quiz length options**: 7
 - **Celebration particle types**: 2 (Confetti, Stars)
 - **Capital marker iterations**: 3 (fixed padding → dynamic sizing → star with label above)
+
+---
+
+## Session 2: Critical Thinking Transformation
+
+**Date:** 2026-01-29
+**Focus:** Transform memorization exercise into pattern-based critical thinking tool
+
+---
+
+## Prompt 9: Critical Thinking Analysis Request
+
+### User Prompt
+> Take a careful objective look at the new microsim that helps students memorize the state capitals from the perspective of a person that wants to promote critical thinking skills in their students. How important is the role of memorizing state capitals? Does it measure or improve any skill? Or is it frequently done just because it is easy to measure? What things could we add to the curriculum that would encourage better critical thinking? What trivia could we add to each state's infobox card that would get them to be better critical thinkers and see patterns, not just memorize facts? How could we make this task more fun and less boring? Create a detailed report.
+
+### Response Summary
+Created comprehensive instructor's guide at `docs/instructors-guide/memorizing-state-capitals.md`
+
+### Key Analysis Points
+1. **Memorization alone is low-value** - sits at bottom of Bloom's Taxonomy
+2. **Why it persists**: Easy to test, clear right/wrong answers, tradition, quantifiable progress
+3. **The transformation needed**: From "Name the capital" to "Why is the capital located there?"
+
+### Proposed Enhancements
+1. Add "Why Here?" explanations for each state
+2. Pattern Recognition mode
+3. Prediction mode
+4. Comparison challenges
+
+### Patterns Identified
+- **Defensive locations**: Albany, Richmond, Dover (fear of naval attack)
+- **Central locations**: Austin, Springfield, Indianapolis
+- **Compromise locations**: Tallahassee (between Pensacola and St. Augustine)
+- **Gold/Silver rush**: Sacramento, Helena, Juneau, Carson City
+- **Railroad influence**: Cheyenne, Bismarck
+
+---
+
+## Prompt 10: Add "Why Here?" Text to All States
+
+### User Prompt
+> Please add the "Why Here?" text to the infobox for each state.
+
+### Response Summary
+Added `whyHere` field to all 50 states in `data.json` with historically accurate explanations.
+
+### Changes Made
+
+**data.json** - Added whyHere field to all 50 states:
+```json
+{
+  "name": "New York",
+  "capital": "Albany",
+  "whyHere": "Albany became capital in 1797, replacing New York City. Founders feared coastal capitals were vulnerable to naval attack. Albany's location at the head of Hudson River navigation and later as the Erie Canal terminus made it strategically vital."
+}
+```
+
+**script.js** - Updated info panel to show Why Here:
+```javascript
+info.update = function(state, showWhyHere = false) {
+    if (showWhyHere && state.whyHere) {
+        html += `<p class="why-here"><strong>Why here?</strong> ${state.whyHere}</p>`;
+    }
+}
+```
+
+**main.html** - Added Why Here display element:
+```html
+<div class="study-why-here" id="studyWhyHere"></div>
+```
+
+**style.css** - Added styling for Why Here sections:
+- `.study-why-here` for study panel
+- `.info .why-here` for map info box
+- Widened info panel from 220px to 280px
+
+### Sample "Why Here?" Explanations
+| State | Explanation Highlight |
+|-------|----------------------|
+| Michigan | "Lansing chosen because it was far from Detroit and the Canadian border—legislators feared British invasion!" |
+| Florida | "Two horsemen rode toward each other from Pensacola and St. Augustine, and Tallahassee marks roughly where they met" |
+| Vermont | "Montpelier is the smallest state capital by population—the only state capital without a McDonald's" |
+| Alaska | "You cannot drive to Juneau—it's only accessible by air or sea" |
+
+---
+
+## Prompt 11: Change Title and UI Improvements
+
+### User Prompt
+> Change the title from "State Capital Quiz" to "Looking for Patterns in State Capitals". In Study mode, have the state center on the left side 35% of the canvas width. Have the infobox automatically display in study mode.
+
+### Response Summary
+Rebranded and improved Study Mode UX.
+
+### Changes Made
+
+**main.html**:
+- Title changed to "Looking for Patterns in State Capitals"
+- Subtitle changed to "Discover why capitals are where they are!"
+
+**script.js** - Modified `zoomToState()`:
+```javascript
+function zoomToState(stateName, offsetLeft = false) {
+    if (offsetLeft && currentMode === 'study') {
+        // Shift map center to the RIGHT so state appears on LEFT
+        const offsetPixels = mapWidth * 0.20;
+        offsetPoint.x += offsetPixels;
+    }
+}
+```
+
+**script.js** - Auto-update info panel:
+```javascript
+// In updateStudyDisplay():
+if (info) {
+    info.update(state, true);
+}
+```
+
+**index.md** - Updated documentation:
+- New title and description
+- Higher Bloom's Taxonomy levels (Analyze, Evaluate)
+- Pattern discovery emphasized
+
+---
+
+## Prompt 12: Pattern Recognition Quiz
+
+### User Prompt
+> Use the microsim-quiz generator skill to ask students the key patterns that we hope they found. Remember they are 5th graders. Make the quiz questions start easy and harder as you go. Create a link to the instructor's guide in the References.
+
+### Response Summary
+Created 10-question pattern recognition quiz embedded in index.md.
+
+### Quiz Structure (Easy → Hard)
+| # | Topic | Bloom's Level |
+|---|-------|---------------|
+| 1 | Most capitals NOT largest city | Remember |
+| 2 | Why central locations | Understand |
+| 3 | Indianapolis name etymology | Understand |
+| 4 | Defensive inland locations | Understand |
+| 5 | Gold/silver rush capitals | Apply |
+| 6 | Tallahassee compromise | Apply |
+| 7 | Railroad influence (Cheyenne, Bismarck) | Apply |
+| 8 | Michigan's Lansing - border security | Analyze |
+| 9 | Which factor was LEAST common | Analyze |
+| 10 | Historical vs modern factors | Evaluate |
+
+### References Added
+```markdown
+## References
+- [Instructor's Guide: Memorizing State Capitals](../../instructors-guide/memorizing-state-capitals.md)
+```
+
+---
+
+## Prompt 13: Update Instructor's Guide
+
+### User Prompt
+> Update the instructor's guide to reflect the current state does have the why text, but to keep this version simple, we have not added the other elements.
+
+### Response Summary
+Updated guide to distinguish implemented vs. future features.
+
+### Changes Made
+
+**Part 3** - Current State of MicroSim:
+- ✅ "Why Here?" explanations (implemented)
+- ✅ Auto-display info panel (implemented)
+- ✅ Pattern Recognition Quiz (implemented)
+- Future: Pattern Mode, Prediction Mode, Comparison Challenges
+
+**Part 4** - Added note:
+```markdown
+!!! note "Current Implementation"
+    The current MicroSim includes only the `whyHere` field. Additional fields are recommendations for future enhancement.
+```
+
+**Part 8** - Implementation Recommendations updated with checkmarks
+
+**Conclusion** - Updated to reflect progress made
+
+---
+
+## Prompt 14: LinkedIn Post
+
+### User Prompt
+> Create a LinkedIn post about this approach and reference the MicroSim URL.
+
+### Response Summary
+Created LinkedIn post highlighting the transformation from memorization to critical thinking.
+
+### File Created
+`docs/sims/capitals/linked-in-post.txt`
+
+### Key Message
+> "Our kids don't need to memorize more facts—they need to recognize patterns and ask better questions."
+
+---
+
+## Prompt 15: Fix Celebration Animation
+
+### User Prompt
+> I noticed you did put the confetti animation in, but I have never seen it work. Can you check if it is working?
+
+### Response Summary
+Fixed p5.js celebration canvas setup.
+
+### Issue Found
+HTML had `<canvas id="celebrationCanvas">` but p5.js needs a container `<div>` to parent its canvas to.
+
+### Changes Made
+
+**main.html**:
+```html
+<!-- Before -->
+<canvas id="celebrationCanvas"></canvas>
+<!-- After -->
+<div id="celebrationCanvas"></div>
+```
+
+**style.css** - Added styling for p5.js canvas:
+```css
+#celebrationCanvas canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+```
+
+---
+
+## Prompt 16: Celebration Logic Change
+
+### User Prompt
+> Change the logic so that there is a small quick celebration after each correct answer and put the big celebration after the student gets the final question correct.
+
+### Response Summary
+Modified celebration triggers.
+
+### Changes Made
+
+**script.js** - Updated `handleAnswer()`:
+```javascript
+const isFinalQuestion = currentQuestionIndex === quizQuestions.length - 1;
+
+if (isCorrect) {
+    if (isFinalQuestion) {
+        triggerBigCelebration(isPerfect);
+    } else {
+        triggerMiniCelebration();
+    }
+}
+```
+
+**script.js** - Removed celebration from `showResults()`:
+- Big celebration no longer tied to 60% score threshold
+- Now triggers when final question answered correctly
+
+---
+
+## Prompt 17: Fix Big Celebration Visibility
+
+### User Prompt
+> There is no big celebration after I get the last question correct.
+
+### Response Summary
+Made big celebration more visible with immediate feedback.
+
+### Changes Made
+
+**script.js** - Enhanced `triggerBigCelebration()`:
+```javascript
+// Added immediate star burst (30 stars from center)
+for (let i = 0; i < 30; i++) {
+    celebrationParticles.push(new StarParticle(centerX, centerY, color));
+}
+
+// Changed confetti to start in visible area (top 30%)
+const y = Math.random() * height * 0.3; // Was: y = -200 (off-screen)
+```
+
+### Improvements
+1. **Immediate star burst** - 30 stars explode instantly from center
+2. **Visible confetti** - Starts in top 30% of screen, not off-screen
+3. **Kept wave of star bursts** - Additional bursts from multiple points
+
+---
+
+## Session 2 Statistics
+
+- **Prompts**: 9 (Prompts 9-17)
+- **Files modified**: 7
+- **New files created**: 2 (instructor's guide, LinkedIn post)
+- **"Why Here?" explanations written**: 50
+- **Quiz questions created**: 10
+- **Bloom's Taxonomy levels covered**: 5 (Remember, Understand, Apply, Analyze, Evaluate)
+- **Key transformation**: Memorization exercise → Critical thinking tool
