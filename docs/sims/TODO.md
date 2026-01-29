@@ -8,11 +8,6 @@ This file tracks MicroSims that need screenshots captured.
 
 Run the following commands to capture missing screenshots:
 
-### State Capitals Quiz
-```bash
-~/.local/bin/bk-capture-screenshot docs/sims/capitals
-```
-
 ### Population by State
 ```bash
 ~/.local/bin/bk-capture-screenshot docs/sims/population-by-state
