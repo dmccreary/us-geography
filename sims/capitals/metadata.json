@@ -1,0 +1,38 @@
+{
+    "title": "State Capitals Quiz",
+    "description": "An interactive MicroSim to help 5th graders learn all 50 US state capitals through Study Mode (learning) and Quiz Mode (testing) with map visualization and celebration animations.",
+    "subject": ["US Geography", "State Capitals", "Map Skills"],
+    "creator": "Claude AI",
+    "date": "2026-01-29",
+    "version": "1.0",
+    "format": "text/html",
+    "license": "MIT",
+    "language": "en",
+    "audience": "5th Grade Students",
+    "educationalLevel": "Elementary School",
+    "mapType": "choropleth",
+    "geoJsonSource": "Natural Earth 110m Admin 1 States/Provinces",
+    "concepts": [
+        "US States",
+        "State Capitals",
+        "Map Reading",
+        "Geographic Location",
+        "Visual Learning"
+    ],
+    "dependencies": [
+        "leaflet.js",
+        "p5.js"
+    ],
+    "features": [
+        "Study Mode with 50 states",
+        "Quiz Mode with 3, 5, or 10 questions",
+        "Interactive map with state highlighting",
+        "Multiple choice answers",
+        "Celebration animations",
+        "Encouraging feedback messages",
+        "Score tracking with stars"
+    ],
+    "bloomsLevel": ["Remember", "Understand", "Apply"],
+    "uiComplexity": "medium",
+    "interactivityLevel": "high"
+}
