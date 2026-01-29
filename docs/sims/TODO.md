@@ -3,72 +3,28 @@
 This file tracks MicroSims that need screenshots captured.
 
 **Date logged:** 2026-01-28
+**Date completed:** 2026-01-28
 
-## Missing Screenshots
+## Status: All Complete ✅
 
-Run the following commands to capture missing screenshots:
+All 13 missing screenshots have been captured successfully.
 
-### Bird's Eye View
-```bash
-~/.local/bin/bk-capture-screenshot docs/sims/birds-eye-view
-```
+| MicroSim | Size | Status |
+|----------|------|--------|
+| birds-eye-view.png | 46K | ✅ |
+| contour-lines.png | 72K | ✅ |
+| graph-viewer.png | 167K | ✅ |
+| great-lakes.png | 155K | ✅ |
+| hemispheres-globe.png | 71K | ✅ |
+| lat-long-grid.png | 96K | ✅ |
+| locate-usa.png | 118K | ✅ |
+| major-rivers.png | 86K | ✅ |
+| map-types-compare.png | 35K | ✅ |
+| precipitation-map.png | 76K | ✅ |
+| time-zones.png | 80K | ✅ |
+| us-water-features.png | 87K | ✅ |
+| weather-climate.png | 28K | ✅ |
 
-### Contour Lines
-```bash
-~/.local/bin/bk-capture-screenshot docs/sims/contour-lines
-```
+## Summary
 
-### Graph Viewer
-```bash
-~/.local/bin/bk-capture-screenshot docs/sims/graph-viewer
-```
-
-### Great Lakes
-```bash
-~/.local/bin/bk-capture-screenshot docs/sims/great-lakes
-```
-
-### Hemispheres Globe
-```bash
-~/.local/bin/bk-capture-screenshot docs/sims/hemispheres-globe
-```
-
-### Latitude and Longitude Grid
-```bash
-~/.local/bin/bk-capture-screenshot docs/sims/lat-long-grid
-```
-
-### Locate USA
-```bash
-~/.local/bin/bk-capture-screenshot docs/sims/locate-usa
-```
-
-### Major Rivers
-```bash
-~/.local/bin/bk-capture-screenshot docs/sims/major-rivers
-```
-
-### Map Types Compare
-```bash
-~/.local/bin/bk-capture-screenshot docs/sims/map-types-compare
-```
-
-### Precipitation Map
-```bash
-~/.local/bin/bk-capture-screenshot docs/sims/precipitation-map
-```
-
-### Time Zones
-```bash
-~/.local/bin/bk-capture-screenshot docs/sims/time-zones
-```
-
-### US Water Features
-```bash
-~/.local/bin/bk-capture-screenshot docs/sims/us-water-features
-```
-
-### Weather vs Climate
-```bash
-~/.local/bin/bk-capture-screenshot docs/sims/weather-climate
-```
+All 30 MicroSims now have screenshots for the index page grid cards.
