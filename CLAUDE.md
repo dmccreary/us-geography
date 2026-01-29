@@ -141,6 +141,49 @@ This helps users discover the interactive features of the map.
 - Common triggers: completing all quiz questions, achieving a high score, finishing a challenge
 - Reference: `/Users/dan/.claude/skills/microsim-generator/references/celebration-guide.md`
 
+### p5.js Celebration Implementation Guidelines
+
+1. **Use a container div, not a canvas element** for p5.js celebrations:
+   ```html
+   <!-- Correct -->
+   <div id="celebrationCanvas"></div>
+
+   <!-- Wrong - p5.js can't parent to a canvas -->
+   <canvas id="celebrationCanvas"></canvas>
+   ```
+
+2. **CSS for celebration overlay**:
+   ```css
+   #celebrationCanvas {
+       position: fixed;
+       top: 0;
+       left: 0;
+       width: 100%;
+       height: 100%;
+       pointer-events: none;
+       z-index: 9999;
+   }
+   #celebrationCanvas canvas {
+       position: fixed;
+       top: 0;
+       left: 0;
+       pointer-events: none;
+   }
+   ```
+
+3. **Two celebration types**:
+   - **Mini celebration**: Small star burst from center (15-30 particles) - use for each correct answer
+   - **Big celebration**: Confetti rain + multiple star bursts - use for completing a quiz/challenge
+
+4. **Particle visibility**: Start confetti in the visible area (top 30% of screen), not off-screen at negative Y values, so users see immediate feedback
+
+5. **Celebration triggers**:
+   - Mini: After each correct answer during a quiz
+   - Big: When the final question is answered correctly (not based on score percentage)
+
+### Reference Example
+- State Capitals: `docs/sims/capitals/script.js` - ConfettiParticle and StarParticle classes with p5.js instance mode
+
 ## Post-Generation Steps
 
 After generating a new MicroSim or updating a MicroSim:
