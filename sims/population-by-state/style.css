@@ -95,6 +95,24 @@ h2 {
     color: white;
 }
 
+.reset-btn {
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: bold;
+    border: 2px solid #666;
+    border-radius: 6px;
+    cursor: pointer;
+    background: white;
+    color: #666;
+    margin-left: 12px;
+    transition: all 0.2s ease;
+}
+
+.reset-btn:hover {
+    background: #666;
+    color: white;
+}
+
 .legend-container {
     background: white;
     padding: 8px 12px;
