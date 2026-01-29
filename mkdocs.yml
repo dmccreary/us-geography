@@ -48,6 +48,7 @@ nav:
     - 12. Landmarks and Culture:
       - Content: chapters/12-landmarks-and-culture/index.md
       - Quiz: chapters/12-landmarks-and-culture/quiz.md
+  - Geography Jokes: geo-jokes.md
   - MicroSims:
     - sims/index.md
     - Agricultural Regions: sims/agricultural-regions/index.md
