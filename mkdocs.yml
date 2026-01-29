@@ -11,19 +11,43 @@ nav:
   - About: about.md
   - Course Description: course-description.md
   - Chapters:
-    - chapters/index.md
-    - 1. Introduction to Geography: chapters/01-introduction-to-geography/index.md
-    - 2. Maps and Navigation: chapters/02-maps-and-navigation/index.md
-    - 3. Physical Features: chapters/03-physical-features/index.md
-    - 4. Water Features: chapters/04-water-features/index.md
-    - 5. Climate and Weather: chapters/05-climate-and-weather/index.md
-    - 6. States Northeast/Southeast: chapters/06-states-northeast-southeast/index.md
-    - 7. States Midwest/Southwest: chapters/07-states-midwest-southwest/index.md
-    - 8. States West/Territories: chapters/08-states-west-territories/index.md
-    - 9. Regions and Boundaries: chapters/09-regions-and-boundaries/index.md
-    - 10. Human Geography: chapters/10-human-geography/index.md
-    - 11. Economy and Transportation: chapters/11-economy-and-transportation/index.md
-    - 12. Landmarks and Culture: chapters/12-landmarks-and-culture/index.md
+    - Overview: chapters/index.md
+    - 1. Introduction to Geography:
+      - Content: chapters/01-introduction-to-geography/index.md
+      - Quiz: chapters/01-introduction-to-geography/quiz.md
+    - 2. Maps and Navigation:
+      - Content: chapters/02-maps-and-navigation/index.md
+      - Quiz: chapters/02-maps-and-navigation/quiz.md
+    - 3. Physical Features:
+      - Content: chapters/03-physical-features/index.md
+      - Quiz: chapters/03-physical-features/quiz.md
+    - 4. Water Features:
+      - Content: chapters/04-water-features/index.md
+      - Quiz: chapters/04-water-features/quiz.md
+    - 5. Climate and Weather:
+      - Content: chapters/05-climate-and-weather/index.md
+      - Quiz: chapters/05-climate-and-weather/quiz.md
+    - 6. States Northeast/Southeast:
+      - Content: chapters/06-states-northeast-southeast/index.md
+      - Quiz: chapters/06-states-northeast-southeast/quiz.md
+    - 7. States Midwest/Southwest:
+      - Content: chapters/07-states-midwest-southwest/index.md
+      - Quiz: chapters/07-states-midwest-southwest/quiz.md
+    - 8. States West/Territories:
+      - Content: chapters/08-states-west-territories/index.md
+      - Quiz: chapters/08-states-west-territories/quiz.md
+    - 9. Regions and Boundaries:
+      - Content: chapters/09-regions-and-boundaries/index.md
+      - Quiz: chapters/09-regions-and-boundaries/quiz.md
+    - 10. Human Geography:
+      - Content: chapters/10-human-geography/index.md
+      - Quiz: chapters/10-human-geography/quiz.md
+    - 11. Economy and Transportation:
+      - Content: chapters/11-economy-and-transportation/index.md
+      - Quiz: chapters/11-economy-and-transportation/quiz.md
+    - 12. Landmarks and Culture:
+      - Content: chapters/12-landmarks-and-culture/index.md
+      - Quiz: chapters/12-landmarks-and-culture/quiz.md
   - MicroSims:
     - sims/index.md
     - Agricultural Regions: sims/agricultural-regions/index.md
@@ -63,10 +87,11 @@ nav:
     - Concept Taxonomy: learning-graph/concept-taxonomy.md
     - Quality Metrics: learning-graph/quality-metrics.md
     - Taxonomy Distribution: learning-graph/taxonomy-distribution.md
-    - learning-graph/book-metrics.md
-    - learning-graph/chapter-metrics.md
-    - learning-graph/diagram-details.md
-    - learning-graph/diagram-table.md
+    - Book Metrics: learning-graph/book-metrics.md
+    - Chapter Metrics: learning-graph/chapter-metrics.md
+    - Quiz Generation Report: learning-graph/quiz-generation-report.md
+    - Diagram Details: learning-graph/diagram-details.md
+    - Diagram Table: learning-graph/diagram-table.md
   
   - FAQ: faq.md
   - Glossary: glossary.md
