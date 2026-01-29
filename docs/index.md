@@ -1,10 +1,12 @@
 ---
 title: US Geography
+description: Intelligent textbook with MicroSims about US Geography for students in grades 3-6.
+image: /img/logo.png
+og:image: /img/logo.png
 hide:
     - toc
 ---
 # Welcome to US Geography
-
 
 ![](./img/logo.png){ width="500px"}
 
