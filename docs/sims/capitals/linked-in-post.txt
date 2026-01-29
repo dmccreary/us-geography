@@ -1,0 +1,33 @@
+Why do We Make Kids Memorize State Capitals?
+
+Let's be honest: memorizing that "Albany is the capital of New York" teaches students... almost nothing. It's a classic example of education prioritizing what's easy to test over what's worth learning.
+
+But here's the thing—there's a fascinating story behind WHY Albany is the capital. New York City is 40x larger. So why isn't NYC the capital?
+
+Answer: In the 1790s, founders feared coastal capitals were vulnerable to British naval attack. Albany's inland location on the Hudson River made it defensible.
+
+That's not trivia. That's geographic reasoning. That's history. That's critical thinking.
+
+So we transformed a boring memorization MicroSim into a pattern-discovery tool:
+
+Patterns students can now find:
+- Most capitals are NOT the largest city (why?)
+- Many were chosen for central locations (fairness to all citizens)
+- Some were inland for defense (Albany, Richmond, Dover)
+- Gold/silver rushes shaped others (Sacramento, Helena, Juneau)
+- Some were compromises between rival cities (Tallahassee)
+- Railroads determined others (Cheyenne, Bismarck)
+
+The MicroSim now shows "Why Here?" explanations for all 50 states, turning arbitrary facts into meaningful stories.
+
+The shift we need:
+
+OLD: "Name the capital of Kansas"
+
+NEW: "Chicago has 25x Springfield's population. Why isn't Chicago the capital of Illinois?"
+
+Our kids don't need to memorize more facts—they need to recognize patterns and ask better questions.
+
+Try it: https://dmccreary.github.io/us-geography/sims/capitals/
+
+#CriticalThinking #Education #EdTech #Geography #K12Education #TeachingStrategies #LearningDesign #STEM

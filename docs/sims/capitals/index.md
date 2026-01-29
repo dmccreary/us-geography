@@ -10,7 +10,7 @@ quality_score: 90
 
 An interactive MicroSim that goes beyond memorization to help students discover *why* state capitals are located where they are. Study Mode reveals historical patterns (defensive locations, central compromises, gold rush influence) while Quiz Mode tests recall.
 
-<iframe src="main.html" width="100%" height="620" style="border: 1px solid #ccc; border-radius: 8px;"></iframe>
+<iframe src="main.html" width="100%" height="650" style="border: 1px solid #ccc; border-radius: 8px;"></iframe>
 
 [View Fullscreen](main.html){:target="_blank"}
 
