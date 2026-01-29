@@ -1,0 +1,499 @@
+/* State Capitals Quiz Stylesheet */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+    background: aliceblue;
+}
+
+h2 {
+    text-align: center;
+    margin: 8px 0 4px 0;
+    font-size: 18px;
+    color: #333;
+}
+
+h3 {
+    text-align: center;
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 12px;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+/* Start Screen */
+.start-screen {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mode-selection {
+    margin-bottom: 20px;
+}
+
+.mode-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.mode-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 30px;
+    border: 3px solid #ddd;
+    border-radius: 12px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    min-width: 150px;
+}
+
+.mode-btn:hover {
+    border-color: #4CAF50;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.mode-btn.selected {
+    border-color: #4CAF50;
+    background: #E8F5E9;
+}
+
+.mode-icon {
+    font-size: 36px;
+    margin-bottom: 8px;
+}
+
+.mode-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.mode-desc {
+    font-size: 11px;
+    color: #666;
+    text-align: center;
+}
+
+/* Quiz Length Section */
+.quiz-length-section {
+    text-align: center;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.quiz-length-section.hidden {
+    display: none;
+}
+
+.length-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.length-btn {
+    padding: 8px 14px;
+    font-size: 13px;
+    border: 2px solid #2196F3;
+    border-radius: 6px;
+    background: white;
+    color: #2196F3;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.length-btn:hover {
+    background: #E3F2FD;
+}
+
+.length-btn.selected {
+    background: #2196F3;
+    color: white;
+}
+
+.start-btn {
+    padding: 12px 40px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background: #4CAF50;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.start-btn:hover {
+    background: #388E3C;
+    transform: scale(1.05);
+}
+
+/* Map */
+#mapContainer.hidden {
+    display: none;
+}
+
+#map {
+    width: 100%;
+    height: 320px;
+}
+
+/* Info Panel */
+.info {
+    padding: 10px 14px;
+    font-size: 13px;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    max-width: 220px;
+}
+
+.info h4 {
+    margin: 0 0 6px;
+    color: #1565C0;
+    font-size: 16px;
+    border-bottom: 2px solid #2196F3;
+    padding-bottom: 4px;
+}
+
+.info p {
+    color: #555;
+    font-size: 12px;
+    margin: 4px 0;
+    line-height: 1.4;
+}
+
+.info .capital-name {
+    font-size: 14px;
+    font-weight: bold;
+    color: #1565C0;
+}
+
+/* Study Panel */
+.study-panel {
+    background: #E3F2FD;
+    padding: 15px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+
+.study-panel.hidden {
+    display: none;
+}
+
+.study-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 12px;
+}
+
+.study-progress {
+    font-size: 12px;
+    font-weight: bold;
+    color: #1565C0;
+}
+
+.nav-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+    border: 2px solid #1565C0;
+    background: white;
+    color: #1565C0;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.nav-btn:hover {
+    background: #1565C0;
+    color: white;
+}
+
+.study-content {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.study-state {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.study-capital-label {
+    font-size: 12px;
+    color: #666;
+}
+
+.study-capital {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1565C0;
+}
+
+.study-footer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Quiz Panel */
+.quiz-panel {
+    background: #FFF8E1;
+    padding: 12px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+
+.quiz-panel.hidden {
+    display: none;
+}
+
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.quiz-progress {
+    font-size: 12px;
+    font-weight: bold;
+    color: #F57C00;
+}
+
+.quiz-score {
+    font-size: 12px;
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.quiz-question {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: #333;
+}
+
+.quiz-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.quiz-option {
+    padding: 10px 18px;
+    font-size: 13px;
+    border: 2px solid #ddd;
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+    min-width: 120px;
+    transition: all 0.2s;
+}
+
+.quiz-option:hover:not(:disabled) {
+    border-color: #F57C00;
+    background: #FFF3E0;
+}
+
+.quiz-option.correct {
+    border-color: #4CAF50;
+    background: #E8F5E9;
+    color: #2E7D32;
+}
+
+.quiz-option.incorrect {
+    border-color: #F44336;
+    background: #FFEBEE;
+    color: #C62828;
+}
+
+.quiz-option:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.quiz-feedback {
+    font-size: 14px;
+    font-weight: bold;
+    min-height: 20px;
+    margin-bottom: 8px;
+}
+
+.quiz-feedback.correct {
+    color: #4CAF50;
+}
+
+.quiz-feedback.incorrect {
+    color: #666;
+}
+
+.stars-display {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    min-height: 24px;
+}
+
+.gold-star {
+    font-size: 20px;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.3s ease-out;
+}
+
+.gold-star.animated {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Results Panel */
+.results-panel {
+    background: linear-gradient(135deg, #E8F5E9, #FFF8E1);
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid #ddd;
+}
+
+.results-panel.hidden {
+    display: none;
+}
+
+.results-header {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.results-score {
+    font-size: 18px;
+    color: #1565C0;
+    margin-bottom: 8px;
+}
+
+.results-message {
+    font-size: 16px;
+    color: #4CAF50;
+    margin-bottom: 12px;
+}
+
+.results-stars {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.results-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Control Buttons */
+.control-btn {
+    padding: 8px 16px;
+    font-size: 12px;
+    border: 2px solid #1565C0;
+    background: white;
+    color: #1565C0;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s;
+}
+
+.control-btn:hover {
+    background: #1565C0;
+    color: white;
+}
+
+/* Hover Instruction */
+.hover-instruction {
+    text-align: center;
+    font-size: 11px;
+    color: #888;
+    padding: 6px;
+    font-style: italic;
+}
+
+/* Celebration Canvas */
+#celebrationCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* Hidden utility */
+.hidden {
+    display: none !important;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .mode-btn {
+        min-width: 130px;
+        padding: 15px 20px;
+    }
+
+    .mode-icon {
+        font-size: 28px;
+    }
+
+    .mode-title {
+        font-size: 14px;
+    }
+
+    .length-btn {
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+
+    .quiz-option {
+        min-width: 100px;
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+
+    .study-state {
+        font-size: 20px;
+    }
+
+    .study-capital {
+        font-size: 18px;
+    }
+}
