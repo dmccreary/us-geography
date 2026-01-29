@@ -340,26 +340,35 @@ function showCapitalMarker(state) {
         capitalMarker = null;
     }
 
-    // Create marker icon for capital - dynamically sized based on text length
+    // Create marker icon for capital - star at location, label above
     const capitalIcon = L.divIcon({
         className: 'capital-marker',
         html: `<div style="
-            background: #D32F2F;
-            color: white;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: bold;
-            white-space: nowrap;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-            border: 2px solid white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             transform: translateX(-50%);
-            display: inline-block;
         ">
-            <span style="color: gold;">★</span> ${state.capital}
+            <div style="
+                background: #D32F2F;
+                color: white;
+                padding: 4px 10px;
+                border-radius: 4px;
+                font-size: 11px;
+                font-weight: bold;
+                white-space: nowrap;
+                box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+                border: 2px solid white;
+                margin-bottom: 4px;
+            ">${state.capital}</div>
+            <div style="
+                font-size: 16px;
+                color: black;
+                text-shadow: 0 0 3px white, 0 0 3px white;
+            ">★</div>
         </div>`,
         iconSize: [0, 0],
-        iconAnchor: [0, 15]
+        iconAnchor: [0, 50]
     });
 
     // Add marker at capital coordinates
