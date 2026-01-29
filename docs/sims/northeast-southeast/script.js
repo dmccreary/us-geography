@@ -1,4 +1,33 @@
-/* Northeast and Southeast Regions MicroSim */
+/* Northeast and Southeast Regions MicroSim
+ * Uses high-quality Natural Earth GeoJSON for state boundaries
+ */
+
+// =============================================================================
+// MAP VIEW CONFIGURATION
+// =============================================================================
+// Adjust these values to change the initial map position and zoom level.
+//
+// HORIZONTAL_PAN: Shifts the map east or west
+//   - Negative values move the map CENTER west (states appear to shift RIGHT)
+//   - Positive values move the map CENTER east (states appear to shift LEFT)
+//
+// VERTICAL_PAN: Shifts the map north or south
+//   - Positive values move the map CENTER north (states appear to shift DOWN)
+//   - Negative values move the map CENTER south (states appear to shift UP)
+//
+// ZOOM: Controls the zoom level
+//   - Higher values = more zoomed in (closer view)
+//   - Lower values = more zoomed out (wider view)
+// =============================================================================
+// View configurations for each region
+const VIEWS = {
+    northeast: { lat: 42, lng: -73, horizontalPan: 5, verticalPan: 0, zoom: 5 },
+    southeast: { lat: 33, lng: -83, horizontalPan: 5, verticalPan: 0, zoom: 5 },
+    both:      { lat: 36, lng: -80, horizontalPan: 5, verticalPan: 0, zoom: 4 }  // Wider view to show both regions
+};
+
+// GeoJSON source - Natural Earth 110m US state boundaries
+const STATES_GEOJSON_URL = 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_1_states_provinces.geojson';
 
 const northeastStates = [
     { name: 'Maine', abbr: 'ME', lat: 45.3, lng: -69.0, capital: 'Augusta', pop: '1.4M', fact: 'Easternmost state' },
@@ -36,16 +65,18 @@ const majorCities = [
     { name: 'Washington DC', state: 'DC', lat: 38.91, lng: -77.04, pop: '690K', region: 'northeast', fact: 'Nation\'s Capital' }
 ];
 
-// Simplified state boundaries
-const northeastBoundary = [
-    [47, -67], [47, -80], [39, -80], [38.5, -75], [39, -74],
-    [40, -74], [41, -70], [42, -70], [43, -70], [44, -67], [47, -67]
-];
+// Map state names to their data for quick lookup
+const northeastStateNames = northeastStates.map(s => s.name);
+const southeastStateNames = southeastStates.map(s => s.name);
+const allStateNames = [...northeastStateNames, ...southeastStateNames];
 
-const southeastBoundary = [
-    [39, -80], [39, -90], [35, -90], [30, -90], [30, -88],
-    [25, -80], [25, -80], [30, -81], [35, -75], [38.5, -75], [39, -80]
-];
+const stateNameToData = {};
+northeastStates.forEach(state => {
+    stateNameToData[state.name] = { ...state, region: 'northeast' };
+});
+southeastStates.forEach(state => {
+    stateNameToData[state.name] = { ...state, region: 'southeast' };
+});
 
 const quizQuestions = [
     { q: 'Which is the largest city in the Northeast?', a: 'New York City', opts: ['New York City', 'Boston', 'Philadelphia', 'Washington DC'] },
@@ -59,26 +90,32 @@ const quizQuestions = [
 ];
 
 let map;
-let northeastLayer, southeastLayer;
+let northeastPolygons = [], southeastPolygons = [];
 let northeastMarkers = [], southeastMarkers = [], cityMarkers = [];
 let info;
 let quizMode = false;
 let currentQuestion = 0;
 let score = 0;
 let shuffledQuestions = [];
+let statesGeoData = null;
 const TOTAL_QUESTIONS = 6;
 let currentView = 'northeast';
 
-function init() {
+async function init() {
+    // Start with northeast view
+    const view = VIEWS.northeast;
+    const centerLat = view.lat + view.verticalPan;
+    const centerLng = view.lng + view.horizontalPan;
+
     map = L.map('map', {
-        center: [40, -76],
-        zoom: 5,
+        center: [centerLat, centerLng],
+        zoom: view.zoom,
         minZoom: 4,
         maxZoom: 8
     });
 
     L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-        attribution: '© OpenStreetMap contributors © CARTO'
+        attribution: '© OpenStreetMap contributors © CARTO | <a href="https://www.naturalearthdata.com/">Natural Earth</a>'
     }).addTo(map);
 
     // Add info control
@@ -122,8 +159,8 @@ function init() {
     };
     info.addTo(map);
 
-    // Add region boundaries
-    addRegionBoundaries();
+    // Load state boundaries from Natural Earth GeoJSON
+    await loadStateBoundaries();
 
     // Add state markers
     addStateMarkers();
@@ -141,42 +178,76 @@ function init() {
     showRegion('northeast');
 }
 
-function addRegionBoundaries() {
-    northeastLayer = L.polygon(northeastBoundary, {
-        color: '#1976D2',
-        weight: 3,
-        fillColor: '#64B5F6',
-        fillOpacity: 0.3
-    }).addTo(map);
+// Load state boundaries from Natural Earth GeoJSON
+async function loadStateBoundaries() {
+    try {
+        const response = await fetch(STATES_GEOJSON_URL);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        statesGeoData = await response.json();
 
-    northeastLayer.on('click', () => {
-        if (!quizMode) info.update({
-            type: 'region',
-            name: 'Northeast Region',
-            region: 'northeast',
-            desc: 'The birthplace of American independence and industry.',
-            states: '9 states from Maine to Pennsylvania',
-            character: 'Historic cities, changing seasons, diverse cultures'
+        // Filter and create polygons for both regions
+        statesGeoData.features.forEach(feature => {
+            const stateName = feature.properties.name;
+
+            if (northeastStateNames.includes(stateName)) {
+                const state = stateNameToData[stateName];
+                const layer = L.geoJSON(feature, {
+                    style: {
+                        fillColor: '#64B5F6',
+                        fillOpacity: 0.3,
+                        color: '#1976D2',
+                        weight: 2,
+                        opacity: 0.8
+                    }
+                });
+
+                layer.on('click', () => {
+                    if (!quizMode) info.update({ type: 'state', ...state });
+                });
+                layer.on('mouseover', () => {
+                    if (!quizMode) layer.setStyle({ fillOpacity: 0.5 });
+                });
+                layer.on('mouseout', () => {
+                    layer.setStyle({ fillOpacity: 0.3 });
+                });
+
+                northeastPolygons.push({ layer, state });
+            }
+
+            if (southeastStateNames.includes(stateName)) {
+                const state = stateNameToData[stateName];
+                const layer = L.geoJSON(feature, {
+                    style: {
+                        fillColor: '#FF8A65',
+                        fillOpacity: 0.3,
+                        color: '#E64A19',
+                        weight: 2,
+                        opacity: 0.8
+                    }
+                });
+
+                layer.on('click', () => {
+                    if (!quizMode) info.update({ type: 'state', ...state });
+                });
+                layer.on('mouseover', () => {
+                    if (!quizMode) layer.setStyle({ fillOpacity: 0.5 });
+                });
+                layer.on('mouseout', () => {
+                    layer.setStyle({ fillOpacity: 0.3 });
+                });
+
+                southeastPolygons.push({ layer, state });
+            }
         });
-    });
 
-    southeastLayer = L.polygon(southeastBoundary, {
-        color: '#E64A19',
-        weight: 3,
-        fillColor: '#FF8A65',
-        fillOpacity: 0.3
-    });
-
-    southeastLayer.on('click', () => {
-        if (!quizMode) info.update({
-            type: 'region',
-            name: 'Southeast Region',
-            region: 'southeast',
-            desc: 'The warm, hospitable South with rich cultural heritage.',
-            states: '10 states from Virginia to Florida',
-            character: 'Warm climate, Southern hospitality, growing cities'
-        });
-    });
+    } catch (error) {
+        console.error('Error loading state boundaries:', error);
+        document.getElementById('map').innerHTML +=
+            '<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:white;padding:20px;border-radius:8px;z-index:1000;">' +
+            'Loading map data... If this persists, check your internet connection.</div>';
+    }
 }
 
 function addStateMarkers() {
@@ -267,29 +338,44 @@ function showRegion(region) {
         document.getElementById('bothBtn').classList.add('active');
     }
 
-    // Clear layers
-    if (map.hasLayer(northeastLayer)) map.removeLayer(northeastLayer);
-    if (map.hasLayer(southeastLayer)) map.removeLayer(southeastLayer);
-    northeastMarkers.forEach(m => map.removeLayer(m));
-    southeastMarkers.forEach(m => map.removeLayer(m));
-    cityMarkers.forEach(({ marker }) => map.removeLayer(marker));
+    // Clear all layers
+    northeastPolygons.forEach(({ layer }) => {
+        if (map.hasLayer(layer)) map.removeLayer(layer);
+    });
+    southeastPolygons.forEach(({ layer }) => {
+        if (map.hasLayer(layer)) map.removeLayer(layer);
+    });
+    northeastMarkers.forEach(m => {
+        if (map.hasLayer(m)) map.removeLayer(m);
+    });
+    southeastMarkers.forEach(m => {
+        if (map.hasLayer(m)) map.removeLayer(m);
+    });
+    cityMarkers.forEach(({ marker }) => {
+        if (map.hasLayer(marker)) map.removeLayer(marker);
+    });
 
     // Add appropriate layers
     if (region === 'northeast' || region === 'both') {
-        northeastLayer.addTo(map);
+        northeastPolygons.forEach(({ layer }) => layer.addTo(map));
         northeastMarkers.forEach(m => m.addTo(map));
         cityMarkers.filter(({ city }) => city.region === 'northeast').forEach(({ marker }) => marker.addTo(map));
     }
 
     if (region === 'southeast' || region === 'both') {
-        southeastLayer.addTo(map);
+        southeastPolygons.forEach(({ layer }) => layer.addTo(map));
         southeastMarkers.forEach(m => m.addTo(map));
         cityMarkers.filter(({ city }) => city.region === 'southeast').forEach(({ marker }) => marker.addTo(map));
     }
 
-    // Adjust view
+    // Adjust view using configured pan and zoom
+    const view = VIEWS[region];
+    const centerLat = view.lat + view.verticalPan;
+    const centerLng = view.lng + view.horizontalPan;
+    map.setView([centerLat, centerLng], view.zoom);
+
+    // Update info panel
     if (region === 'northeast') {
-        map.setView([42, -73], 5);
         info.update({
             type: 'region',
             name: 'Northeast Region',
@@ -299,7 +385,6 @@ function showRegion(region) {
             character: 'Historic cities, changing seasons, diverse cultures'
         });
     } else if (region === 'southeast') {
-        map.setView([33, -83], 5);
         info.update({
             type: 'region',
             name: 'Southeast Region',
@@ -309,7 +394,6 @@ function showRegion(region) {
             character: 'Warm climate, Southern hospitality, growing cities'
         });
     } else {
-        map.setView([36, -80], 5);
         info.update(null);
     }
 }

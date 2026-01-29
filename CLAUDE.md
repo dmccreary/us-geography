@@ -15,6 +15,89 @@
   - US States: `ne_110m_admin_1_states_provinces.geojson`
 - Never create coarse hand-drawn coordinate arrays for geographic boundaries
 
+### Implementation Pattern for Leaflet + Natural Earth GeoJSON
+
+1. **Define the GeoJSON URL** at the top of the script:
+   ```javascript
+   const STATES_GEOJSON_URL = 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_1_states_provinces.geojson';
+   ```
+
+2. **Create an async loading function** that fetches and filters the GeoJSON:
+   ```javascript
+   async function loadStateBoundaries() {
+       const response = await fetch(STATES_GEOJSON_URL);
+       const geoData = await response.json();
+
+       geoData.features.forEach(feature => {
+           const stateName = feature.properties.name;  // Natural Earth uses 'name' property
+
+           if (targetStateNames.includes(stateName)) {
+               const layer = L.geoJSON(feature, {
+                   style: { fillColor: color, fillOpacity: 0.3, color: color, weight: 2 }
+               }).addTo(map);
+
+               // Add event handlers
+               layer.on('click', () => handleClick(stateName));
+               layer.on('mouseover', () => layer.setStyle({ fillOpacity: 0.5 }));
+               layer.on('mouseout', () => layer.setStyle({ fillOpacity: 0.3 }));
+           }
+       });
+   }
+   ```
+
+3. **Make init() async** and await the boundary loading:
+   ```javascript
+   async function init() {
+       // ... map setup ...
+       await loadStateBoundaries();
+       // ... rest of initialization ...
+   }
+   ```
+
+4. **Add error handling** with a user-friendly loading message for network failures
+
+5. **Update attribution** to credit Natural Earth:
+   ```javascript
+   L.tileLayer('...', {
+       attribution: '© OpenStreetMap © CARTO | <a href="https://www.naturalearthdata.com/">Natural Earth</a>'
+   })
+   ```
+
+### Map View Configuration
+
+Always define configurable pan and zoom variables at the top of map scripts:
+
+```javascript
+// HORIZONTAL_PAN: Shifts the map east or west
+//   - Negative values move the map CENTER west (states appear to shift RIGHT)
+//   - Positive values move the map CENTER east (states appear to shift LEFT)
+//
+// VERTICAL_PAN: Shifts the map north or south
+//   - Positive values move the map CENTER north (states appear to shift DOWN)
+//   - Negative values move the map CENTER south (states appear to shift UP)
+//
+// ZOOM: Controls the zoom level
+//   - Higher values = more zoomed in (closer view)
+//   - Lower values = more zoomed out (wider view)
+const HORIZONTAL_PAN = 8;   // Adjust to prevent info box from covering states
+const VERTICAL_PAN = 0;
+const ZOOM = 4;
+
+const BASE_CENTER_LAT = 42;
+const BASE_CENTER_LNG = -90;
+```
+
+Then use in `init()` and `resetView()`:
+```javascript
+const centerLat = BASE_CENTER_LAT + VERTICAL_PAN;
+const centerLng = BASE_CENTER_LNG + HORIZONTAL_PAN;
+map.setView([centerLat, centerLng], ZOOM);
+```
+
+### Reference Examples
+- Countries: `docs/sims/locate-usa/script.js` - filters `ne_110m_admin_0_countries.geojson` for USA, Canada, Mexico
+- US States: `docs/sims/midwest-states/script.js` - filters `ne_110m_admin_1_states_provinces.geojson` for Midwest states
+
 ## MicroSim Controls
 
 - For p5.js MicroSims, always use canvas-based controls (draw buttons/sliders directly on the canvas using rect(), text(), etc. and handle interaction in mousePressed()/mouseDragged())

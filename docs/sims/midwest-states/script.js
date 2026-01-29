@@ -1,4 +1,38 @@
-/* Midwest States MicroSim */
+/* Midwest States MicroSim
+ * Uses high-quality Natural Earth GeoJSON for state boundaries
+ */
+
+// =============================================================================
+// MAP VIEW CONFIGURATION
+// =============================================================================
+// Adjust these values to change the initial map position and zoom level.
+// The base center is [42, -90] (latitude, longitude) - roughly central Midwest.
+//
+// HORIZONTAL_PAN: Shifts the map east or west
+//   - Negative values move the map CENTER west (states appear to shift RIGHT)
+//   - Positive values move the map CENTER east (states appear to shift LEFT)
+//   - Each unit is approximately 1 degree of longitude (~50 miles at this latitude)
+//
+// VERTICAL_PAN: Shifts the map north or south
+//   - Positive values move the map CENTER north (states appear to shift DOWN)
+//   - Negative values move the map CENTER south (states appear to shift UP)
+//   - Each unit is approximately 1 degree of latitude (~69 miles)
+//
+// ZOOM: Controls the zoom level
+//   - Higher values = more zoomed in (closer view)
+//   - Lower values = more zoomed out (wider view)
+//   - Typical range: 3 (very wide) to 6 (close up)
+// =============================================================================
+const HORIZONTAL_PAN = 8;  // Shifted west so info box doesn't cover eastern states
+const VERTICAL_PAN = 0;     // No vertical adjustment
+const ZOOM = 4;             // Zoomed out to show all states with room for info box
+
+// Base center coordinates (before pan adjustments)
+const BASE_CENTER_LAT = 42;
+const BASE_CENTER_LNG = -90;
+
+// GeoJSON source - Natural Earth 110m US state boundaries
+const STATES_GEOJSON_URL = 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_1_states_provinces.geojson';
 
 const stateData = [
     {
@@ -99,17 +133,14 @@ const stateData = [
     }
 ];
 
-// Simplified state boundaries
-const stateBounds = {
-    'Minnesota': [[49, -97.2], [49, -89.5], [46, -89.5], [43.5, -91.2], [43.5, -96.5], [46, -97.2]],
-    'Wisconsin': [[47, -92.5], [47, -86.8], [42.5, -87], [42.5, -91], [44, -92.5]],
-    'Michigan': [[46.5, -90.5], [46.5, -82], [41.7, -82], [41.7, -87], [44, -87.5], [45.5, -90.5]],
-    'Iowa': [[43.5, -96.6], [43.5, -90.1], [40.4, -90.1], [40.4, -96.6]],
-    'Illinois': [[42.5, -91], [42.5, -87], [37, -87.5], [37, -91.5]],
-    'Indiana': [[41.8, -88], [41.8, -84.8], [38, -84.8], [37.8, -88]],
-    'Ohio': [[42, -84.8], [42, -80.5], [38.4, -80.5], [38.4, -84.8]],
-    'Kansas': [[40, -102], [40, -94.6], [37, -94.6], [37, -102]]
-};
+// Map state names to their data for quick lookup
+const stateNameToData = {};
+stateData.forEach(state => {
+    stateNameToData[state.name] = state;
+});
+
+// List of Midwest state names to filter from GeoJSON
+const midwestStateNames = stateData.map(s => s.name);
 
 const quizQuestions = [
     { q: 'Which state is known for deep-dish pizza and Chicago?', a: 'Illinois' },
@@ -131,18 +162,23 @@ let quizMode = false;
 let currentQuestion = 0;
 let score = 0;
 let shuffledQuestions = [];
+let statesGeoData = null;
 const TOTAL_QUESTIONS = 6;
 
-function init() {
+async function init() {
+    // Apply pan offsets to base center
+    const centerLat = BASE_CENTER_LAT + VERTICAL_PAN;
+    const centerLng = BASE_CENTER_LNG + HORIZONTAL_PAN;
+
     map = L.map('map', {
-        center: [42, -90],
-        zoom: 5,
-        minZoom: 4,
+        center: [centerLat, centerLng],
+        zoom: ZOOM,
+        minZoom: 3,
         maxZoom: 8
     });
 
     L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-        attribution: '© OpenStreetMap contributors © CARTO'
+        attribution: '© OpenStreetMap contributors © CARTO | <a href="https://www.naturalearthdata.com/">Natural Earth</a>'
     }).addTo(map);
 
     // Add info control
@@ -168,8 +204,8 @@ function init() {
     };
     info.addTo(map);
 
-    // Add state polygons
-    addStatePolygons();
+    // Load state boundaries from Natural Earth GeoJSON
+    await loadStateBoundaries();
 
     // Add capital markers
     addCapitalMarkers();
@@ -185,40 +221,64 @@ function init() {
     document.getElementById('resetBtn').addEventListener('click', resetView);
 }
 
-function addStatePolygons() {
+// Load state boundaries from Natural Earth GeoJSON
+async function loadStateBoundaries() {
     const colors = ['#FF9800', '#FFA726', '#FFB74D', '#FFCC80', '#FFE0B2', '#FB8C00', '#F57C00', '#EF6C00'];
 
-    stateData.forEach((state, i) => {
-        const bounds = stateBounds[state.name];
-        if (bounds) {
-            const polygon = L.polygon(bounds, {
-                color: colors[i % colors.length],
-                weight: 2,
-                opacity: 0.8,
-                fillColor: colors[i % colors.length],
-                fillOpacity: 0.3
-            }).addTo(map);
-
-            polygon.on('click', () => {
-                if (!quizMode) {
-                    info.update(state);
-                    highlightState(state.name);
-                } else {
-                    handleQuizClick(state.name);
-                }
-            });
-
-            polygon.on('mouseover', () => {
-                if (!quizMode) polygon.setStyle({ fillOpacity: 0.5 });
-            });
-
-            polygon.on('mouseout', () => {
-                polygon.setStyle({ fillOpacity: 0.3 });
-            });
-
-            statePolygons.push({ polygon, state });
+    try {
+        const response = await fetch(STATES_GEOJSON_URL);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
-    });
+        statesGeoData = await response.json();
+
+        // Filter for Midwest states and add to map
+        statesGeoData.features.forEach(feature => {
+            const stateName = feature.properties.name;
+
+            if (midwestStateNames.includes(stateName)) {
+                const state = stateNameToData[stateName];
+                const colorIndex = stateData.indexOf(state);
+                const color = colors[colorIndex % colors.length];
+
+                const layer = L.geoJSON(feature, {
+                    style: {
+                        fillColor: color,
+                        fillOpacity: 0.3,
+                        color: color,
+                        weight: 2,
+                        opacity: 0.8
+                    }
+                }).addTo(map);
+
+                // Add event handlers
+                layer.on('click', () => {
+                    if (!quizMode) {
+                        info.update(state);
+                        highlightState(state.name);
+                    } else {
+                        handleQuizClick(state.name);
+                    }
+                });
+
+                layer.on('mouseover', () => {
+                    if (!quizMode) layer.setStyle({ fillOpacity: 0.5 });
+                });
+
+                layer.on('mouseout', () => {
+                    layer.setStyle({ fillOpacity: 0.3 });
+                });
+
+                statePolygons.push({ polygon: layer, state });
+            }
+        });
+
+    } catch (error) {
+        console.error('Error loading state boundaries:', error);
+        document.getElementById('map').innerHTML +=
+            '<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:white;padding:20px;border-radius:8px;z-index:1000;">' +
+            'Loading map data... If this persists, check your internet connection.</div>';
+    }
 }
 
 function addCapitalMarkers() {
@@ -370,7 +430,10 @@ function resetView() {
     quizMode = false;
     document.getElementById('quizBtn').classList.remove('active');
     document.getElementById('quizPanel').classList.add('hidden');
-    map.setView([42, -90], 5);
+    // Reset to initial map view using configured pan and zoom
+    const centerLat = BASE_CENTER_LAT + VERTICAL_PAN;
+    const centerLng = BASE_CENTER_LNG + HORIZONTAL_PAN;
+    map.setView([centerLat, centerLng], ZOOM);
     info.update(null);
 }
 

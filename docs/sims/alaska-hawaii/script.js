@@ -1,4 +1,32 @@
-/* Alaska and Hawaii MicroSim */
+/* Alaska and Hawaii MicroSim
+ * Uses high-quality Natural Earth GeoJSON for state boundaries
+ */
+
+// =============================================================================
+// MAP VIEW CONFIGURATION
+// =============================================================================
+// Adjust these values to change the initial map position and zoom level.
+//
+// HORIZONTAL_PAN: Shifts the map east or west
+//   - Negative values move the map CENTER west (states appear to shift RIGHT)
+//   - Positive values move the map CENTER east (states appear to shift LEFT)
+//
+// VERTICAL_PAN: Shifts the map north or south
+//   - Positive values move the map CENTER north (states appear to shift DOWN)
+//   - Negative values move the map CENTER south (states appear to shift UP)
+//
+// ZOOM: Controls the zoom level
+//   - Higher values = more zoomed in (closer view)
+//   - Lower values = more zoomed out (wider view)
+// =============================================================================
+// View configurations for each state
+const VIEWS = {
+    alaska: { lat: 64, lng: -153, horizontalPan: 22, verticalPan: 0, zoom: 3 },
+    hawaii: { lat: 20.5, lng: -157, horizontalPan: 3, verticalPan: 0, zoom: 6 }
+};
+
+// GeoJSON source - Natural Earth 110m US state boundaries
+const STATES_GEOJSON_URL = 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_1_states_provinces.geojson';
 
 const alaskaData = {
     name: 'Alaska',
@@ -71,18 +99,24 @@ let quizMode = false;
 let currentQuestion = 0;
 let score = 0;
 let shuffledQuestions = [];
+let alaskaGeoJSON = null;
 const TOTAL_QUESTIONS = 6;
 
-function init() {
+async function init() {
+    // Start with Alaska view
+    const view = VIEWS.alaska;
+    const centerLat = view.lat + view.verticalPan;
+    const centerLng = view.lng + view.horizontalPan;
+
     map = L.map('map', {
-        center: [64, -153],
-        zoom: 3,
+        center: [centerLat, centerLng],
+        zoom: view.zoom,
         minZoom: 2,
         maxZoom: 8
     });
 
     L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-        attribution: '© OpenStreetMap contributors © CARTO'
+        attribution: '© OpenStreetMap contributors © CARTO | <a href="https://www.naturalearthdata.com/">Natural Earth</a>'
     }).addTo(map);
 
     // Add info control
@@ -118,6 +152,9 @@ function init() {
     };
     info.addTo(map);
 
+    // Load Alaska boundary from GeoJSON
+    await loadAlaskaBoundary();
+
     // Show Alaska initially
     showAlaska();
 
@@ -125,6 +162,26 @@ function init() {
     document.getElementById('alaskaBtn').addEventListener('click', showAlaska);
     document.getElementById('hawaiiBtn').addEventListener('click', showHawaii);
     document.getElementById('quizBtn').addEventListener('click', startQuiz);
+}
+
+// Load Alaska boundary from Natural Earth GeoJSON
+async function loadAlaskaBoundary() {
+    try {
+        const response = await fetch(STATES_GEOJSON_URL);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const statesGeoData = await response.json();
+
+        // Find Alaska in the GeoJSON
+        statesGeoData.features.forEach(feature => {
+            if (feature.properties.name === 'Alaska') {
+                alaskaGeoJSON = feature;
+            }
+        });
+    } catch (error) {
+        console.error('Error loading state boundaries:', error);
+    }
 }
 
 function clearMarkers() {
@@ -138,25 +195,50 @@ function showAlaska() {
     document.getElementById('hawaiiBtn').classList.remove('active');
 
     clearMarkers();
-    map.setView([64, -153], 3);
 
-    // Add Alaska outline (simplified)
-    const alaskaBounds = [
-        [71, -168], [71, -141], [60, -141], [55, -130],
-        [54, -164], [52, -172], [57, -170], [65, -168]
-    ];
+    // Set view using configured pan and zoom
+    const view = VIEWS.alaska;
+    const centerLat = view.lat + view.verticalPan;
+    const centerLng = view.lng + view.horizontalPan;
+    map.setView([centerLat, centerLng], view.zoom);
 
-    const alaskaPolygon = L.polygon(alaskaBounds, {
-        color: '#5C6BC0',
-        weight: 2,
-        fillColor: '#5C6BC0',
-        fillOpacity: 0.2
-    }).addTo(map);
+    // Add Alaska boundary from GeoJSON (or fallback to simplified)
+    let alaskaPolygon;
+    if (alaskaGeoJSON) {
+        alaskaPolygon = L.geoJSON(alaskaGeoJSON, {
+            style: {
+                color: '#5C6BC0',
+                weight: 2,
+                fillColor: '#5C6BC0',
+                fillOpacity: 0.2
+            }
+        }).addTo(map);
+    } else {
+        // Fallback to simplified bounds if GeoJSON not loaded
+        const alaskaBounds = [
+            [71, -168], [71, -141], [60, -141], [55, -130],
+            [54, -164], [52, -172], [57, -170], [65, -168]
+        ];
+        alaskaPolygon = L.polygon(alaskaBounds, {
+            color: '#5C6BC0',
+            weight: 2,
+            fillColor: '#5C6BC0',
+            fillOpacity: 0.2
+        }).addTo(map);
+    }
 
     alaskaPolygon.on('click', () => {
         if (!quizMode) {
             info.update({ type: 'state', ...alaskaData });
         }
+    });
+
+    alaskaPolygon.on('mouseover', () => {
+        if (!quizMode) alaskaPolygon.setStyle({ fillOpacity: 0.4 });
+    });
+
+    alaskaPolygon.on('mouseout', () => {
+        alaskaPolygon.setStyle({ fillOpacity: 0.2 });
     });
 
     markers.push({ marker: alaskaPolygon, data: alaskaData });
@@ -189,9 +271,14 @@ function showHawaii() {
     document.getElementById('alaskaBtn').classList.remove('active');
 
     clearMarkers();
-    map.setView([20.5, -157], 6);
 
-    // Add island markers
+    // Set view using configured pan and zoom
+    const view = VIEWS.hawaii;
+    const centerLat = view.lat + view.verticalPan;
+    const centerLng = view.lng + view.horizontalPan;
+    map.setView([centerLat, centerLng], view.zoom);
+
+    // Add island markers (Hawaii islands are too small for 110m GeoJSON, use circles)
     hawaiiData.islands.forEach(island => {
         const icon = L.divIcon({
             className: 'island-marker',
