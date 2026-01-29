@@ -35,6 +35,7 @@
 
 ## Post-Generation Steps
 
-After generating a MicroSim:
+After generating a new MicroSim or updating a MicroSim:
 1. Run `~/.local/bin/bk-capture-screenshot` to create a screen image of the MicroSim
 2. Run the `/microsim-utils` skill for standardization
+3. Run the Claude skill `>/microsim-util update the microsim index`
