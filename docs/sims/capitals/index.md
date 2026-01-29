@@ -1,7 +1,8 @@
 ---
 title: Looking for Patterns in State Capitals
 description: Interactive tool for discovering patterns in why US state capitals are located where they are, with study mode showing historical context and quiz mode for testing knowledge.
-image: capitals.png
+image: /sims/capitals/capitals.jpg
+og:image: /sims/capitals/capitals.jpg
 quality_score: 90
 ---
 
