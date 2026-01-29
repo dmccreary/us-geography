@@ -26,19 +26,34 @@ nav:
     - 12. Landmarks and Culture: chapters/12-landmarks-and-culture/index.md
   - MicroSims:
     - sims/index.md
+    - Agricultural Regions: sims/agricultural-regions/index.md
+    - Alaska and Hawaii: sims/alaska-hawaii/index.md
     - Bird's Eye View: sims/birds-eye-view/index.md
+    - Climate Zones: sims/climate-zones/index.md
     - Compass Rose: sims/compass-rose/index.md
     - Contour Lines: sims/contour-lines/index.md
     - Graph Viewer: sims/graph-viewer/index.md
     - Great Lakes: sims/great-lakes/index.md
+    - Great Plains: sims/great-plains/index.md
     - Hemispheres Globe: sims/hemispheres-globe/index.md
+    - Landform Comparison: sims/landform-comparison/index.md
+    - Landmarks: sims/landmarks/index.md
     - Lat/Long Grid: sims/lat-long-grid/index.md
     - Locate USA: sims/locate-usa/index.md
     - Major Rivers: sims/major-rivers/index.md
     - Map Types Compare: sims/map-types-compare/index.md
+    - Midwest States: sims/midwest-states/index.md
+    - Mountain States: sims/mountain-states/index.md
+    - National Parks: sims/national-parks/index.md
+    - New England States: sims/new-england-states/index.md
+    - Northeast and Southeast: sims/northeast-southeast/index.md
     - Population Density: sims/population-density/index.md
     - Precipitation Map: sims/precipitation-map/index.md
+    - Rocky Mountains: sims/rocky-mountains/index.md
     - Time Zones: sims/time-zones/index.md
+    - Tornado Alley: sims/tornado-alley/index.md
+    - Transportation Networks: sims/transportation-networks/index.md
+    - US Oceans: sims/us-oceans/index.md
     - US Water Features: sims/us-water-features/index.md
     - Weather vs Climate: sims/weather-climate/index.md
   - Learning Graph:

@@ -1,3 +1,10 @@
+---
+title: Learning Graph Viewer
+description: Interactive network visualization to explore the concept dependency graph for the US Geography course
+image: graph-viewer.png
+quality_score: 85
+---
+
 # Learning Graph Viewer
 
 This interactive viewer allows you to explore the learning graph for the US Geography course.
