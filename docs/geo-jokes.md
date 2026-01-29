@@ -6,8 +6,6 @@ Here are some kid-friendly jokes and puns about US geography. Perfect for a laug
     Please generate a list of 50 kid-safe jokes or puns about the          
     geography of the united states. This is for a school exercise for      
     grades 4,5 and 6. Return the jokes as a numbered markdown list.        
-    Write the file to @docs/geo-jokes.md and add an entry to the           
-    mkdocs.yml after the chapters.
 
 ## Anthropic Claude
 
@@ -265,4 +263,114 @@ Sure thing! Here’s a kid-safe, classroom-friendly set of U.S. geography jokes 
 50. Why is geography such a great subject?
     Because it really *maps out* the world!
 
+## Google Gemini
 
+Here is a list of 50 kid-safe jokes and puns about the geography of the United States, tailored for grades 4, 5, and 6.
+
+1. **What did Delaware?** She wore a New Jersey.
+2. **What did Tennessee?** The same thing Arkansas.
+3. **What is the smartest state in America?** Alabama, because it has four A’s and one B!
+4. **Why are there no big cats in the United States?** Because there are 50 states, but hardly any cheetahs.
+5. **Where do pencils go on vacation?** Pennsylvania.
+6. **What is a ghost’s favorite state?** Boo-York.
+7. **Why did the pioneers move to Oklahoma?** Because they wanted to be OK.
+8. **What kind of tea do they drink in the South?** Penal-tea (Penalty)—wait, no, Tenne-tea!
+9. **What state has the most colorful people?** Color-ado.
+10. **Which state is the happiest?** Mary-land.
+11. **Why couldn't the map play cards?** Because it folded on the river.
+12. **Which state does the most laundry?** Wash-ington.
+13. **Which state cuts the grass?** Mow-tana.
+14. **Where do stones go to become famous?** Rock-ford, Illinois.
+15. **Which state provides the most soft drinks?** Minnesota (Mini-soda).
+16. **What’s the capital of Alaska?** Juneau! (Do you know? No, I don’t!)
+17. **What is the most musical state?** Ore-gon (Organ).
+18. **Why does the Mississippi River see so well?** Because it has four "i"s.
+19. **What did the ocean say to the state of Rhode Island?** Nothing, it just waved.
+20. **Why did the geography student look at the map of the US?** He wanted to check out the states of affairs.
+21. **Which state is famous for its small soft drinks?** Minnesota (Mini-Soda).
+22. **What state buys the most sweaters?** New Hamp-shire (because it’s chilly there!).
+23. **Why is the Statue of Liberty never lonely?** Because she hangs around New York City.
+24. **Which state has the best math skills?** Add-aho (Idaho).
+25. **What did the big state say to the little state?** You're Mass-ive! (Massachusetts).
+26. **Which state is a doctor?** MD (Maryland).
+27. **Why is Alabama so fast?** Because it wants to be first in the line-up.
+28. **Where do cows go on vacation?** Moo-york or Moo-souri.
+29. **Which state has the cleanest shirts?** Wash-ington.
+30. **Why can’t you trust the geography of the Great Plains?** Because it’s always plotting something.
+31. **What is the funniest state?** Ha-waii.
+32. **Which state loves to ask questions?** Wy-oming (Why?).
+33. **What do you call a state that is high in the middle and round on both ends?** Oh-hi-o.
+34. **If Mississippi gave Missouri a New Jersey, what did Delaware?** I don’t know, but Alaska! (I'll ask her).
+35. **Why was the geography teacher so good at basketball?** Because he knew all the courts.
+36. **Which state is always sick?** Ill-inois.
+37. **What happens if you drop a glass in Nebraska?** It smashes on the Corn-husker!
+38. **Where is the best place to buy a new key?** Key West, Florida.
+39. **Which state is known for its small streets?** Rhode Island (Road Island).
+40. **What rock group has four guys that don't sing?** Mount Rushmore.
+41. **Why is the Grand Canyon so famous?** Because it's gorgeous (gorge-ous).
+42. **How do you cut the ocean in half?** With a Connect-i-cut.
+43. **Which state owes money?** I-owa (I owe a...).
+44. **Which state is good at carpentry?** Saw-th Dakota.
+45. **Which state likes to draw?** Penn-sylvania.
+46. **What state is home to a famous girl named Virginia?** West Virginia.
+47. **Why did the fish swim from the Atlantic to the Pacific?** To get to the other tide.
+48. **Which lake is the boss of all the other lakes?** Lake Superior.
+49. **What state has the most spiders?** Arachn-sas (Arkansas).
+50. **What did the map say to the compass?** I'm lost without you!
+
+## Deepseek
+
+Here is a list of 50 kid-safe geography jokes and puns about the United States!
+
+### Geography Jokes & Puns of the U.S.A.
+
+1. What do you call a tiny island that belongs to the United States? A little “peace” of America! (Like a little piece of America)
+2. Why is the Mississippi River so well-informed? It’s been to a lot of states!
+3. What did Delaware? Her New Jersey!
+4. Why is the Liberty Bell like a dropped Easter egg? They both have cracks!
+5. Why don’t mountains in Alaska ever get cold? They always wear snow caps!
+6. How does Wisconsin say hello to its cheese? “Hey, Gouda lookin’!”
+7. Why was the geography book so sad? Because its states were always bordering on arguments!
+8. What state is known for its high-flying breakfast? Cereal-ifornia! (California)
+9. What’s the capital of Alaska? I don’t know, but Juneau might! (Juneau)
+10. Why is Pennsylvania the smartest state? It has a lot of “common wealth” of knowledge!
+11. What do you call a deer with no eyes in Oregon? No idea! (No-eye deer)
+12. What’s the rock’s favorite state? Boulder, Colorado! (Boulder, CO)
+13. Why did the sun go to school in Florida? It wanted to be a little brighter!
+14. What did the map say to the lost tourist? “I’ve got you covered!”
+15. What state has the most dogs? New Yorkie! (New York)
+16. Why did the tomato turn red in Washington? Because it saw the state “dressing”! (Washington state, salad dressing)
+17. What’s the smallest state? Rhode Island, because it’s just a “little Rhode”!
+18. Why did the cowboy move to Texas? He wanted to live in a state of “awe”! (State of awe / Texas, “y’all”)
+19. How do you get to the library in Idaho? You “Boise”! (Boise, ID)
+20. What’s a volcano’s favorite state? Hawaii, because it’s lava-ly!
+21. Why can’t you play hide-and-seek in the Great Plains? Because there’s not enough “range” to hide!
+22. What did one ocean say to the other ocean off the coast? Nothing, they just waved!
+23. Why is Michigan shaped like a mitten? So it can give the other states a high-five!
+24. What’s a geographer’s favorite type of story? A “legend”! (Like a map legend)
+25. Why was the math book sad in Tennessee? Too many problems to “Memphis”! (Memphis, TN)
+26. What state is round at the beginning and end and high in the middle? O-hi-o!
+27. Why did the kid bring a ladder to the Grand Canyon? He heard the grades were really deep!
+28. What’s the capital of Hawaii? I’ll wait while you “Honolulu”! (Honolulu)
+29. Why do tourists love visiting Utah? They find it very “salt-isfying”! (Great Salt Lake)
+30. What did the desert say to the rain in Arizona? “Long time, no sea!”
+31. Why is the Atlantic Ocean so good at sharing? It’s very “current” with everyone!
+32. What did the farmer say when he lost his tractor in Kansas? “Where’s my John Deere?”
+33. What city in Alaska is always asking questions? “Nome” of your business! (Nome, AK)
+34. Why is Colorado so rich? Because it has a “mountain” of cash!
+35. What do you call a fake stone in Texas? A sham-rock! (Like the Alamo?)
+36. What’s a ghost’s favorite national monument? The “Tomb”-stone! (Tombstone, AZ & tombstone)
+37. Why don’t rivers ever get lost? They always follow their course!
+38. What state is perfect for thirsty people? “Minnesota” – it sounds like “mini soda”!
+39. Why did the Statue of Liberty go to France? To see her “re-leaf”! (The statue was a gift from France)
+40. How do you know the ocean is friendly? It’s always waving!
+41. What do you call a city in Montana that loves to sleep? “Billings”! (Billings, MT, like billowing clouds or sleeping?)
+42. What state is famous for its incredibly small beverages? Mini-soda! (Minnesota)
+43. Why did the smartphone go to Silicon Valley? It wanted better connections!
+44. What’s a cartographer’s favorite game? “Map”-oly! (Monopoly)
+45. Why is Missouri called the “Show-Me” state? Because it doesn’t believe in invisible borders!
+46. What’s the windiest city? Chicago, it’s always “blowing” its own horn!
+47. What do you call a very old mountain range in the East? The “Grandpa” Mountains! (Appalachian Mountains)
+48. Why did the lobster move to Maine? Because it wanted to be “claw-some” by the sea!
+49. What’s a tornado’s favorite state to visit? “Oklahoma” – it sounds like “OK, let’s go home-a”! (Tornado Alley)
+50. What is the cheer for the 50 states? “U-S-A! U-S-A! U-S-Array them in alphabetical order!”
