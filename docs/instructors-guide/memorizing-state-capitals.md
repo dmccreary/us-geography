@@ -72,21 +72,24 @@ Here's an interesting paradox: **some foundational knowledge does need to be mem
 
 ### Current State of the MicroSim
 
-The existing MicroSim offers:
+The current version of the MicroSim includes:
 
-- Study mode: See state → see capital (pure memorization)
-- Quiz mode: Multiple choice recall (pure memorization testing)
-- Positive reinforcement (motivational, not cognitive)
+- **Study mode**: Browse all 50 states with the capital shown on the map, plus a **"Why Here?" explanation** for each state revealing the historical, geographic, or political reasons behind the capital's location
+- **Quiz mode**: Multiple choice recall testing (3 to 50 questions)
+- **Pattern Recognition Quiz**: A 10-question quiz embedded in the page that tests understanding of *why* capitals are located where they are (not just memorization)
+- **Positive reinforcement**: Celebration animations and encouraging messages
 
-**Bloom's Taxonomy Level: Remember (Level 1)**
+**Bloom's Taxonomy Levels Addressed:**
 
-### Proposed Enhancements
+- **Remember**: Recall state capitals (Quiz Mode)
+- **Understand**: Read "Why Here?" explanations to understand historical context (Study Mode)
+- **Analyze/Evaluate**: Pattern Recognition Quiz questions progress from easy recall to analyzing patterns across multiple states
 
-#### Enhancement 1: Add "Why Here?" Information
+### What's Implemented: "Why Here?" Information
 
-For each state, include a brief explanation of why the capital is located where it is. This transforms a fact into a story.
+Each state now includes a `whyHere` field explaining why the capital is located where it is. This transforms arbitrary facts into meaningful stories.
 
-**Example Data Structure Enhancement:**
+**Example from the current data:**
 
 ```json
 {
@@ -94,23 +97,26 @@ For each state, include a brief explanation of why the capital is located where 
   "capital": "Albany",
   "lat": 42.653,
   "lng": -73.757,
-  "whyHere": "Albany was chosen over NYC because founders feared coastal capitals were vulnerable to naval attack. It also sat at the junction of major trade routes.",
-  "notTheLargestCity": true,
-  "formerCapital": null,
-  "yearBecameCapital": 1797
+  "whyHere": "Albany became capital in 1797, replacing New York City. Founders feared coastal capitals were vulnerable to naval attack. Albany's location at the head of Hudson River navigation and later as the Erie Canal terminus made it strategically vital."
 }
 ```
 
-#### Enhancement 2: Pattern Recognition Challenges
+The "Why Here?" text appears automatically in Study Mode in both the study panel and the map's info box.
 
-Add a mode where students identify patterns rather than recall facts:
+### Future Enhancements (Not Yet Implemented)
+
+To keep this version simple and focused, the following enhancements are proposed for future development:
+
+#### Future Enhancement 1: Pattern Recognition Mode
+
+Add an interactive mode where students identify patterns rather than recall facts:
 
 - "Which capitals are NOT the largest city in their state?" (Most of them!)
 - "Which capitals are located on rivers?"
 - "Which capitals were chosen for being 'central' to the state?"
 - "Which capitals have moved during state history?"
 
-#### Enhancement 3: Prediction Mode
+#### Future Enhancement 2: Prediction Mode
 
 Before revealing a capital, show students:
 
@@ -120,19 +126,31 @@ Before revealing a capital, show students:
 
 Then ask: "Where do you THINK the capital should be, and why?"
 
-This develops **hypothetical reasoning** - a genuine critical thinking skill.
+This would develop **hypothetical reasoning** - a genuine critical thinking skill.
 
-#### Enhancement 4: Comparison Challenges
+#### Future Enhancement 3: Comparison Challenges
 
-"Austin (Texas) and Sacramento (California) were both chosen as capitals for similar reasons. What might those reasons be?"
+Interactive prompts like: "Austin (Texas) and Sacramento (California) were both chosen as capitals for similar reasons. What might those reasons be?"
 
-This develops **analogical reasoning**.
+This would develop **analogical reasoning**.
+
+#### Future Enhancement 4: Additional Data Fields
+
+The current implementation uses only the `whyHere` field. Future versions could add:
+
+- `population_rank_in_state` - to show capital vs. largest city comparisons
+- `year_became_capital` - for timeline-based pattern recognition
+- `former_capitals` - to explore why capitals move
+- `pattern_group` - to categorize states by reason (defense, centrality, gold rush, etc.)
 
 ---
 
-## Part 4: Enriched Data for Each State's Infobox
+## Part 4: Enriched Data for Each State's Infobox (Future Enhancement)
 
-Below are suggested data fields that transform trivia into thinking opportunities.
+!!! note "Current Implementation"
+    The current MicroSim includes only the `whyHere` field for each state. The additional fields described below are **recommendations for future enhancement** to further support pattern-based learning.
+
+Below are suggested data fields that could transform trivia into thinking opportunities.
 
 ### Recommended Additional Fields per State
 
@@ -146,7 +164,7 @@ Below are suggested data fields that transform trivia into thinking opportunitie
 | `founding_reason` | Brief historical rationale | Causation: Understanding historical decisions |
 | `interesting_fact` | Engaging trivia | Hook for deeper exploration |
 
-### Sample Enriched Data for 10 States
+### Sample Enriched Data for 10 States (Future Proposal)
 
 ```json
 [
@@ -375,26 +393,33 @@ Instead of just tracking "50/50 capitals memorized," track:
 
 ### For Classroom Teachers
 
-1. **Week 1**: Use the MicroSim for basic familiarization (yes, some memorization)
-2. **Week 2**: Introduce "Why Here?" discussions - pick 5 states per day
-3. **Week 3**: Pattern-hunting activities - students discover categories themselves
-4. **Week 4**: Prediction and analysis challenges
+1. **Week 1**: Use the MicroSim Study Mode to explore states and read the "Why Here?" explanations
+2. **Week 2**: Discuss patterns as a class - which states chose capitals for defense? Centrality? Gold rush?
+3. **Week 3**: Have students take the Pattern Recognition Quiz and discuss their answers
+4. **Week 4**: Student research projects - pick a state and dig deeper into its capital's history
 5. **Week 5**: Student presentations on "Most interesting capital story"
 
 ### For Curriculum Designers
 
-1. Reduce emphasis on recall testing
-2. Add pattern-recognition assessments
+1. Reduce emphasis on pure recall testing
+2. Use the Pattern Recognition Quiz as an assessment model
 3. Include primary source documents (original capital selection debates)
 4. Connect to other subjects (history, economics, political science)
 
-### For MicroSim Enhancement
+### For MicroSim Enhancement (Future Development)
 
-1. Add "Why Here?" tooltips to each state
-2. Create a "Pattern Mode" that groups states by characteristics
-3. Add "Prediction Mode" before revealing capitals
-4. Include historical capital movement animations
-5. Add discussion question prompts after quiz completion
+**Currently Implemented:**
+
+- ✅ "Why Here?" explanations for all 50 states
+- ✅ Auto-display of info panel in Study Mode
+- ✅ Pattern Recognition Quiz (10 questions, easy to hard)
+
+**Future Enhancements:**
+
+1. Create an interactive "Pattern Mode" that groups states by characteristics
+2. Add "Prediction Mode" before revealing capitals
+3. Include historical capital movement animations
+4. Add more data fields (year became capital, former capitals, population rank)
 
 ---
 
@@ -410,7 +435,9 @@ To:
 
 > "Students will understand why capitals are located where they are and recognize patterns in how humans organize political geography"
 
-The MicroSim is a well-designed tool for the memorization task. With the enhancements suggested here, it could become a tool for **genuine geographic thinking** - a skill that transfers far beyond knowing that Montpelier is the capital of Vermont.
+The current version of the MicroSim takes a significant step toward this goal by including "Why Here?" explanations for all 50 states and a Pattern Recognition Quiz that tests understanding rather than just recall. Students can now learn not just *that* Albany is the capital of New York, but *why* it replaced New York City (fear of naval attack, strategic river location).
+
+Future enhancements could add interactive pattern exploration modes, but even in its current form, this MicroSim demonstrates that **geographic thinking can be taught alongside geographic facts** - transforming a low-value memorization exercise into genuine learning.
 
 ---
 
