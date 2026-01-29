@@ -7,7 +7,7 @@
 // =============================================================================
 const HORIZONTAL_PAN = 5;
 const VERTICAL_PAN = 0;
-const ZOOM = 4;
+const ZOOM =3.5;
 
 const BASE_CENTER_LAT = 39;
 const BASE_CENTER_LNG = -98;
@@ -88,7 +88,9 @@ function init() {
 function initMap() {
     map = L.map('map', {
         zoomControl: true,
-        scrollWheelZoom: true
+        scrollWheelZoom: true,
+        zoomSnap: 0.5,    // Allow fractional zoom levels (snaps to 0.5 increments)
+        zoomDelta: 0.5    // Each zoom click/scroll changes by 0.5
     }).setView(MAP_CONFIG.center, MAP_CONFIG.zoom);
 
     L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
@@ -139,6 +141,11 @@ function initInfoControl() {
 function setupControls() {
     document.getElementById('populationBtn').addEventListener('click', () => setMetric('population'));
     document.getElementById('densityBtn').addEventListener('click', () => setMetric('density'));
+    document.getElementById('resetBtn').addEventListener('click', resetZoom);
+}
+
+function resetZoom() {
+    map.setView(MAP_CONFIG.center, MAP_CONFIG.zoom);
 }
 
 function setMetric(metric) {

@@ -94,6 +94,31 @@ const centerLng = BASE_CENTER_LNG + HORIZONTAL_PAN;
 map.setView([centerLat, centerLng], ZOOM);
 ```
 
+### Fractional Zoom Levels
+
+Leaflet supports fractional zoom levels (e.g., 3.5, 4.2), but by default snaps to integers when users zoom. To enable smooth fractional zooming, add `zoomSnap` and `zoomDelta` to the map options:
+
+```javascript
+map = L.map('map', {
+    center: [centerLat, centerLng],
+    zoom: 3.5,
+    zoomSnap: 0.5,    // Allow zoom to snap to 0.5 increments (3, 3.5, 4, 4.5, etc.)
+    zoomDelta: 0.5    // Each zoom button/scroll changes zoom by 0.5
+});
+```
+
+Without these options, setting `ZOOM = 3.5` will work for the initial view, but zooming will jump between integers (3, 4, 5...) causing jarring transitions.
+
+### Map Instructions Footer
+
+Always include a footer instruction area below the map that explains both hover and click interactions:
+
+```html
+<div class="hover-instruction">Hover over a state to see details. Click on a state to zoom in.</div>
+```
+
+This helps users discover the interactive features of the map.
+
 ### Reference Examples
 - Countries: `docs/sims/locate-usa/script.js` - filters `ne_110m_admin_0_countries.geojson` for USA, Canada, Mexico
 - US States: `docs/sims/midwest-states/script.js` - filters `ne_110m_admin_1_states_provinces.geojson` for Midwest states
