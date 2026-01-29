@@ -1,4 +1,35 @@
-/* New England States MicroSim */
+/* New England States MicroSim
+ * Uses high-quality Natural Earth GeoJSON for state boundaries
+ */
+
+// =============================================================================
+// MAP VIEW CONFIGURATION
+// =============================================================================
+// Adjust these values to change the initial map position and zoom level.
+// The base center is [43.5, -71] (latitude, longitude) - roughly central New England.
+//
+// HORIZONTAL_PAN: Shifts the map east or west
+//   - Negative values move the map CENTER west (states appear to shift RIGHT)
+//   - Positive values move the map CENTER east (states appear to shift LEFT)
+//
+// VERTICAL_PAN: Shifts the map north or south
+//   - Positive values move the map CENTER north (states appear to shift DOWN)
+//   - Negative values move the map CENTER south (states appear to shift UP)
+//
+// ZOOM: Controls the zoom level
+//   - Higher values = more zoomed in (closer view)
+//   - Lower values = more zoomed out (wider view)
+// =============================================================================
+const HORIZONTAL_PAN = 3;   // Shifted west so info box doesn't cover eastern states
+const VERTICAL_PAN = 0;
+const ZOOM = 6;
+
+// Base center coordinates (before pan adjustments)
+const BASE_CENTER_LAT = 43.5;
+const BASE_CENTER_LNG = -71;
+
+// GeoJSON source - Natural Earth 110m US state boundaries
+const STATES_GEOJSON_URL = 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_1_states_provinces.geojson';
 
 const stateData = [
     {
@@ -81,15 +112,14 @@ const stateData = [
     }
 ];
 
-// Simplified state boundaries
-const stateBounds = {
-    'Maine': [[47.5, -71.1], [47.5, -66.9], [43.0, -66.9], [43.0, -70.7], [45.3, -71.1]],
-    'New Hampshire': [[45.3, -72.5], [45.3, -71.0], [42.7, -71.0], [42.7, -72.5]],
-    'Vermont': [[45.0, -73.4], [45.0, -72.5], [42.7, -72.5], [42.7, -73.4]],
-    'Massachusetts': [[42.9, -73.5], [42.9, -70.0], [41.2, -70.0], [41.2, -73.5]],
-    'Rhode Island': [[42.0, -71.8], [42.0, -71.1], [41.1, -71.1], [41.1, -71.8]],
-    'Connecticut': [[42.05, -73.7], [42.05, -71.8], [41.0, -71.8], [41.0, -73.7]]
-};
+// Map state names to their data for quick lookup
+const stateNameToData = {};
+stateData.forEach(state => {
+    stateNameToData[state.name] = state;
+});
+
+// List of New England state names to filter from GeoJSON
+const newEnglandStateNames = stateData.map(s => s.name);
 
 const quizQuestions = [
     { q: 'Which state produces the most maple syrup?', a: 'Vermont' },
@@ -111,18 +141,23 @@ let quizMode = false;
 let currentQuestion = 0;
 let score = 0;
 let shuffledQuestions = [];
+let statesGeoData = null;
 const TOTAL_QUESTIONS = 6;
 
-function init() {
+async function init() {
+    // Apply pan offsets to base center
+    const centerLat = BASE_CENTER_LAT + VERTICAL_PAN;
+    const centerLng = BASE_CENTER_LNG + HORIZONTAL_PAN;
+
     map = L.map('map', {
-        center: [43.5, -71],
-        zoom: 6,
+        center: [centerLat, centerLng],
+        zoom: ZOOM,
         minZoom: 5,
         maxZoom: 9
     });
 
     L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-        attribution: '© OpenStreetMap contributors © CARTO'
+        attribution: '© OpenStreetMap contributors © CARTO | <a href="https://www.naturalearthdata.com/">Natural Earth</a>'
     }).addTo(map);
 
     // Add info control
@@ -148,8 +183,8 @@ function init() {
     };
     info.addTo(map);
 
-    // Add state polygons
-    addStatePolygons();
+    // Load state boundaries from Natural Earth GeoJSON
+    await loadStateBoundaries();
 
     // Add capital markers
     addCapitalMarkers();
@@ -162,38 +197,60 @@ function init() {
     document.getElementById('resetBtn').addEventListener('click', resetView);
 }
 
-function addStatePolygons() {
-    stateData.forEach(state => {
-        const bounds = stateBounds[state.name];
-        if (bounds) {
-            const polygon = L.polygon(bounds, {
-                color: state.color,
-                weight: 2,
-                opacity: 0.8,
-                fillColor: state.color,
-                fillOpacity: 0.3
-            }).addTo(map);
-
-            polygon.on('click', () => {
-                if (!quizMode) {
-                    info.update(state);
-                    highlightState(state.name);
-                } else {
-                    handleQuizClick(state.name);
-                }
-            });
-
-            polygon.on('mouseover', () => {
-                if (!quizMode) polygon.setStyle({ fillOpacity: 0.5 });
-            });
-
-            polygon.on('mouseout', () => {
-                polygon.setStyle({ fillOpacity: 0.3 });
-            });
-
-            statePolygons.push({ polygon, state });
+// Load state boundaries from Natural Earth GeoJSON
+async function loadStateBoundaries() {
+    try {
+        const response = await fetch(STATES_GEOJSON_URL);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
-    });
+        statesGeoData = await response.json();
+
+        // Filter for New England states and add to map
+        statesGeoData.features.forEach(feature => {
+            const stateName = feature.properties.name;
+
+            if (newEnglandStateNames.includes(stateName)) {
+                const state = stateNameToData[stateName];
+
+                const layer = L.geoJSON(feature, {
+                    style: {
+                        fillColor: state.color,
+                        fillOpacity: 0.3,
+                        color: state.color,
+                        weight: 2,
+                        opacity: 0.8
+                    }
+                }).addTo(map);
+
+                // Add event handlers
+                layer.on('click', () => {
+                    if (!quizMode) {
+                        info.update(state);
+                        highlightState(state.name);
+                    } else {
+                        handleQuizClick(state.name);
+                    }
+                });
+
+                layer.on('mouseover', () => {
+                    if (!quizMode) layer.setStyle({ fillOpacity: 0.5 });
+                });
+
+                layer.on('mouseout', () => {
+                    layer.setStyle({ fillOpacity: 0.3 });
+                });
+
+                statePolygons.push({ polygon: layer, state });
+            }
+        });
+
+    } catch (error) {
+        console.error('Error loading state boundaries:', error);
+        document.getElementById('map').innerHTML +=
+            '<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:white;padding:20px;border-radius:8px;z-index:1000;">' +
+            'Loading map data... If this persists, check your internet connection.</div>';
+    }
 }
 
 function addCapitalMarkers() {
@@ -320,7 +377,10 @@ function resetView() {
     quizMode = false;
     document.getElementById('quizBtn').classList.remove('active');
     document.getElementById('quizPanel').classList.add('hidden');
-    map.setView([43.5, -71], 6);
+    // Reset to initial map view using configured pan and zoom
+    const centerLat = BASE_CENTER_LAT + VERTICAL_PAN;
+    const centerLng = BASE_CENTER_LNG + HORIZONTAL_PAN;
+    map.setView([centerLat, centerLng], ZOOM);
     info.update(null);
 }
 

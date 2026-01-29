@@ -1,4 +1,35 @@
-/* Mountain States MicroSim */
+/* Mountain States MicroSim
+ * Uses high-quality Natural Earth GeoJSON for state boundaries
+ */
+
+// =============================================================================
+// MAP VIEW CONFIGURATION
+// =============================================================================
+// Adjust these values to change the initial map position and zoom level.
+// The base center is [40, -110] (latitude, longitude) - roughly central Mountain region.
+//
+// HORIZONTAL_PAN: Shifts the map east or west
+//   - Negative values move the map CENTER west (states appear to shift RIGHT)
+//   - Positive values move the map CENTER east (states appear to shift LEFT)
+//
+// VERTICAL_PAN: Shifts the map north or south
+//   - Positive values move the map CENTER north (states appear to shift DOWN)
+//   - Negative values move the map CENTER south (states appear to shift UP)
+//
+// ZOOM: Controls the zoom level
+//   - Higher values = more zoomed in (closer view)
+//   - Lower values = more zoomed out (wider view)
+// =============================================================================
+const HORIZONTAL_PAN = 5;   // Shifted west so info box doesn't cover eastern states
+const VERTICAL_PAN = 0;
+const ZOOM = 4;
+
+// Base center coordinates (before pan adjustments)
+const BASE_CENTER_LAT = 40;
+const BASE_CENTER_LNG = -110;
+
+// GeoJSON source - Natural Earth 110m US state boundaries
+const STATES_GEOJSON_URL = 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_1_states_provinces.geojson';
 
 const stateData = [
     {
@@ -115,17 +146,14 @@ const quizQuestions = [
     { q: 'Where is Glacier National Park?', a: 'Montana' }
 ];
 
-// State boundary approximations (simplified polygons)
-const stateBounds = {
-    'Montana': [[49, -116], [49, -104], [45, -104], [45, -111], [44.5, -111], [44.5, -116]],
-    'Idaho': [[49, -117], [49, -116], [44.5, -116], [44.5, -111], [42, -111], [42, -117]],
-    'Wyoming': [[45, -111], [45, -104], [41, -104], [41, -111]],
-    'Colorado': [[41, -109], [41, -102], [37, -102], [37, -109]],
-    'Nevada': [[42, -120], [42, -114], [36, -114], [35, -115], [39, -120]],
-    'Utah': [[42, -114], [42, -109], [37, -109], [37, -114]],
-    'Arizona': [[37, -114], [37, -109], [31.3, -109], [31.3, -111], [32, -114.8], [36, -114]],
-    'New Mexico': [[37, -109], [37, -103], [32, -103], [31.8, -106.5], [32, -109]]
-};
+// Map state names to their data for quick lookup
+const stateNameToData = {};
+stateData.forEach(state => {
+    stateNameToData[state.name] = state;
+});
+
+// List of Mountain state names to filter from GeoJSON
+const mountainStateNames = stateData.map(s => s.name);
 
 let map;
 let statePolygons = [];
@@ -134,18 +162,23 @@ let quizMode = false;
 let currentQuestion = 0;
 let score = 0;
 let shuffledQuestions = [];
+let statesGeoData = null;
 const TOTAL_QUESTIONS = 6;
 
-function init() {
+async function init() {
+    // Apply pan offsets to base center
+    const centerLat = BASE_CENTER_LAT + VERTICAL_PAN;
+    const centerLng = BASE_CENTER_LNG + HORIZONTAL_PAN;
+
     map = L.map('map', {
-        center: [40, -110],
-        zoom: 4,
+        center: [centerLat, centerLng],
+        zoom: ZOOM,
         minZoom: 3,
         maxZoom: 7
     });
 
     L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-        attribution: '© OpenStreetMap contributors © CARTO'
+        attribution: '© OpenStreetMap contributors © CARTO | <a href="https://www.naturalearthdata.com/">Natural Earth</a>'
     }).addTo(map);
 
     // Add info control
@@ -174,8 +207,8 @@ function init() {
     // Add Rocky Mountains representation
     addRockyMountains();
 
-    // Add state polygons
-    addStatePolygons();
+    // Load state boundaries from Natural Earth GeoJSON
+    await loadStateBoundaries();
 
     // Add national park markers
     addNationalParks();
@@ -204,38 +237,60 @@ function addRockyMountains() {
     }).addTo(map).bindTooltip('Rocky Mountains', { permanent: false });
 }
 
-function addStatePolygons() {
-    stateData.forEach(state => {
-        const bounds = stateBounds[state.name];
-        if (bounds) {
-            const polygon = L.polygon(bounds, {
-                color: '#2E7D32',
-                weight: 2,
-                opacity: 0.8,
-                fillColor: '#4CAF50',
-                fillOpacity: 0.3
-            }).addTo(map);
-
-            polygon.on('click', () => {
-                if (!quizMode) {
-                    info.update(state);
-                    highlightState(state.name);
-                } else {
-                    handleQuizClick(state.name);
-                }
-            });
-
-            polygon.on('mouseover', () => {
-                if (!quizMode) polygon.setStyle({ fillOpacity: 0.5 });
-            });
-
-            polygon.on('mouseout', () => {
-                polygon.setStyle({ fillOpacity: 0.3 });
-            });
-
-            statePolygons.push({ polygon, state });
+// Load state boundaries from Natural Earth GeoJSON
+async function loadStateBoundaries() {
+    try {
+        const response = await fetch(STATES_GEOJSON_URL);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
-    });
+        statesGeoData = await response.json();
+
+        // Filter for Mountain states and add to map
+        statesGeoData.features.forEach(feature => {
+            const stateName = feature.properties.name;
+
+            if (mountainStateNames.includes(stateName)) {
+                const state = stateNameToData[stateName];
+
+                const layer = L.geoJSON(feature, {
+                    style: {
+                        fillColor: '#4CAF50',
+                        fillOpacity: 0.3,
+                        color: '#2E7D32',
+                        weight: 2,
+                        opacity: 0.8
+                    }
+                }).addTo(map);
+
+                // Add event handlers
+                layer.on('click', () => {
+                    if (!quizMode) {
+                        info.update(state);
+                        highlightState(state.name);
+                    } else {
+                        handleQuizClick(state.name);
+                    }
+                });
+
+                layer.on('mouseover', () => {
+                    if (!quizMode) layer.setStyle({ fillOpacity: 0.5 });
+                });
+
+                layer.on('mouseout', () => {
+                    layer.setStyle({ fillOpacity: 0.3 });
+                });
+
+                statePolygons.push({ polygon: layer, state });
+            }
+        });
+
+    } catch (error) {
+        console.error('Error loading state boundaries:', error);
+        document.getElementById('map').innerHTML +=
+            '<div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:white;padding:20px;border-radius:8px;z-index:1000;">' +
+            'Loading map data... If this persists, check your internet connection.</div>';
+    }
 }
 
 function addNationalParks() {
@@ -362,7 +417,10 @@ function resetView() {
     quizMode = false;
     document.getElementById('quizBtn').classList.remove('active');
     document.getElementById('quizPanel').classList.add('hidden');
-    map.setView([40, -110], 4);
+    // Reset to initial map view using configured pan and zoom
+    const centerLat = BASE_CENTER_LAT + VERTICAL_PAN;
+    const centerLng = BASE_CENTER_LNG + HORIZONTAL_PAN;
+    map.setView([centerLat, centerLng], ZOOM);
     info.update(null);
 }
 
