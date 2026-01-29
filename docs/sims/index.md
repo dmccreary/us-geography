@@ -165,7 +165,7 @@ Interactive Micro Simulations to help students learn US Geography fundamentals.
 
 -   **[State Capitals Quiz](./capitals/index.md)**
 
-    ![State Capitals Quiz](./capitals/capitals.png)
+    ![State Capitals Quiz](./capitals/capitals.jpg)
 
     Interactive quiz and study tool for learning all 50 US state capitals with map visualization, multiple quiz lengths, and celebration animations.
 
