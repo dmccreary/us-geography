@@ -557,13 +557,22 @@ function handleAnswer(selectedAnswer) {
 
     // Show feedback
     const feedback = document.getElementById('quizFeedback');
+    const isFinalQuestion = currentQuestionIndex === quizQuestions.length - 1;
+
     if (isCorrect) {
         score++;
         document.getElementById('quizScore').textContent = `Score: ${score}`;
         feedback.textContent = correctMessages[Math.floor(Math.random() * correctMessages.length)];
         feedback.className = 'quiz-feedback correct';
         addStar();
-        triggerMiniCelebration();
+
+        // Big celebration on final correct answer, mini celebration otherwise
+        if (isFinalQuestion) {
+            const isPerfect = score === quizLength;
+            triggerBigCelebration(isPerfect);
+        } else {
+            triggerMiniCelebration();
+        }
     } else {
         const msg = incorrectMessages[Math.floor(Math.random() * incorrectMessages.length)];
         feedback.textContent = `${msg} The capital is ${question.correctAnswer}.`;
@@ -624,11 +633,6 @@ function showResults() {
 
     // Reset map view
     resetMapView();
-
-    // Trigger celebration for good scores
-    if (percentage >= 60) {
-        triggerBigCelebration(isPerfect);
-    }
 }
 
 function tryAgain() {
@@ -832,24 +836,33 @@ function triggerBigCelebration(isPerfect) {
     }
 
     const width = window.innerWidth;
+    const height = window.innerHeight;
     const particleCount = isPerfect ? 150 : 80;
 
-    // Confetti rain from top
+    // Immediate star burst from center (instant feedback)
+    const centerX = width / 2;
+    const centerY = height / 2;
+    for (let i = 0; i < 30; i++) {
+        const color = celebrationColors[Math.floor(Math.random() * celebrationColors.length)];
+        celebrationParticles.push(new StarParticle(centerX, centerY, color));
+    }
+
+    // Confetti starting from visible area (not off-screen)
     for (let i = 0; i < particleCount; i++) {
         setTimeout(() => {
             const x = Math.random() * width;
-            const y = Math.random() * -200;
+            const y = Math.random() * height * 0.3; // Start in top 30% of screen
             const color = celebrationColors[Math.floor(Math.random() * celebrationColors.length)];
             celebrationParticles.push(new ConfettiParticle(x, y, color));
-        }, Math.random() * 1000);
+        }, Math.random() * 800);
     }
 
-    // Stars bursting from multiple points
+    // Additional star bursts from multiple points
     const burstPoints = isPerfect ? 5 : 3;
     for (let b = 0; b < burstPoints; b++) {
         setTimeout(() => {
             const x = (width / (burstPoints + 1)) * (b + 1);
-            const y = window.innerHeight * 0.4;
+            const y = height * 0.4;
             for (let i = 0; i < 20; i++) {
                 const color = celebrationColors[Math.floor(Math.random() * celebrationColors.length)];
                 celebrationParticles.push(new StarParticle(x, y, color));
