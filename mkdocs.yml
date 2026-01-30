@@ -10,6 +10,7 @@ nav:
   - Home: index.md
   - About: about.md
   - Course Description: course-description.md
+  
   - Chapters:
     - Overview: chapters/index.md
     - 1. Introduction to Geography:
@@ -48,6 +49,7 @@ nav:
     - 12. Landmarks and Culture:
       - Content: chapters/12-landmarks-and-culture/index.md
       - Quiz: chapters/12-landmarks-and-culture/quiz.md
+  
   - Geography Jokes: geo-jokes.md
   
   - MicroSims:
@@ -77,7 +79,7 @@ nav:
     - Population Density: sims/population-density/index.md
     - Precipitation Map: sims/precipitation-map/index.md
     - Rocky Mountains: sims/rocky-mountains/index.md
-    - State Capitals Quiz: sims/capitals/index.md
+    - State Capitals: sims/capitals/index.md
     - Time Zones: sims/time-zones/index.md
     - Tornado Alley: sims/tornado-alley/index.md
     - Transportation Networks: sims/transportation-networks/index.md
@@ -85,6 +87,10 @@ nav:
     - US State Quality Map: sims/us-state-quality-map/index.md
     - US Water Features: sims/us-water-features/index.md
     - Weather vs Climate: sims/weather-climate/index.md
+  
+  - Instructors Guide:
+    - Introduction: instructors-guide/index.md
+    - Memorizing State Capitals: instructors-guide/memorizing-state-capitals.md
   
   - Learning Graph:
     - Introduction: learning-graph/index.md
