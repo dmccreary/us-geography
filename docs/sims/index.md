@@ -193,6 +193,12 @@ Interactive Micro Simulations to help students learn US Geography fundamentals.
 
     Interactive map showing the four bodies of water that border America - Atlantic, Pacific, Gulf of Mexico, and Arctic.
 
+-   **[US State Quality Map](./us-state-quality-map/index.md)**
+
+    ![US State Quality Map](./us-state-quality-map/us-state-quality-map.png)
+
+    Interactive choropleth map grading all 50 US states on 8 quality of life metrics including income, education, health, crime, and housing costs.
+
 -   **[US Water Features](./us-water-features/index.md)**
 
     ![US Water Features](./us-water-features/us-water-features.png)
