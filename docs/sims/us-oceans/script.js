@@ -1,5 +1,8 @@
 /* US Oceans MicroSim */
 
+// Natural Earth GeoJSON for marine features
+const MARINE_GEOJSON_URL = 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_geography_marine_polys.geojson';
+
 const oceanData = [
     {
         name: 'Atlantic Ocean',
@@ -14,7 +17,9 @@ const oceanData = [
             'The Titanic sank in the North Atlantic in 1912',
             'Major shipping route between US and Europe'
         ],
-        features: 'Warm Gulf Stream, hurricane formation, important fishing grounds'
+        features: 'Warm Gulf Stream, hurricane formation, important fishing grounds',
+        // Natural Earth feature names that map to this ocean
+        neFeatures: ['North Atlantic Ocean', 'Sargasso Sea']
     },
     {
         name: 'Pacific Ocean',
@@ -29,7 +34,8 @@ const oceanData = [
             'Home to the Ring of Fire with many volcanoes',
             'Name means "peaceful" in Latin'
         ],
-        features: 'Cool California Current, abundant marine life, volcanic islands'
+        features: 'Cool California Current, abundant marine life, volcanic islands',
+        neFeatures: ['North Pacific Ocean']
     },
     {
         name: 'Gulf of Mexico',
@@ -44,7 +50,8 @@ const oceanData = [
             'Rich in oil and natural gas deposits',
             'The Mississippi River empties here'
         ],
-        features: 'Warm water year-round, oil platforms, shrimp fishing, barrier islands'
+        features: 'Warm water year-round, oil platforms, shrimp fishing, barrier islands',
+        neFeatures: ['Gulf of Mexico']
     },
     {
         name: 'Arctic Ocean',
@@ -59,7 +66,8 @@ const oceanData = [
             'Home to polar bears and Arctic seals',
             'Daylight lasts 24 hours in summer!'
         ],
-        features: 'Sea ice, permafrost coast, polar wildlife, midnight sun'
+        features: 'Sea ice, permafrost coast, polar wildlife, midnight sun',
+        neFeatures: ['Arctic Ocean', 'Chukchi Sea', 'Beaufort Sea']
     }
 ];
 
@@ -86,7 +94,7 @@ let score = 0;
 let shuffledQuestions = [];
 const TOTAL_QUESTIONS = 5;
 
-function init() {
+async function init() {
     // Initialize map centered on US and oceans
     map = L.map('map', {
         center: [35, -100],
@@ -97,7 +105,7 @@ function init() {
 
     // Add tile layer with water emphasis
     L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-        attribution: '© OpenStreetMap contributors © CARTO'
+        attribution: '© OpenStreetMap © CARTO | <a href="https://www.naturalearthdata.com/">Natural Earth</a>'
     }).addTo(map);
 
     // Add info control
@@ -123,8 +131,8 @@ function init() {
     };
     info.addTo(map);
 
-    // Add ocean regions
-    addOceanRegions();
+    // Load Natural Earth marine boundaries
+    await loadMarineBoundaries();
 
     // Add markers for each ocean
     addOceanMarkers();
@@ -134,23 +142,177 @@ function init() {
     document.getElementById('resetBtn').addEventListener('click', resetView);
 }
 
+async function loadMarineBoundaries() {
+    // Use Natural Earth GeoJSON for Gulf of Mexico (well-defined feature)
+    // Use improved manual polygons for major oceans (Natural Earth has holes)
+
+    // Add manual ocean regions first
+    addOceanRegions();
+
+    // Then try to load Natural Earth for Gulf of Mexico overlay
+    try {
+        const response = await fetch(MARINE_GEOJSON_URL);
+        const geoData = await response.json();
+
+        const gulfOcean = oceanData.find(o => o.name === 'Gulf of Mexico');
+
+        geoData.features.forEach(feature => {
+            const featureName = feature.properties.name;
+
+            // Only use Natural Earth for Gulf of Mexico
+            if (featureName === 'Gulf of Mexico' && gulfOcean) {
+                // Remove the manual Gulf polygon first
+                oceanPolygons = oceanPolygons.filter(op => {
+                    if (op.ocean.name === 'Gulf of Mexico') {
+                        map.removeLayer(op.polygon);
+                        return false;
+                    }
+                    return true;
+                });
+
+                const layer = L.geoJSON(feature, {
+                    style: {
+                        fillColor: gulfOcean.color,
+                        fillOpacity: 0.3,
+                        color: gulfOcean.color,
+                        weight: 2,
+                        opacity: 0.8
+                    }
+                }).addTo(map);
+
+                layer.on('click', () => {
+                    if (!quizMode) {
+                        info.update(gulfOcean);
+                        highlightOcean(gulfOcean.name);
+                    }
+                });
+
+                layer.on('mouseover', () => {
+                    if (!quizMode) {
+                        layer.setStyle({ fillOpacity: 0.5 });
+                    }
+                });
+
+                layer.on('mouseout', () => {
+                    layer.setStyle({ fillOpacity: 0.3 });
+                });
+
+                oceanPolygons.push({ polygon: layer, ocean: gulfOcean });
+            }
+        });
+    } catch (error) {
+        console.error('Error loading Natural Earth marine boundaries:', error);
+        // Manual polygons already added, so we're fine
+    }
+}
+
 function addOceanRegions() {
-    // Simplified ocean boundary polygons
+    // Improved ocean boundary polygons with better precision
+    // Following approximate coastlines more closely
     const oceanBounds = {
         'Atlantic Ocean': [
-            [50, -80], [50, -50], [25, -40], [10, -60],
-            [25, -80], [35, -75], [45, -75]
+            // Following US East Coast more precisely
+            [47, -67],   // Maine coast
+            [44, -66],   // Nova Scotia approach
+            [42, -65],   // Gulf of Maine
+            [40, -70],   // Cape Cod
+            [38, -73],   // New Jersey coast
+            [35, -75],   // North Carolina
+            [32, -79],   // South Carolina
+            [30, -80],   // Georgia/Florida border
+            [27, -80],   // Florida east coast
+            [25, -80],   // Miami
+            [24, -80],   // Florida Keys approach
+            // Extend into open Atlantic
+            [20, -70],
+            [15, -60],
+            [20, -50],
+            [30, -45],
+            [40, -50],
+            [50, -55],
+            [50, -65]
         ],
         'Pacific Ocean': [
-            [60, -180], [60, -120], [35, -115], [20, -120],
-            [10, -150], [20, -180], [40, -180]
+            // Following US West Coast and extending to Hawaii/Alaska
+            [70, -168],  // Bering Strait area
+            [65, -168],  // Western Alaska
+            [60, -165],
+            [55, -165],  // Aleutians approach
+            [55, -140],
+            [50, -130],  // Pacific Northwest approach
+            [48, -125],  // Washington coast
+            [45, -124],  // Oregon coast
+            [42, -124],  // Northern California
+            [38, -123],  // San Francisco
+            [35, -121],  // Central California
+            [32, -117],  // San Diego
+            [28, -115],  // Baja approach
+            [23, -115],
+            // Extend into open Pacific
+            [20, -130],
+            [22, -160],  // Hawaii area
+            [30, -175],
+            [45, -180],
+            [60, -180],
+            [70, -180]
         ],
         'Gulf of Mexico': [
-            [30, -98], [30, -82], [22, -84], [18, -88],
-            [20, -98], [25, -98]
+            // Detailed Gulf coastline (fallback if Natural Earth fails)
+            [30.3, -88],   // Mobile Bay
+            [30, -89.5],   // Mississippi coast
+            [29.5, -90],   // Louisiana delta
+            [29, -91],
+            [29.5, -93],   // Louisiana coast
+            [29.5, -94],   // Texas border
+            [28.5, -96],   // Corpus Christi
+            [26, -97],     // South Texas
+            [23, -97.5],   // Mexico coast
+            [21, -97],
+            [20, -96],
+            [19.5, -96],
+            [19, -95],
+            [18.5, -94],
+            [18.5, -92],
+            [19, -90],
+            [20, -87],     // Yucatan
+            [21.5, -87],
+            [23, -84],     // Cuba approach
+            [24.5, -83],   // Florida Keys
+            [25, -82],
+            [26, -82],
+            [27, -82.5],   // Tampa Bay
+            [28, -83],
+            [29, -83.5],   // Big Bend
+            [29.5, -84],
+            [30, -84.5],   // Apalachicola
+            [30, -86],
+            [30.3, -87],   // Pensacola
+            [30.3, -88]
         ],
         'Arctic Ocean': [
-            [72, -180], [72, -130], [68, -130], [68, -180]
+            // Northern Alaska coast
+            [71.5, -156],  // Barrow area
+            [71, -157],
+            [70.5, -160],
+            [70, -162],
+            [69, -164],
+            [68.5, -166],
+            [66, -168],    // Bering Strait
+            // Extend into Arctic
+            [67, -175],
+            [70, -180],
+            [73, -180],
+            [75, -170],
+            [75, -155],
+            [74, -145],
+            [72, -142],
+            [71, -141],    // Alaska/Canada border
+            [70, -141],
+            [69.5, -142],
+            [70, -145],
+            [70.5, -148],
+            [71, -152],
+            [71.5, -155]
         ]
     };
 
@@ -159,7 +321,7 @@ function addOceanRegions() {
         if (bounds) {
             const polygon = L.polygon(bounds, {
                 color: ocean.color,
-                weight: 3,
+                weight: 2,
                 opacity: 0.8,
                 fillColor: ocean.color,
                 fillOpacity: 0.3

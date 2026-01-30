@@ -189,7 +189,7 @@ Interactive Micro Simulations to help students learn US Geography fundamentals.
 
 -   **[US Oceans](./us-oceans/index.md)**
 
-    ![US Oceans](./us-oceans/us-oceans.png)
+    ![US Oceans](./us-oceans/us-oceans.jpg)
 
     Interactive map showing the four bodies of water that border America - Atlantic, Pacific, Gulf of Mexico, and Arctic.
 
