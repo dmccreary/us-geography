@@ -137,8 +137,10 @@ theme:
 
 plugins:
   - search
-  - social_override
   - social
+
+hooks:
+  - plugins/social_override.py
 
 markdown_extensions:
   - meta
