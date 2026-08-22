@@ -4,7 +4,7 @@
 
 - For MicroSims that involve maps or geographic visualizations, **strongly prefer Leaflet.js** (using map-guide.md) over vanilla p5.js
 - Leaflet.js provides built-in map tiles, zoom/pan controls, markers, and geographic coordinate handling
-- Reference: `/Users/dan/Documents/ws/claude-skills/skills/microsim-generator/references/map-guide.md`
+- Reference: `/Users/dan/Documents/ws/ibook-skills/skills/microsim-generator/references/map-guide.md`
 
 ## Map Boundaries
 
